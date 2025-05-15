@@ -70,5 +70,10 @@ namespace Farmlink
             intro intro = new intro();
             intro.Visible = true;
         }
+
+        private void signin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

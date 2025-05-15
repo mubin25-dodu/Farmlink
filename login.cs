@@ -63,6 +63,7 @@ namespace Farmlink
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
 
         }
 
@@ -90,6 +91,11 @@ namespace Farmlink
             this.Visible = false;
             intro intro = new intro();
             intro.Visible = true;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
