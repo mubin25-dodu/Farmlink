@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Farmlink
@@ -8,11 +9,15 @@ namespace Farmlink
         public B_Home()
         {
             InitializeComponent();
+           
         }
 
         private void B_Home_Load(object sender, EventArgs e)
         {
-
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Size = new Size(1366, 768);
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -31,6 +36,11 @@ namespace Farmlink
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }

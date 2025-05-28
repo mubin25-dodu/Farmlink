@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -63,8 +64,21 @@ namespace Farmlink
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-
+            if (this.loginmail.Text == "11" && this.loginpass.Text == "11")
+            {
+                this.Visible = false;
+                B_Home b_Home = new B_Home();
+                b_Home.Visible = true;
+            }
+            else if (this.loginmail.Text == "" && this.loginpass.Text == "") {
+                MessageBox.Show("Please fill the boxes", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("Wrong password or mail", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                loginmail.Clear();
+                loginpass.Clear();
+            }
         }
 
         private void getstarted_Click(object sender, EventArgs e)
@@ -96,6 +110,14 @@ namespace Farmlink
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Size = new Size(1366, 768);
         }
     }
 }

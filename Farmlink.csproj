@@ -52,6 +52,12 @@
     <Compile Include="B-Home.Designer.cs">
       <DependentUpon>B-Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_Home.Designer.cs">
+      <DependentUpon>f_Home.cs</DependentUpon>
+    </Compile>
     <Compile Include="intro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,15 +72,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S-Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="S-Home.Designer.cs">
+      <DependentUpon>S-Home.cs</DependentUpon>
+    </Compile>
     <Compile Include="signin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="signin.Designer.cs">
       <DependentUpon>signin.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="B-Home.resx">
       <DependentUpon>B-Home.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_Home.resx">
+      <DependentUpon>f_Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="intro.resx">
       <DependentUpon>intro.cs</DependentUpon>
@@ -92,8 +113,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="S-Home.resx">
+      <DependentUpon>S-Home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="signin.resx">
       <DependentUpon>signin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -128,6 +155,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grocery-store.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\booking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\milk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

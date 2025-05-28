@@ -17,12 +17,17 @@ namespace Farmlink
         {
             InitializeComponent();
             MakeButtonRounded(getstarted, 40);
+           
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+        
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Size = new Size(1366, 768); 
         }
 
         private void label1_Click(object sender, EventArgs e)

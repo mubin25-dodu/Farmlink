@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(signin));
             this.panel4 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.role = new System.Windows.Forms.ComboBox();
+            this.conpass = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.pass = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.address = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.mail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.fullname = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -60,16 +60,16 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
             this.panel4.Controls.Add(this.label10);
-            this.panel4.Controls.Add(this.comboBox1);
-            this.panel4.Controls.Add(this.textBox5);
+            this.panel4.Controls.Add(this.role);
+            this.panel4.Controls.Add(this.conpass);
             this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.textBox3);
+            this.panel4.Controls.Add(this.pass);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.textBox4);
+            this.panel4.Controls.Add(this.address);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.mail);
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.fullname);
             this.panel4.Controls.Add(this.button4);
             this.panel4.Controls.Add(this.label3);
             this.panel4.ForeColor = System.Drawing.Color.White;
@@ -90,33 +90,35 @@
             this.label10.TabIndex = 23;
             this.label10.Text = "Sign in as";
             // 
-            // comboBox1
+            // role
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.Turquoise;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.role.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.role.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.role.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.role.ForeColor = System.Drawing.Color.Turquoise;
+            this.role.FormattingEnabled = true;
+            this.role.IntegralHeight = false;
+            this.role.Items.AddRange(new object[] {
+            "Customer",
             "Seller",
-            "customer",
-            "Agent"});
-            this.comboBox1.Location = new System.Drawing.Point(100, 530);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 27);
-            this.comboBox1.TabIndex = 22;
+            "Agent",
+            "Admin"});
+            this.role.Location = new System.Drawing.Point(100, 530);
+            this.role.Name = "role";
+            this.role.Size = new System.Drawing.Size(121, 27);
+            this.role.TabIndex = 22;
             // 
-            // textBox5
+            // conpass
             // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.textBox5.Location = new System.Drawing.Point(100, 460);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(390, 36);
-            this.textBox5.TabIndex = 21;
+            this.conpass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.conpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.conpass.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conpass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.conpass.Location = new System.Drawing.Point(100, 460);
+            this.conpass.Multiline = true;
+            this.conpass.Name = "conpass";
+            this.conpass.Size = new System.Drawing.Size(390, 36);
+            this.conpass.TabIndex = 21;
             // 
             // label9
             // 
@@ -130,18 +132,18 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "Confirm Password";
             // 
-            // textBox3
+            // pass
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.textBox3.Location = new System.Drawing.Point(100, 390);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(390, 36);
-            this.textBox3.TabIndex = 19;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pass.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pass.Location = new System.Drawing.Point(100, 390);
+            this.pass.Multiline = true;
+            this.pass.Name = "pass";
+            this.pass.Size = new System.Drawing.Size(390, 36);
+            this.pass.TabIndex = 19;
+            this.pass.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label4
             // 
@@ -156,18 +158,18 @@
             this.label4.Text = "Password";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBox4
+            // address
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.textBox4.Location = new System.Drawing.Point(100, 320);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(390, 36);
-            this.textBox4.TabIndex = 17;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.address.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.address.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.address.Location = new System.Drawing.Point(100, 320);
+            this.address.Multiline = true;
+            this.address.Name = "address";
+            this.address.Size = new System.Drawing.Size(390, 36);
+            this.address.TabIndex = 17;
+            this.address.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label5
             // 
@@ -182,18 +184,18 @@
             this.label5.Text = "Full Address";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // textBox2
+            // mail
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.textBox2.Location = new System.Drawing.Point(100, 250);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(390, 36);
-            this.textBox2.TabIndex = 15;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.mail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.mail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mail.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.mail.Location = new System.Drawing.Point(100, 250);
+            this.mail.Multiline = true;
+            this.mail.Name = "mail";
+            this.mail.Size = new System.Drawing.Size(390, 36);
+            this.mail.TabIndex = 15;
+            this.mail.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
@@ -208,17 +210,17 @@
             this.label2.Text = "Mail";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // fullname
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.textBox1.Location = new System.Drawing.Point(100, 180);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(390, 36);
-            this.textBox1.TabIndex = 13;
+            this.fullname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.fullname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fullname.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.fullname.Location = new System.Drawing.Point(100, 180);
+            this.fullname.Multiline = true;
+            this.fullname.Name = "fullname";
+            this.fullname.Size = new System.Drawing.Size(390, 36);
+            this.fullname.TabIndex = 13;
             // 
             // button4
             // 
@@ -234,6 +236,7 @@
             this.button4.Text = "Sign in";
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label3
             // 
@@ -389,17 +392,17 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox fullname;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox mail;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox pass;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox address;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox conpass;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox role;
         private System.Windows.Forms.Label label10;
     }
 }
