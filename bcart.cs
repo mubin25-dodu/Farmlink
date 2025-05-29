@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Farmlink
 {
-    public partial class UserControl1 : UserControl
+    public partial class bcart : UserControl
     {
-        public UserControl1()
+        public bcart()
         {
             InitializeComponent();
         }

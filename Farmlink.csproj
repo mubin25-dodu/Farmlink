@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,11 +53,28 @@
     <Compile Include="B-Home.Designer.cs">
       <DependentUpon>B-Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="f_Home.cs">
+    <Compile Include="bcart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bcart.Designer.cs">
+      <DependentUpon>bcart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bhome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bhome.Designer.cs">
+      <DependentUpon>bhome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FarmlinkDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FarmlinkDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Seller_Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="f_Home.Designer.cs">
-      <DependentUpon>f_Home.cs</DependentUpon>
+    <Compile Include="Seller_Home.Designer.cs">
+      <DependentUpon>Seller_Home.cs</DependentUpon>
     </Compile>
     <Compile Include="intro.cs">
       <SubType>Form</SubType>
@@ -84,18 +102,18 @@
     <Compile Include="signin.Designer.cs">
       <DependentUpon>signin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="B-Home.resx">
       <DependentUpon>B-Home.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="f_Home.resx">
-      <DependentUpon>f_Home.cs</DependentUpon>
+    <EmbeddedResource Include="bcart.resx">
+      <DependentUpon>bcart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bhome.resx">
+      <DependentUpon>bhome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seller_Home.resx">
+      <DependentUpon>Seller_Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="intro.resx">
       <DependentUpon>intro.cs</DependentUpon>
@@ -119,9 +137,17 @@
     <EmbeddedResource Include="signin.resx">
       <DependentUpon>signin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="FarmlinkDataSet.xsc">
+      <DependentUpon>FarmlinkDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FarmlinkDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FarmlinkDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FarmlinkDataSet.xss">
+      <DependentUpon>FarmlinkDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -167,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\milk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparency.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

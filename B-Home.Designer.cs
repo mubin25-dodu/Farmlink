@@ -31,12 +31,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.bpanel = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.home = new System.Windows.Forms.Button();
+            this.searchbtn = new System.Windows.Forms.Button();
+            this.search = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            this.bpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,17 +82,19 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "FarmLink";
             // 
-            // flowLayoutPanel1
+            // bpanel
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.flowLayoutPanel1.BackgroundImage = global::Farmlink.Properties.Resources.background;
-            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(190, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1160, 729);
-            this.flowLayoutPanel1.TabIndex = 1;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            this.bpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.bpanel.BackgroundImage = global::Farmlink.Properties.Resources.background;
+            this.bpanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bpanel.Controls.Add(this.searchbtn);
+            this.bpanel.Controls.Add(this.search);
+            this.bpanel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bpanel.Location = new System.Drawing.Point(189, 0);
+            this.bpanel.Name = "bpanel";
+            this.bpanel.Size = new System.Drawing.Size(1165, 729);
+            this.bpanel.TabIndex = 6;
+            this.bpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bpanel_Paint);
             // 
             // button4
             // 
@@ -143,6 +148,7 @@
             this.button2.Text = " Cart";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // home
             // 
@@ -161,13 +167,42 @@
             this.home.Text = "Home";
             this.home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.home.UseVisualStyleBackColor = false;
+            this.home.Click += new System.EventHandler(this.home_Click);
+            // 
+            // searchbtn
+            // 
+            this.searchbtn.AutoSize = true;
+            this.searchbtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.searchbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbtn.ForeColor = System.Drawing.Color.White;
+            this.searchbtn.Image = global::Farmlink.Properties.Resources.transparency;
+            this.searchbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.searchbtn.Location = new System.Drawing.Point(442, 33);
+            this.searchbtn.Name = "searchbtn";
+            this.searchbtn.Size = new System.Drawing.Size(32, 32);
+            this.searchbtn.TabIndex = 18;
+            this.searchbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.searchbtn.UseVisualStyleBackColor = false;
+            this.searchbtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // search
+            // 
+            this.search.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search.Location = new System.Drawing.Point(173, 32);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(263, 35);
+            this.search.TabIndex = 0;
             // 
             // B_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.bpanel);
             this.Controls.Add(this.panel1);
             this.Name = "B_Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -175,6 +210,8 @@
             this.Load += new System.EventHandler(this.B_Home_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.bpanel.ResumeLayout(false);
+            this.bpanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -183,11 +220,13 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         public System.Windows.Forms.Button home;
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button button3;
         public System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel bpanel;
+        public System.Windows.Forms.Button searchbtn;
+        private System.Windows.Forms.TextBox search;
     }
 }
