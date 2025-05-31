@@ -17,26 +17,15 @@ namespace Farmlink
         public S_Home()
         {
             InitializeComponent();
-            mainpanel = new Panel(); // Initialize 'mainpanel'
-            mainpanel.Dock = DockStyle.Fill; // Optional: Set properties for 'mainpanel'
-            this.Controls.Add(mainpanel); // Add 'mainpanel' to the form's controls
-        }
-
-        public void loadform(object Form)
-        {
-            if (this.mainpanel.Controls.Count > 0)
-                this.mainpanel.Controls.RemoveAt(0);
-            Form f = Form as Form;
-            f.TopLevel = false;
-            f.Dock = DockStyle.Fill;
-            this.mainpanel.Controls.Add(f);
-            this.mainpanel.Tag = f;
-            f.Show();
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            spanel.Controls.Clear();
+            sproduct signinControl = new sproduct();
+            signinControl.Dock = DockStyle.Fill;
+            spanel.Controls.Add(signinControl);
         }
 
         private void home_Click(object sender, EventArgs e)
@@ -53,6 +42,11 @@ namespace Farmlink
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void spanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

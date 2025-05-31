@@ -70,7 +70,14 @@ namespace Farmlink
                 B_Home b_Home = new B_Home();
                 b_Home.Visible = true;
             }
-            else if (this.loginmail.Text == "" && this.loginpass.Text == "") {
+            else if (this.loginmail.Text == "1" && this.loginpass.Text == "1")
+            {
+                this.Visible = false;
+                S_Home b_Home = new S_Home();
+                b_Home.Visible = true;
+            }
+            else if (this.loginmail.Text == "" && this.loginpass.Text == "")
+            {
                 MessageBox.Show("Please fill the boxes", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else

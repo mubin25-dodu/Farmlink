@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sproduct));
             this.addpro = new System.Windows.Forms.Button();
             this.listing = new System.Windows.Forms.Panel();
+            this.backbtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.photobtn = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.name = new System.Windows.Forms.Label();
             this.pname = new System.Windows.Forms.TextBox();
             this.desin = new System.Windows.Forms.RichTextBox();
-            this.backbtn = new System.Windows.Forms.Button();
             this.listing.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proimg)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,7 @@
             // 
             // listing
             // 
+            this.listing.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.listing.Controls.Add(this.backbtn);
             this.listing.Controls.Add(this.button2);
             this.listing.Controls.Add(this.button1);
@@ -86,6 +87,25 @@
             this.listing.Size = new System.Drawing.Size(1055, 574);
             this.listing.TabIndex = 26;
             this.listing.Paint += new System.Windows.Forms.PaintEventHandler(this.listing_Paint);
+            // 
+            // backbtn
+            // 
+            this.backbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.backbtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backbtn.BackgroundImage")));
+            this.backbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.backbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.backbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.backbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.backbtn.Location = new System.Drawing.Point(943, 23);
+            this.backbtn.Name = "backbtn";
+            this.backbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.backbtn.Size = new System.Drawing.Size(49, 49);
+            this.backbtn.TabIndex = 29;
+            this.backbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.backbtn.UseVisualStyleBackColor = false;
+            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
             // 
             // button2
             // 
@@ -249,25 +269,6 @@
             this.desin.TabIndex = 0;
             this.desin.Text = "";
             this.desin.TextChanged += new System.EventHandler(this.desin_TextChanged);
-            // 
-            // backbtn
-            // 
-            this.backbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.backbtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backbtn.BackgroundImage")));
-            this.backbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.backbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.backbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.backbtn.Location = new System.Drawing.Point(943, 23);
-            this.backbtn.Name = "backbtn";
-            this.backbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.backbtn.Size = new System.Drawing.Size(49, 49);
-            this.backbtn.TabIndex = 29;
-            this.backbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.backbtn.UseVisualStyleBackColor = false;
-            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
             // 
             // sproduct
             // 
