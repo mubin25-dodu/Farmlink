@@ -48,7 +48,10 @@ namespace Farmlink
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            bpanel.Controls.Clear();
+            sproduct signinControl = new sproduct();
+            signinControl.Dock = DockStyle.Fill;
+            bpanel.Controls.Add(signinControl);
         }
 
         private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)

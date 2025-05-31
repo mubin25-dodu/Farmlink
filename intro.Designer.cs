@@ -130,7 +130,7 @@
             this.getstarted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.getstarted.Location = new System.Drawing.Point(738, 614);
             this.getstarted.Name = "getstarted";
-            this.getstarted.Size = new System.Drawing.Size(177, 41);
+            this.getstarted.Size = new System.Drawing.Size(239, 41);
             this.getstarted.TabIndex = 10;
             this.getstarted.Text = "-> Get Started";
             this.getstarted.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;

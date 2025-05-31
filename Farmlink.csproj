@@ -102,6 +102,12 @@
     <Compile Include="signin.Designer.cs">
       <DependentUpon>signin.cs</DependentUpon>
     </Compile>
+    <Compile Include="sproduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sproduct.Designer.cs">
+      <DependentUpon>sproduct.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="B-Home.resx">
       <DependentUpon>B-Home.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="signin.resx">
       <DependentUpon>signin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sproduct.resx">
+      <DependentUpon>sproduct.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="FarmlinkDataSet.xsc">
       <DependentUpon>FarmlinkDataSet.xsd</DependentUpon>
@@ -196,6 +205,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\transparency.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
