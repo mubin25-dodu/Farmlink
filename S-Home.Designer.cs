@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.logout = new System.Windows.Forms.Button();
             this.mypbtn = new System.Windows.Forms.Button();
             this.home = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -43,7 +43,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.logout);
             this.panel1.Controls.Add(this.mypbtn);
             this.panel1.Controls.Add(this.home);
             this.panel1.Controls.Add(this.linkLabel1);
@@ -71,22 +71,23 @@
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // logout
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = global::Farmlink.Properties.Resources.logout__1_;
-            this.button3.Location = new System.Drawing.Point(0, 650);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(190, 44);
-            this.button3.TabIndex = 19;
-            this.button3.Text = " Logout";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = false;
+            this.logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.logout.Cursor = System.Windows.Forms.Cursors.Default;
+            this.logout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logout.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout.ForeColor = System.Drawing.Color.White;
+            this.logout.Image = global::Farmlink.Properties.Resources.logout__1_;
+            this.logout.Location = new System.Drawing.Point(0, 650);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(190, 44);
+            this.logout.TabIndex = 19;
+            this.logout.Text = " Logout";
+            this.logout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.logout.UseVisualStyleBackColor = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
             // mypbtn
             // 
@@ -178,7 +179,7 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button button4;
-        public System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button logout;
         public System.Windows.Forms.Button mypbtn;
         public System.Windows.Forms.Button home;
         private System.Windows.Forms.LinkLabel linkLabel1;

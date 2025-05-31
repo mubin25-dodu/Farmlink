@@ -43,7 +43,13 @@ namespace Farmlink
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                this.Visible = false;
+                intro form2 = new intro();
+                form2.Show();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

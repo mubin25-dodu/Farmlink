@@ -17,7 +17,7 @@ namespace Farmlink
         public S_Home()
         {
             InitializeComponent();
-           
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -49,6 +49,17 @@ namespace Farmlink
         private void spanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                this.Visible = false;
+                intro form2 = new intro();
+                form2.Show();
+            }
         }
     }
 }
