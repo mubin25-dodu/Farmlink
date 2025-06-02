@@ -90,11 +90,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="S-Home.cs">
+    <Compile Include="s_home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="S-Home.Designer.cs">
-      <DependentUpon>S-Home.cs</DependentUpon>
+    <Compile Include="s_home.Designer.cs">
+      <DependentUpon>s_home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sell_order.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sell_order.Designer.cs">
+      <DependentUpon>sell_order.cs</DependentUpon>
     </Compile>
     <Compile Include="signin.cs">
       <SubType>Form</SubType>
@@ -107,6 +113,12 @@
     </Compile>
     <Compile Include="sproduct.Designer.cs">
       <DependentUpon>sproduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="s_payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="s_payment.Designer.cs">
+      <DependentUpon>s_payment.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="B-Home.resx">
       <DependentUpon>B-Home.cs</DependentUpon>
@@ -137,14 +149,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="S-Home.resx">
-      <DependentUpon>S-Home.cs</DependentUpon>
+    <EmbeddedResource Include="s_home.resx">
+      <DependentUpon>s_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sell_order.resx">
+      <DependentUpon>sell_order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="signin.resx">
       <DependentUpon>signin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sproduct.resx">
       <DependentUpon>sproduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="s_payment.resx">
+      <DependentUpon>s_payment.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="FarmlinkDataSet.xsc">
       <DependentUpon>FarmlinkDataSet.xsd</DependentUpon>

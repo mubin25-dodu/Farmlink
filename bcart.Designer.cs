@@ -35,10 +35,10 @@
             this.decrement = new System.Windows.Forms.Button();
             this.amount = new System.Windows.Forms.Label();
             this.pname = new System.Windows.Forms.Label();
-            this.total = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBox = new System.Windows.Forms.CheckBox();
             this.pay = new System.Windows.Forms.Button();
+            this.total = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -105,18 +105,6 @@
             this.pname.TabIndex = 13;
             this.pname.Text = "product name";
             // 
-            // total
-            // 
-            this.total.AutoSize = true;
-            this.total.Enabled = false;
-            this.total.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total.ForeColor = System.Drawing.Color.Snow;
-            this.total.Location = new System.Drawing.Point(761, 126);
-            this.total.Name = "total";
-            this.total.Size = new System.Drawing.Size(78, 28);
-            this.total.TabIndex = 14;
-            this.total.Text = "Total :";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(169)))));
@@ -156,6 +144,20 @@
             this.pay.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.pay.UseVisualStyleBackColor = false;
             // 
+            // total
+            // 
+            this.total.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.total.AutoSize = true;
+            this.total.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.total.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.total.Location = new System.Drawing.Point(756, 126);
+            this.total.Name = "total";
+            this.total.Size = new System.Drawing.Size(78, 28);
+            this.total.TabIndex = 25;
+            this.total.Text = "Total :";
+            // 
             // bcart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,8 +165,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.BackgroundImage = global::Farmlink.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Controls.Add(this.pay);
             this.Controls.Add(this.total);
+            this.Controls.Add(this.pay);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Name = "bcart";
@@ -185,9 +187,9 @@
         private System.Windows.Forms.Button decrement;
         private System.Windows.Forms.Label amount;
         private System.Windows.Forms.Label pname;
-        private System.Windows.Forms.Label total;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox checkBox;
         public System.Windows.Forms.Button pay;
+        private System.Windows.Forms.Label total;
     }
 }

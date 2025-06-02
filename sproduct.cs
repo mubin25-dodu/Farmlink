@@ -79,8 +79,8 @@ namespace Farmlink
                 amountin.Clear();
                 desin.Clear();
             }
-            string destinationPath = Path.Combine(@"E:\OneDrive - American International University-Bangladesh\uni\7th sem\oop2\project\Farmlink\images\", Path.GetFileName(imagepath));
-            File.Copy(imagepath, destinationPath, true);
+            //string destinationPath = Path.Combine(@"E:\OneDrive - American International University-Bangladesh\uni\7th sem\oop2\project\Farmlink\images\", Path.GetFileName(imagepath));
+            //File.Copy(imagepath, destinationPath, true);
         }
 
         private void photobtn_Click(object sender, EventArgs e)

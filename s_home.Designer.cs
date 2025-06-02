@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.uid = new System.Windows.Forms.LinkLabel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.payment = new System.Windows.Forms.Button();
+            this.orderbtn = new System.Windows.Forms.Button();
             this.logout = new System.Windows.Forms.Button();
             this.mypbtn = new System.Windows.Forms.Button();
             this.home = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label6 = new System.Windows.Forms.Label();
             this.spanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -42,34 +43,81 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.payment);
+            this.panel1.Controls.Add(this.orderbtn);
             this.panel1.Controls.Add(this.logout);
             this.panel1.Controls.Add(this.mypbtn);
             this.panel1.Controls.Add(this.home);
-            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.uid);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(190, 729);
+            this.panel1.Size = new System.Drawing.Size(186, 729);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button4
+            // uid
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = global::Farmlink.Properties.Resources.booking;
-            this.button4.Location = new System.Drawing.Point(0, 350);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(190, 45);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Order";
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = false;
+            this.uid.AutoSize = true;
+            this.uid.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uid.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.uid.LinkColor = System.Drawing.Color.WhiteSmoke;
+            this.uid.Location = new System.Drawing.Point(38, 148);
+            this.uid.Name = "uid";
+            this.uid.Size = new System.Drawing.Size(83, 28);
+            this.uid.TabIndex = 8;
+            this.uid.TabStop = true;
+            this.uid.Text = "user id";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.label6.Location = new System.Drawing.Point(12, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(166, 42);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "FarmLink";
+            // 
+            // payment
+            // 
+            this.payment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.payment.Cursor = System.Windows.Forms.Cursors.Default;
+            this.payment.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.payment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.payment.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payment.ForeColor = System.Drawing.Color.White;
+            this.payment.Image = global::Farmlink.Properties.Resources.booking;
+            this.payment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.payment.Location = new System.Drawing.Point(0, 417);
+            this.payment.Name = "payment";
+            this.payment.Size = new System.Drawing.Size(187, 45);
+            this.payment.TabIndex = 21;
+            this.payment.Text = "Payments";
+            this.payment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.payment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.payment.UseVisualStyleBackColor = false;
+            this.payment.Click += new System.EventHandler(this.payment_Click);
+            // 
+            // orderbtn
+            // 
+            this.orderbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.orderbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.orderbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.orderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.orderbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderbtn.ForeColor = System.Drawing.Color.White;
+            this.orderbtn.Image = global::Farmlink.Properties.Resources.booking;
+            this.orderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.orderbtn.Location = new System.Drawing.Point(0, 357);
+            this.orderbtn.Name = "orderbtn";
+            this.orderbtn.Size = new System.Drawing.Size(187, 45);
+            this.orderbtn.TabIndex = 20;
+            this.orderbtn.Text = "Order";
+            this.orderbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.orderbtn.UseVisualStyleBackColor = false;
+            this.orderbtn.Click += new System.EventHandler(this.button4_Click);
             // 
             // logout
             // 
@@ -98,7 +146,8 @@
             this.mypbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mypbtn.ForeColor = System.Drawing.Color.White;
             this.mypbtn.Image = global::Farmlink.Properties.Resources.milk;
-            this.mypbtn.Location = new System.Drawing.Point(0, 289);
+            this.mypbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.mypbtn.Location = new System.Drawing.Point(0, 296);
             this.mypbtn.Name = "mypbtn";
             this.mypbtn.Size = new System.Drawing.Size(190, 44);
             this.mypbtn.TabIndex = 18;
@@ -117,8 +166,8 @@
             this.home.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.home.ForeColor = System.Drawing.Color.White;
             this.home.Image = global::Farmlink.Properties.Resources.home;
-            this.home.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.home.Location = new System.Drawing.Point(0, 217);
+            this.home.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.home.Location = new System.Drawing.Point(0, 229);
             this.home.Name = "home";
             this.home.Size = new System.Drawing.Size(190, 52);
             this.home.TabIndex = 17;
@@ -128,33 +177,13 @@
             this.home.UseVisualStyleBackColor = false;
             this.home.Click += new System.EventHandler(this.home_Click);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel1.LinkColor = System.Drawing.Color.WhiteSmoke;
-            this.linkLabel1.Location = new System.Drawing.Point(38, 148);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(83, 28);
-            this.linkLabel1.TabIndex = 8;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "user id";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            this.label6.Location = new System.Drawing.Point(12, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(166, 42);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "FarmLink";
-            // 
             // spanel
             // 
-            this.spanel.Location = new System.Drawing.Point(186, 0);
+            this.spanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.spanel.BackgroundImage = global::Farmlink.Properties.Resources.background;
+            this.spanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.spanel.ForeColor = System.Drawing.SystemColors.Control;
+            this.spanel.Location = new System.Drawing.Point(185, 0);
             this.spanel.Name = "spanel";
             this.spanel.Size = new System.Drawing.Size(1165, 729);
             this.spanel.TabIndex = 3;
@@ -178,12 +207,13 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.Button button4;
+        public System.Windows.Forms.Button orderbtn;
         public System.Windows.Forms.Button logout;
         public System.Windows.Forms.Button mypbtn;
         public System.Windows.Forms.Button home;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel uid;
         private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Button payment;
         private System.Windows.Forms.Panel spanel;
     }
 }

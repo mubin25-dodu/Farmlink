@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -7,10 +8,26 @@ namespace Farmlink
     public partial class B_Home : Form
     {
         private int page = 0;
-        public B_Home()
+        public B_Home( string email )
         {
             InitializeComponent();
-           
+            string mail = email;
+            id.Text = mail;
+            //// address of the database server
+            //string constring = "Data Source = MUBIN\\SQLEXPRESS; Initial Catalog = Farmlink; Integrated Security = True;";
+
+            //// create a connection object
+            //SqlConnection con = new SqlConnection(constring);
+            //con.Open();
+            ////query build 
+
+            //// Check if email already exists
+            //string checkEmailQuery = "SELECT COUNT(*) FROM userinfo WHERE mail = @Email AND pass = @Password";
+            //SqlCommand checkEmailCmd = new SqlCommand(checkEmailQuery, con);
+            //checkEmailCmd.Parameters.AddWithValue("@Email", email);
+            //checkEmailCmd.Parameters.AddWithValue("@Password", password);
+            //int emailExists = (int)checkEmailCmd.ExecuteScalar();
+            //con.Close();
         }
 
         private void B_Home_Load(object sender, EventArgs e)

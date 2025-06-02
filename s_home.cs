@@ -61,5 +61,26 @@ namespace Farmlink
                 form2.Show();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            spanel.Controls.Clear();
+            sell_order signinControl = new sell_order();
+            signinControl.Dock = DockStyle.Fill;
+            spanel.Controls.Add(signinControl);
+        }
+
+        private void payment_Click(object sender, EventArgs e)
+        {
+            spanel.Controls.Clear();
+            s_payment a = new s_payment();
+            a.Dock = DockStyle.Fill;
+            spanel.Controls.Add(a);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

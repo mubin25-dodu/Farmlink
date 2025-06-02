@@ -39,8 +39,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.loginpass = new System.Windows.Forms.TextBox();
-            this.loginmail = new System.Windows.Forms.TextBox();
+            this.pass = new System.Windows.Forms.TextBox();
+            this.mail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -141,8 +141,8 @@
             this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.loginpass);
-            this.panel2.Controls.Add(this.loginmail);
+            this.panel2.Controls.Add(this.pass);
+            this.panel2.Controls.Add(this.mail);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(679, 0);
@@ -192,31 +192,31 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // loginpass
+            // pass
             // 
-            this.loginpass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
-            this.loginpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.loginpass.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginpass.ForeColor = System.Drawing.Color.White;
-            this.loginpass.Location = new System.Drawing.Point(117, 382);
-            this.loginpass.Name = "loginpass";
-            this.loginpass.PasswordChar = '*';
-            this.loginpass.Size = new System.Drawing.Size(390, 34);
-            this.loginpass.TabIndex = 8;
-            this.loginpass.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pass.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pass.ForeColor = System.Drawing.Color.White;
+            this.pass.Location = new System.Drawing.Point(117, 382);
+            this.pass.Name = "pass";
+            this.pass.PasswordChar = '*';
+            this.pass.Size = new System.Drawing.Size(390, 34);
+            this.pass.TabIndex = 8;
+            this.pass.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // loginmail
+            // mail
             // 
-            this.loginmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
-            this.loginmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.loginmail.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginmail.ForeColor = System.Drawing.Color.White;
-            this.loginmail.Location = new System.Drawing.Point(117, 276);
-            this.loginmail.Multiline = true;
-            this.loginmail.Name = "loginmail";
-            this.loginmail.Size = new System.Drawing.Size(390, 38);
-            this.loginmail.TabIndex = 7;
-            this.loginmail.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.mail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.mail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mail.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mail.ForeColor = System.Drawing.Color.White;
+            this.mail.Location = new System.Drawing.Point(117, 276);
+            this.mail.Multiline = true;
+            this.mail.Name = "mail";
+            this.mail.Size = new System.Drawing.Size(390, 38);
+            this.mail.TabIndex = 7;
+            this.mail.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -275,8 +275,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         public System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox loginpass;
-        private System.Windows.Forms.TextBox loginmail;
+        private System.Windows.Forms.TextBox pass;
+        private System.Windows.Forms.TextBox mail;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
     }
