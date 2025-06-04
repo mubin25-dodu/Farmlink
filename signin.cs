@@ -111,22 +111,19 @@ namespace Farmlink
             else if (role.Text == "Customer") { prefix = "cu-"; }
 
             // Check if email already exists
-            string checkEmailQuery = "SELECT COUNT(*) FROM userinfo WHERE mail = @Email";
-            SqlCommand checkEmailCmd = new SqlCommand(checkEmailQuery, con);
-            checkEmailCmd.Parameters.AddWithValue("@Email", email);
-            int emailExists = (int)checkEmailCmd.ExecuteScalar();
+            string checkEmailQuery = "SELECT * FROM userinfo WHERE mail = '"+email+"'";
+            db db = new db();
 
-
-
-            if (emailExists > 0)
+            if (db.read(checkEmailQuery) != null)
             {
                 MessageBox.Show("Email already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                con.Close();
+                mail.Clear();
+                mail.Focus();
                 return;
             }
 
-            // Get data from database
-            string countQuery = $"SELECT COUNT(*) FROM userinfo WHERE roles = '{roles}'";
+            // creating uid
+            string countQuery = "SELECT COUNT(*) FROM userinfo WHERE roles = '"+roles+"'";
             SqlCommand countCmd = new SqlCommand(countQuery, con);
             int currentCount = (int)countCmd.ExecuteScalar();
 
@@ -145,17 +142,11 @@ namespace Farmlink
            
 
             string query = "INSERT INTO userinfo (id,fullname, mail, fulladdress, pass, roles, status_ ) VALUES ('" + id + "', '" + name + "', '" + email + "', '" + fulladdress + "', '" + qpass + "', '" + roles + "',' "+ stat + "');";
-           
-            // execute the query
-            SqlCommand cmd = new SqlCommand(query, con);
-            int i = cmd.ExecuteNonQuery();
-            // check if the query executed successfully
-            con.Close();
 
-            if ( i > 0)
+
+            if ( db.write(query) > 0)
             {
                 MessageBox.Show("Account created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                count++;
                 this.Visible = false;
                 login form2 = new login();
                 form2.Show();
@@ -164,6 +155,11 @@ namespace Farmlink
             {
                 MessageBox.Show("Account creation failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-    } 
+    }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

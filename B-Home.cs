@@ -8,11 +8,11 @@ namespace Farmlink
     public partial class B_Home : Form
     {
         private int page = 0;
-        public B_Home( string email )
+        public B_Home( string email,string n )
         {
             InitializeComponent();
-            string mail = email;
-            id.Text = mail;
+            string name = n;
+            id.Text = name;
             //// address of the database server
             //string constring = "Data Source = MUBIN\\SQLEXPRESS; Initial Catalog = Farmlink; Integrated Security = True;";
 

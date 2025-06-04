@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -66,46 +67,34 @@ namespace Farmlink
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // address of the database server
-            string constring = "Data Source = MUBIN\\SQLEXPRESS; Initial Catalog = Farmlink; Integrated Security = True;";
-
-            // create a connection object
-            SqlConnection con = new SqlConnection(constring);
-            con.Open();
+            
             //query build 
             string email = mail.Text;
             string password = pass.Text;
 
-            // Check if email already exists
-            string checkEmailQuery = "SELECT COUNT(*) FROM userinfo WHERE mail = @Email AND pass = @Password";
-            SqlCommand checkEmailCmd = new SqlCommand(checkEmailQuery, con);
-            checkEmailCmd.Parameters.AddWithValue("@Email", email);
-            checkEmailCmd.Parameters.AddWithValue("@Password", password);
-            int emailExists = (int)checkEmailCmd.ExecuteScalar();
+            string query = "SELECT * FROM userinfo WHERE mail = '" + email + "' AND pass = '"+password+"'";
+            db db = new db();
+            DataRow data = db.read(query);
+
             if (this.mail.Text == "" && this.pass.Text == "")
             {
                 MessageBox.Show("Please fill the boxes", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if(emailExists < 0)
+            else if(data == null)
             {
                 MessageBox.Show("Wrong password or mail", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 mail.Clear();
                 pass.Clear();
             }
-            else if (emailExists > 0)
+            else if (data != null)
             {
-                string roleq = "SELECT roles FROM userinfo WHERE mail like @Email";
-                SqlCommand ckrole = new SqlCommand(roleq, con);
-                ckrole.Parameters.AddWithValue("@Email", email);
-                object roles = ckrole.ExecuteScalar();
-
-                if (roles != null)
-                {
-                    string r = roles.ToString();
+                if (data[6].ToString()== "approved") { 
+                
+                    string r = data[5].ToString();
                     if (r.Equals("customer", StringComparison.OrdinalIgnoreCase))
                     {
                         this.Visible = false;
-                        B_Home b_Home = new B_Home(email);
+                        B_Home b_Home = new B_Home(email, data[1].ToString());
                         b_Home.Visible = true;
                     }
                     else if (r.Equals("seller", StringComparison.OrdinalIgnoreCase))
@@ -126,11 +115,12 @@ namespace Farmlink
                         S_Home b_Home = new S_Home();
                         b_Home.Visible = true;
                     }
-
                 }
+                else { 
+                    MessageBox.Show("You are not allowed to log in.\n Wait for few hours if you are new.\n or else contact support", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                
             } 
-            con.Close();
 
         }
 
