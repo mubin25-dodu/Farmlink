@@ -14,11 +14,13 @@ namespace Farmlink
     public partial class sproduct : UserControl
     { 
         string imagepath = "";
-        public sproduct()
+        string seller;
+        public sproduct(string s)
         {
            
             InitializeComponent();
             listing.Visible = false;
+            seller = s;
         }
 
         private void desin_TextChanged(object sender, EventArgs e)
@@ -56,6 +58,7 @@ namespace Farmlink
 
         private void button2_Click(object sender, EventArgs e)
         {
+            db db = new db();
             if (string.IsNullOrWhiteSpace(pname.Text) || string.IsNullOrWhiteSpace(price.Text) || string.IsNullOrWhiteSpace(amountin.Text) || string.IsNullOrWhiteSpace(desin.Text))
             {
                 MessageBox.Show("Please fill all the fields.");
@@ -66,18 +69,27 @@ namespace Farmlink
                 amountin.Clear();
                 price.Clear();
             }
-            else if (string.IsNullOrWhiteSpace(proimg.Text))
-            {
-                MessageBox.Show("Please select a valid image file.");
-                return;
-            }
+            //else if (string.IsNullOrWhiteSpace(proimg.Text))
+            //{
+            //    MessageBox.Show("Please select a valid image file.");
+            //    return;
+            //}
             else
             {
-                MessageBox.Show("Product added successfully!");
-                pname.Clear();
-                price.Clear();
-                amountin.Clear();
-                desin.Clear();
+                string query = "INSERT INTO product VALUES ('"+pname.Text+ "' , '"+desin.Text+ "' , '"+price.Text+ "' , '"+ amountin.Text+ "' , '"+ proimg.Text+ "' , '"+""+ "' ,'"+ seller + "' )";
+
+                if (db.write(query) == 1)
+                {
+                    MessageBox.Show("Product added successfully!");
+                    pname.Clear();
+                    price.Clear();
+                    amountin.Clear();
+                    desin.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add product. Please try again.");
+                }
             }
             //string destinationPath = Path.Combine(@"E:\OneDrive - American International University-Bangladesh\uni\7th sem\oop2\project\Farmlink\images\", Path.GetFileName(imagepath));
             //File.Copy(imagepath, destinationPath, true);

@@ -49,6 +49,19 @@ namespace Farmlink
             con.Close();
             return i;
         }
+        public DataTable readAll(string q)
+        {
+            // Create a connection object
+            SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            // query build
+            string query = q;
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            da.Fill(dt);
+            con.Close();
+            return dt;
+        }
     }
 
 }

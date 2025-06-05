@@ -94,26 +94,26 @@ namespace Farmlink
                     if (r.Equals("customer", StringComparison.OrdinalIgnoreCase))
                     {
                         this.Visible = false;
-                        B_Home b_Home = new B_Home(email, data[1].ToString());
+                        B_Home b_Home = new B_Home(data[0].ToString(), data[1].ToString());
                         b_Home.Visible = true;
                     }
                     else if (r.Equals("seller", StringComparison.OrdinalIgnoreCase))
                     {
                         this.Visible = false;
-                        S_Home b_Home = new S_Home();
+                        S_Home b_Home = new S_Home(data[0].ToString(), data[1].ToString());
                         b_Home.Visible = true;
                     }
                     else if (r.Equals("agent", StringComparison.OrdinalIgnoreCase))
                     {
-                        this.Visible = false;
-                        S_Home b_Home = new S_Home();
-                        b_Home.Visible = true;
+                        //this.Visible = false;
+                        //S_Home b_Home = new S_Home();
+                        //b_Home.Visible = true;
                     }
                     else if (r.Equals("Admin", StringComparison.OrdinalIgnoreCase))
                     {
-                        this.Visible = false;
-                        S_Home b_Home = new S_Home();
-                        b_Home.Visible = true;
+                        //this.Visible = false;
+                        //S_Home b_Home = new S_Home();
+                        //b_Home.Visible = true;
                     }
                 }
                 else { 

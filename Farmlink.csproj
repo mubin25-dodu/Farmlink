@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -70,12 +71,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FarmlinkDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Seller_Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Seller_Home.Designer.cs">
-      <DependentUpon>Seller_Home.cs</DependentUpon>
     </Compile>
     <Compile Include="intro.cs">
       <SubType>Form</SubType>
@@ -130,9 +125,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="bhome.resx">
       <DependentUpon>bhome.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Seller_Home.resx">
-      <DependentUpon>Seller_Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="intro.resx">
       <DependentUpon>intro.cs</DependentUpon>

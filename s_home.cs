@@ -13,17 +13,19 @@ namespace Farmlink
     public partial class S_Home : Form
     {
         private Panel mainpanel; // Added definition for 'mainpanel'
+        string id; // User ID
 
-        public S_Home()
+        public S_Home(string i , string name)
         {
             InitializeComponent();
-
+            uid.Text = name;
+            id = i;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             spanel.Controls.Clear();
-            sproduct signinControl = new sproduct();
+            sproduct signinControl = new sproduct(id);
             signinControl.Dock = DockStyle.Fill;
             spanel.Controls.Add(signinControl);
         }

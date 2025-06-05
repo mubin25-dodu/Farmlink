@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Net.NetworkInformation;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace Farmlink
 {
     public partial class B_Home : Form
     {
-        private int page = 0;
         public B_Home( string email,string n )
         {
             InitializeComponent();
@@ -41,6 +43,32 @@ namespace Farmlink
             bhome signinControl = new bhome();
             signinControl.Dock = DockStyle.Fill;
             bpanel.Controls.Add(signinControl);
+
+            db db = new db();
+            string query = "SELECT * FROM product";
+            DataTable dr = db.readAll(query);
+
+            for (int i = 0; i < dr.Rows.Count; i++)
+            {
+                string n= "h"+i.ToString();
+
+                bhome n = new bhome();
+                if (dr.Rows.Count > -1)
+                {
+                    string name = dr.Rows[i][1].ToString();
+                    double price = double.Parse(dr.Rows[i][3].ToString());
+                    string des = dr.Rows[i][2].ToString();
+                    string img = dr.Rows[i][5].ToString();
+                    double av = double.Parse(dr.Rows[i][4].ToString());
+                    
+                }
+                else
+                {
+                    MessageBox.Show("No products found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
+            }
+
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -103,6 +131,11 @@ namespace Farmlink
             bhome signinControl = new bhome();
             signinControl.Dock = DockStyle.Fill;
             bpanel.Controls.Add(signinControl);
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
 
         }
     }

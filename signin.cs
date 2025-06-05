@@ -103,6 +103,7 @@ namespace Farmlink
             string qpass = null;
             string roles = role.Text;
             string stat = "pending";
+            string dis = district.Text;
             string prefix = "";
 
             if (role.Text == "Admin") { prefix = "ad-"; }
@@ -141,7 +142,7 @@ namespace Farmlink
             }
            
 
-            string query = "INSERT INTO userinfo (id,fullname, mail, fulladdress, pass, roles, status_ ) VALUES ('" + id + "', '" + name + "', '" + email + "', '" + fulladdress + "', '" + qpass + "', '" + roles + "',' "+ stat + "');";
+            string query = "INSERT INTO userinfo (uid,fullname, mail, fulladdress, pass, roles, status_ ,district ) VALUES ('" + id + "', '" + name + "', '" + email + "', '" + fulladdress + "', '" + qpass + "', '" + roles + "',' "+ stat + "' , '"+dis+"');";
 
 
             if ( db.write(query) > 0)
@@ -158,6 +159,11 @@ namespace Farmlink
     }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
