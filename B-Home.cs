@@ -50,9 +50,8 @@ namespace Farmlink
 
             for (int i = 0; i < dr.Rows.Count; i++)
             {
-                string n= "h"+i.ToString();
-
-                bhome n = new bhome();
+                 string n = dr.Rows[i][0].ToString();
+                bhome n  = new bhome();
                 if (dr.Rows.Count > -1)
                 {
                     string name = dr.Rows[i][1].ToString();
@@ -60,7 +59,7 @@ namespace Farmlink
                     string des = dr.Rows[i][2].ToString();
                     string img = dr.Rows[i][5].ToString();
                     double av = double.Parse(dr.Rows[i][4].ToString());
-                    
+                    n.
                 }
                 else
                 {
@@ -135,6 +134,11 @@ namespace Farmlink
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bhome1_Load(object sender, EventArgs e)
         {
 
         }

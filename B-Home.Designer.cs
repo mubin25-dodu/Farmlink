@@ -36,7 +36,10 @@
             this.id = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.bpanel = new System.Windows.Forms.Panel();
+            this.searchbtn = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            this.bpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -157,12 +160,43 @@
             this.bpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.bpanel.BackgroundImage = global::Farmlink.Properties.Resources.background;
             this.bpanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bpanel.Controls.Add(this.searchbtn);
+            this.bpanel.Controls.Add(this.textBox1);
             this.bpanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.bpanel.Location = new System.Drawing.Point(189, 0);
             this.bpanel.Name = "bpanel";
             this.bpanel.Size = new System.Drawing.Size(1165, 729);
             this.bpanel.TabIndex = 6;
             this.bpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bpanel_Paint);
+            // 
+            // searchbtn
+            // 
+            this.searchbtn.AutoSize = true;
+            this.searchbtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.searchbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbtn.ForeColor = System.Drawing.Color.White;
+            this.searchbtn.Image = global::Farmlink.Properties.Resources.transparency;
+            this.searchbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.searchbtn.Location = new System.Drawing.Point(356, 78);
+            this.searchbtn.Name = "searchbtn";
+            this.searchbtn.Size = new System.Drawing.Size(32, 32);
+            this.searchbtn.TabIndex = 21;
+            this.searchbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.searchbtn.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(94, 82);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(245, 28);
+            this.textBox1.TabIndex = 20;
             // 
             // B_Home
             // 
@@ -177,6 +211,8 @@
             this.Load += new System.EventHandler(this.B_Home_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.bpanel.ResumeLayout(false);
+            this.bpanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -191,5 +227,7 @@
         public System.Windows.Forms.Button logout;
         public System.Windows.Forms.Button orderbtn;
         private System.Windows.Forms.Panel bpanel;
+        public System.Windows.Forms.Button searchbtn;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
