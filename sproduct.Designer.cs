@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sproduct));
             this.addpro = new System.Windows.Forms.Button();
             this.listing = new System.Windows.Forms.Panel();
+            this.path = new System.Windows.Forms.Label();
             this.backbtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -69,6 +70,7 @@
             // listing
             // 
             this.listing.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.listing.Controls.Add(this.path);
             this.listing.Controls.Add(this.backbtn);
             this.listing.Controls.Add(this.button2);
             this.listing.Controls.Add(this.button1);
@@ -87,6 +89,18 @@
             this.listing.Size = new System.Drawing.Size(1055, 574);
             this.listing.TabIndex = 26;
             this.listing.Paint += new System.Windows.Forms.PaintEventHandler(this.listing_Paint);
+            // 
+            // path
+            // 
+            this.path.AutoSize = true;
+            this.path.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.path.ForeColor = System.Drawing.Color.White;
+            this.path.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.path.Location = new System.Drawing.Point(29, 541);
+            this.path.Name = "path";
+            this.path.Size = new System.Drawing.Size(37, 19);
+            this.path.TabIndex = 30;
+            this.path.Text = "path";
             // 
             // backbtn
             // 
@@ -282,6 +296,7 @@
             this.DoubleBuffered = true;
             this.Name = "sproduct";
             this.Size = new System.Drawing.Size(1165, 729);
+            this.Load += new System.EventHandler(this.sproduct_Load);
             this.listing.ResumeLayout(false);
             this.listing.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proimg)).EndInit();
@@ -307,5 +322,6 @@
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button backbtn;
+        private System.Windows.Forms.Label path;
     }
 }

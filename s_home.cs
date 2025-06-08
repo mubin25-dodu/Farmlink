@@ -12,7 +12,6 @@ namespace Farmlink
 {
     public partial class S_Home : Form
     {
-        private Panel mainpanel; // Added definition for 'mainpanel'
         string id; // User ID
 
         public S_Home(string i , string name)
@@ -58,9 +57,9 @@ namespace Farmlink
             DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                this.Visible = false;
+                
                 intro form2 = new intro();
-                form2.Show();
+                form2.Show();this.Visible = false;
             }
         }
 

@@ -8,19 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Farmlink
 {
     public partial class sproduct : UserControl
-    { 
+    {
         string imagepath = "";
         string seller;
+        int a = 1;
         public sproduct(string s)
         {
-           
+
             InitializeComponent();
-            listing.Visible = false;
             seller = s;
+            listing.Visible = false;
         }
 
         private void desin_TextChanged(object sender, EventArgs e)
@@ -69,47 +71,55 @@ namespace Farmlink
                 amountin.Clear();
                 price.Clear();
             }
-            //else if (string.IsNullOrWhiteSpace(proimg.Text))
-            //{
-            //    MessageBox.Show("Please select a valid image file.");
-            //    return;
-            //}
             else
             {
-                string query = "INSERT INTO product VALUES ('"+pname.Text+ "' , '"+desin.Text+ "' , '"+price.Text+ "' , '"+ amountin.Text+ "' , '"+ proimg.Text+ "' , '"+""+ "' ,'"+ seller + "' )";
+                string imagepath = path.Text; // or use from OpenFileDialog
+                string destinationPath = Path.Combine(
+                    @"E:\OneDrive - American International University-Bangladesh\uni\7th sem\oop2\project\Farmlink\images\",
+                    Path.GetFileName(imagepath)
+                );
+                File.Copy(imagepath, destinationPath, true);
+                string query = "INSERT INTO product VALUES ('" + pname.Text + "' , '" + desin.Text + "' , '" + price.Text + "' , '" + amountin.Text + "' , '" + imagepath + "' ,'" + seller + "' )";
+
 
                 if (db.write(query) == 1)
-                {
-                    MessageBox.Show("Product added successfully!");
-                    pname.Clear();
-                    price.Clear();
-                    amountin.Clear();
-                    desin.Clear();
+                        {
+                            MessageBox.Show("Product added successfully!");
+                            pname.Clear();
+                            price.Clear();
+                            amountin.Clear();
+                            desin.Clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to add product. Please try again.");
+                        }
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Failed to add product. Please try again.");
-                }
-            }
-            //string destinationPath = Path.Combine(@"E:\OneDrive - American International University-Bangladesh\uni\7th sem\oop2\project\Farmlink\images\", Path.GetFileName(imagepath));
-            //File.Copy(imagepath, destinationPath, true);
-        }
+            
+        
 
         private void photobtn_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select an image";
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            OpenFileDialog open = new OpenFileDialog();
+            open.Title = "Select an image";
+            open.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (open.ShowDialog() == DialogResult.OK)
             {
                 // Load and display the selected image
-                imagepath = openFileDialog.FileName;
+                imagepath = open.FileName;
+                path.Text = imagepath;
                 proimg.Image = new Bitmap(imagepath);
             }
         }
 
         private void proimg_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sproduct_Load(object sender, EventArgs e)
         {
 
         }

@@ -117,19 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="userinfoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>155, 17</value>
-  </metadata>
-  <metadata name="farmlinkDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="userinfoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>329, 17</value>
-  </metadata>
-  <data name="abouttext.Text" xml:space="preserve">
-    <value>FarmLink is a platform built to empower Bangladeshi farmers by connecting them directly with everyday buyers and local shops. Our goal is simple - to cut out unfair middlemen, bring fair prices to farmers, and offer fresh, affordable produce to everyone.
-We support both individual customers and businesses, while also giving farmers the option to work with trusted agents to handle bulk sales. Every transaction is monitored by an admin to ensure safety, trust, and transparency.
-At FarmLink, we believe in building a future where agriculture is fair, local, and connected.
-</value>
-  </data>
 </root>
