@@ -176,9 +176,12 @@ namespace Farmlink
                 {
                     MessageBox.Show("Order placed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadProducts("SELECT * FROM [order] WHERE customer_id = '" + buyer_id + "'");
+                    //this.Refresh();
                     var parentForm = this.FindForm() as B_Home;
-
-                    //parentForm.home_Click(null, EventArgs.Empty);
+                    if (parentForm != null)
+                    {
+                        parentForm.home_Click(null, null);
+                    }
 
                     return;
                 }

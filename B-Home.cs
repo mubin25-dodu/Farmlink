@@ -208,7 +208,7 @@ namespace Farmlink
 
         }
 
-        private void home_Click(object sender, EventArgs e)
+        public void home_Click(object sender, EventArgs e)
         {
             bpanel.Controls.Clear();
             bpanel.Controls.AddRange(new Control[] { display_product, searchbox, searchbtn });
@@ -216,6 +216,10 @@ namespace Farmlink
             paymentbtn.Visible = false;
             searchbox.Visible = true;
             searchbtn.Visible = true;
+            cartbtn.Hide();
+            home.Show();
+            orderbtn.Show();
+            cartbtn.Show();
             display_product.Visible = true;
 
             LoadProducts("SELECT * FROM product");

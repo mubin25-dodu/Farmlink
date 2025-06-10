@@ -39,18 +39,17 @@ namespace Farmlink
 
         private void remove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-           
-
-                string query = "DELETE FROM [order] WHERE order_id = '" + order_id + "'";
-                Console.WriteLine(product_id);
-                new db().write(query);
-                if (new db().write(query) > 0)
+                  
+                string query = "DELETE FROM [order] WHERE product_id = '" + product_id + "' and customer_id = '"+buyer_id+"'";
+                Console.WriteLine("asdasdasd"+product_id);
+                if (new db().write(query) != 0)
                 {
                     MessageBox.Show("Order removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    var parent = this.Parent as Buyer_payment;
-                    parent.LoadProducts(" SELECT * FROM [order] WHERE customer_id = '" + buyer_id + "'");
-
-                    return;
+                //var parent = this.Parent as Buyer_payment;
+                //parent.LoadProducts(" SELECT * FROM [order] WHERE  product_id = '" + product_id + "' and customer_id = '"+buyer_id+"'");
+                Buyer_payment n = new Buyer_payment(buyer_id);    
+                n.LoadProducts("SELECT * FROM [order] WHERE customer_id = '" + buyer_id + "'");
+                return;
                 }
                 else
                 {
