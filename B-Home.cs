@@ -44,6 +44,7 @@ namespace Farmlink
             id.Text = name;
             this.propic= dr[7].ToString();
             this.uid = i;
+            Console.WriteLine(uid);
             profilepic.Image = Image.FromFile(propic); 
 
         }
@@ -125,7 +126,8 @@ namespace Farmlink
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            bpanel.Controls.Clear();
+            bpanel.Controls.Add(new B_order_stat(uid));
         }
 
         private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
@@ -145,13 +147,12 @@ namespace Farmlink
 
         private void button2_Click(object sender, EventArgs e)
         {
-            bpanel.Controls.AddRange(new Control[] { totalamount, paymentbtn, note, empty_cart });
+            bpanel.Controls.Clear();
+            bpanel.Controls.AddRange(new Control[] { display_product , totalamount, paymentbtn, note, empty_cart });
             display_product.Controls.Clear();
             //bpanel.Controls.Clear();
             searchbox.Visible = false;
             searchbtn.Visible = false;
-            totalamount.Visible = true;
-            paymentbtn.Visible = true;
             display_product.Visible = true;
 
 
@@ -160,6 +161,8 @@ namespace Farmlink
             DataTable d = n.readAll(query);
             if (d.Rows.Count > 0)
             {
+                totalamount.Visible = true;
+                paymentbtn.Visible = true;
                 for (int i = 0; i < d.Rows.Count; i++)
                 {
                     int pid = int.Parse(d.Rows[i][2].ToString());
@@ -326,18 +329,17 @@ namespace Farmlink
         }
 
         private void cancelbtn_Click(object sender, EventArgs e)
-        {   payable = 0;
-
+        {   payable = 0; 
+            bpanel.Controls.Clear();
             cancelbtn.Hide();
             cartbtn.Visible = true;
             home.Show();
             orderbtn.Show();
-            bpanel.Controls.Clear();
             bpanel.Controls.AddRange(new Control[] { display_product, searchbox, searchbtn});
             LoadProducts("SELECT * FROM product");
         }
 
-        private void paymentbtn_Click(object sender, EventArgs e) 
+        public void paymentbtn_Click(object sender, EventArgs e) 
         { 
             cancelbtn.Show();
             if (payable <= 0)
@@ -359,7 +361,7 @@ namespace Farmlink
                 display_product.Controls.Clear();
                 display_product.Hide();
                 bpanel.BringToFront();
-                Buyer_payment paymentControl = new Buyer_payment(uid);
+                Buyer_payment paymentControl = new Buyer_payment(uid,payable);
                 paymentControl.Visible = true;
                 bpanel.Controls.Add(paymentControl);
                 payable = 0;

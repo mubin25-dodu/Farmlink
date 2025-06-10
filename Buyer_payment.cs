@@ -16,14 +16,13 @@ namespace Farmlink
     public partial class Buyer_payment : UserControl
     {
         string buyer_id;
-        //int product_id;
         string pay_method;
-        List<int> product = new List<int>();
 
 
         public void LoadProducts(string qu)
         {
             details.Controls.Clear();
+
 
             db db = new db();
             string query = qu;
@@ -36,7 +35,6 @@ namespace Farmlink
                     int product_id = int.Parse(dr.Rows[i][6].ToString());
 
                     string get_product = "SELECT * FROM product Where product_id = '" + product_id + "' ";
-                    product.Add(product_id);
                     DataRow gr = db.read(get_product);
                     if (db.read(get_product) != null ) {
                         details.Controls.Add(new order_details(double.Parse(dr.Rows[i][5].ToString()) , gr[1].ToString(), double.Parse(gr[3].ToString()) , product_id, buyer_id ));
@@ -53,11 +51,12 @@ namespace Farmlink
         }
 
 
-        public Buyer_payment( string id )
+        public Buyer_payment( string id , double tp )
         {
             InitializeComponent();
             string query = "SELECT * FROM [order] WHERE customer_id ='" + id+"'";
             this.buyer_id = id;
+            this.total_price.Text = "Total Price: " + tp.ToString() + " BDT";
             //this.product_id = pid;
             LoadProducts(query);
         }
@@ -153,45 +152,57 @@ namespace Farmlink
            
         }
         private void methode(string m ) {
-            string que = "SELECT order_id , quantity  FROM [order] WHERE customer_id = '" + buyer_id + "'";
+            string que = "SELECT order_id, quantity, seller_id, agent_id, product_id FROM [order] WHERE customer_id = '" + buyer_id + "'";
             db d = new db();
             DataTable dt = d.readAll(que);
+
+            bool allSuccess = true;
+
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+                int pid = int.Parse(dt.Rows[i][4].ToString());
+                double quantity = double.Parse(dt.Rows[i][1].ToString());
 
-                string query = "INSERT INTO orderhistory (order_id, status, address, date, pay_meth ,pay_stat ) VALUES ('" + int.Parse(dt.Rows[i][0].ToString()) + "', 'processing', '" + label2.Text + "', GETDATE(), '" + m + "','pending')";
+                string query = "INSERT INTO orderhistory (status, address, date, pay_meth, pay_stat, product_id, buyer_id, seller_id, agent_id) " +
+                               "VALUES ('processing', '" + label2.Text + "', GETDATE(), '" + m + "', 'pending', '" + pid + "', '" + buyer_id + "', '" + dt.Rows[i][2].ToString() + "', '" + dt.Rows[i][3].ToString() + "')";
                 string query2 = "DELETE FROM [order] WHERE order_id = '" + int.Parse(dt.Rows[i][0].ToString()) + "'";
-                int pid = product[i];
                 string query3 = "DELETE FROM [cart] WHERE product_id = '" + pid + "' AND b_id = '" + buyer_id + "'";
-                string q4 = " update product set available_unit = available_unit - '"+double.Parse(dt.Rows[i][1].ToString())+"' where product_id = '"+pid+"'";
+                string q4 = "UPDATE product SET available_unit = available_unit - '" + quantity + "' WHERE product_id = '" + pid + "'";
+
                 d.write(q4);
                 d.write(query2);
                 d.write(query3);
-                Console.WriteLine(dt.Rows[i][0].ToString());
-                if (m !="cod" && new db().write(query) > 0 && num.Text != null && pin_.Text != null)
+
+                int result = d.write(query);
+                if (result <= 0)
+                {
+                    allSuccess = false;
+                    break;
+                }
+            }
+
+            if (allSuccess)
+            {
+                if (m != "cod" && !string.IsNullOrEmpty(num.Text) && !string.IsNullOrEmpty(pin_.Text))
                 {
                     mobilepay.Hide();
                 }
-                else if (m == "cod" && new db().write(query) > 0)
-                {
-                    MessageBox.Show("Order placed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadProducts("SELECT * FROM [order] WHERE customer_id = '" + buyer_id + "'");
-                    //this.Refresh();
-                    var parentForm = this.FindForm() as B_Home;
-                    if (parentForm != null)
-                    {
-                        parentForm.home_Click(null, null);
-                    }
 
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("Failed to place order. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                MessageBox.Show("Order placed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadProducts("SELECT * FROM [order] WHERE customer_id = '" + buyer_id + "'");
 
+                var parentForm = this.FindForm() as B_Home;
+                if (parentForm != null)
+                {
+                    parentForm.home_Click(null, null);
+                }
             }
+            else
+            {
+                MessageBox.Show("Failed to place order. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        
         }
     }
 }

@@ -110,6 +110,12 @@
     <Compile Include="bhome.Designer.cs">
       <DependentUpon>bhome.cs</DependentUpon>
     </Compile>
+    <Compile Include="B_order_stat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="B_order_stat.Designer.cs">
+      <DependentUpon>B_order_stat.cs</DependentUpon>
+    </Compile>
     <Compile Include="db.cs" />
     <Compile Include="FarmlinkDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="bhome.resx">
       <DependentUpon>bhome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="B_order_stat.resx">
+      <DependentUpon>B_order_stat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="intro.resx">
       <DependentUpon>intro.cs</DependentUpon>

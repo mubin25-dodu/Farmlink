@@ -45,6 +45,7 @@
             this.name = new System.Windows.Forms.Label();
             this.pname = new System.Windows.Forms.TextBox();
             this.desin = new System.Windows.Forms.RichTextBox();
+            this.agent_ass = new System.Windows.Forms.CheckBox();
             this.listing.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proimg)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             // listing
             // 
             this.listing.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.listing.Controls.Add(this.agent_ass);
             this.listing.Controls.Add(this.path);
             this.listing.Controls.Add(this.backbtn);
             this.listing.Controls.Add(this.button2);
@@ -284,6 +286,19 @@
             this.desin.Text = "";
             this.desin.TextChanged += new System.EventHandler(this.desin_TextChanged);
             // 
+            // agent_ass
+            // 
+            this.agent_ass.AutoSize = true;
+            this.agent_ass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agent_ass.ForeColor = System.Drawing.Color.Transparent;
+            this.agent_ass.Location = new System.Drawing.Point(698, 388);
+            this.agent_ass.Name = "agent_ass";
+            this.agent_ass.Size = new System.Drawing.Size(158, 29);
+            this.agent_ass.TabIndex = 31;
+            this.agent_ass.Text = "Assign Agent";
+            this.agent_ass.UseVisualStyleBackColor = true;
+            this.agent_ass.CheckedChanged += new System.EventHandler(this.agent_ass_CheckedChanged);
+            // 
             // sproduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,5 +338,6 @@
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button backbtn;
         private System.Windows.Forms.Label path;
+        private System.Windows.Forms.CheckBox agent_ass;
     }
 }

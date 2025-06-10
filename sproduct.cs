@@ -17,6 +17,7 @@ namespace Farmlink
         string imagepath = "";
         string seller;
         int a = 1;
+        string agent;
         public sproduct(string s)
         {
 
@@ -79,7 +80,7 @@ namespace Farmlink
                     Path.GetFileName(imagepath)
                 );
                 File.Copy(imagepath, destinationPath, true);
-                string query = "INSERT INTO product VALUES ('" + pname.Text + "' , '" + desin.Text + "' , '" + price.Text + "' , '" + amountin.Text + "' , '" + imagepath + "' ,'" + seller + "' )";
+                string query = "INSERT INTO product VALUES ('" + pname.Text + "' , '" + desin.Text + "' , '" + price.Text + "' , '" + amountin.Text + "' , '" + imagepath + "' ,'" + seller + "' '"+agent+"' )";
 
 
                 if (db.write(query) == 1)
@@ -122,6 +123,11 @@ namespace Farmlink
         private void sproduct_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void agent_ass_CheckedChanged(object sender, EventArgs e)
+        {
+            string query = " select agent_id from commission where seller_id =";
         }
     }
 }

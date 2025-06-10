@@ -15,6 +15,7 @@ namespace Farmlink
         string buyer_id;
         int product_id;
         int order_id;
+       static double  total_price;
 
         public order_details(double q , string n , double p ,int i,string bid )
         {
@@ -24,6 +25,7 @@ namespace Farmlink
             this.total.Text ="Total: "+ (q*p).ToString() + " BDT";
             this.product_id = i;
             this.buyer_id = bid;
+            total_price= q * p;
 
         }
 
@@ -47,10 +49,13 @@ namespace Farmlink
                     MessageBox.Show("Order removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //var parent = this.Parent as Buyer_payment;
                 //parent.LoadProducts(" SELECT * FROM [order] WHERE  product_id = '" + product_id + "' and customer_id = '"+buyer_id+"'");
-                Buyer_payment n = new Buyer_payment(buyer_id);    
-                n.LoadProducts("SELECT * FROM [order] WHERE customer_id = '" + buyer_id + "'");
-                return;
+                //B_Home n = new B_Home(buyer_id);
+                var parentForm = this.FindForm() as B_Home;
+                if (parentForm != null && parentForm.paymentbtn != null)
+                {
+                    parentForm.paymentbtn.PerformClick();
                 }
+            }
                 else
                 {
                     MessageBox.Show("Failed to remove order. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
