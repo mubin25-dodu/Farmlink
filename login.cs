@@ -94,7 +94,7 @@ namespace Farmlink
                     if (r.Equals("customer", StringComparison.OrdinalIgnoreCase))
                     {
                         this.Visible = false;
-                        B_Home b_Home = new B_Home(data[0].ToString(), data[1].ToString());
+                        B_Home b_Home = new B_Home(data[0].ToString());
                         b_Home.Visible = true;
                     }
                     else if (r.Equals("seller", StringComparison.OrdinalIgnoreCase))

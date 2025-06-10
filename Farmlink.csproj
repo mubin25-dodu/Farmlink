@@ -128,11 +128,11 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="orderdetails.cs">
+    <Compile Include="order_details.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="orderdetails.Designer.cs">
-      <DependentUpon>orderdetails.cs</DependentUpon>
+    <Compile Include="order_details.Designer.cs">
+      <DependentUpon>order_details.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -188,8 +188,8 @@
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="orderdetails.resx">
-      <DependentUpon>orderdetails.cs</DependentUpon>
+    <EmbeddedResource Include="order_details.resx">
+      <DependentUpon>order_details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

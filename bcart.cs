@@ -23,12 +23,14 @@ namespace Farmlink
         string seller_id,agent_id;
         double totalprice;
         int product_id;
-        public bcart(string id ,string name, double pr, string des, string img, double av, int p, double c, string agent)
+        //double quanti;
+        public bcart(string uidd ,string id ,string name, double pr, string des, string img, double av, int p, double c, string agent)
         {
             InitializeComponent();
             this.count = c;
             this.price = pr;
             this.ava = av;
+            this.uid = uidd;
             this.seller_id = id;
             this.agent_id = agent;
             this.product_id = p;
@@ -94,13 +96,31 @@ namespace Farmlink
             if (checkBox.Checked == true)
             {
                 var parentForm = this.FindForm() as B_Home;
-                parentForm.payment(totalprice,seller_id,agent_id,count,product_id , ava-count);
+                parentForm.payment(totalprice, seller_id, agent_id, count, product_id, ava - count);
+                string que = "SELECT * FROM [order] WHERE customer_id = '" + uid + "' AND product_id = '" + product_id + "';";
+                DataRow dr = new db().read(que);
+                if (dr != null)
+                {
+                    double oldcount = double.Parse(dr[5].ToString());
+                    count += oldcount;
+                    string updateQuery = "UPDATE [order] SET quantity = '" + count + "' WHERE customer_id = '" + uid + "' AND product_id = '" + product_id + "';";
+                    new db().write(updateQuery);
+                }
+                else
+                {
+                    string insertQuery = "INSERT INTO [order] VALUES ('" + uid + "', GETDATE(), '" + seller_id + "', '" + agent_id + "', '" + count + "', '" + product_id + "');";
+                    new db().write(insertQuery);
+                }
+                
             }
             else
             {
                 var parentForm = this.FindForm() as B_Home;
                 parentForm.payment(-(totalprice), seller_id, agent_id, count, product_id, ava - count);
-                parentForm.paymentbtn.PerformClick(); 
+                parentForm.paymentbtn.PerformClick();
+
+                string query = "DELETE FROM [order] WHERE customer_id = '" + uid + "' AND product_id = '" + product_id + "'";
+                new db().write(query);
             }
         }
 

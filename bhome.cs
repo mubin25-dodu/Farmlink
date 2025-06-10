@@ -142,14 +142,13 @@ namespace Farmlink
             }
             else
             {
-                query = "UPDATE cart SET quantity = '" + count + "' WHERE b_id = '" + uid + "' AND product_id = '" + pid + "'";
+              query = "UPDATE cart SET quantity = '" + count + "' WHERE b_id = '" + uid + "' AND product_id = '" + pid + "'";
                 if (count > 0)
                 {
                     if (b.write(query) == 1)
                     {
                         MessageBox.Show("Product added to cart successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //var parentForm = this.FindForm() as B_Home;
-                        //parentForm.LoadProducts("SELECT * FROM product"); ;
+
                     }
                     else
                     {
