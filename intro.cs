@@ -87,7 +87,7 @@ namespace Farmlink
         private void getstarted_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-           B_Home signin = new B_Home("ad-0001");
+            A_home signin = new A_home("ad-0001");
             signin.Visible = true;
         }
     }

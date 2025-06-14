@@ -17,6 +17,7 @@ namespace Farmlink
     {
         string buyer_id;
         string pay_method;
+        double total_p;
 
 
         public void LoadProducts(string qu)
@@ -55,10 +56,17 @@ namespace Farmlink
         {
             InitializeComponent();
             string query = "SELECT * FROM [order] WHERE customer_id ='" + id+"'";
-            this.buyer_id = id;
-            this.total_price.Text = "Total Price: " + tp.ToString() + " BDT";
-            //this.product_id = pid;
             LoadProducts(query);
+            this.buyer_id = id;
+            if (tp > 1000) {
+                this.total_price.Text ="Payment Details\n"+"Free Delevery \n"+ "Total Price: " + tp.ToString() + " BDT";
+            }
+            else
+            {
+                this.total_price.Text = "Delevery Fee +50 \nShop more " + (1000 - tp) + "BDT to Get Free Delevery" + "\nProduct Price: " + tp.ToString() + " BDT" + "\nDelevery Fee +50 = " + "\nTotal Price: " + (tp + 100);
+                tp += 50;
+            }
+            this.total_p = tp;
         }
 
         private void Buyer_payment_Load(object sender, EventArgs e)
@@ -163,8 +171,8 @@ namespace Farmlink
                 int pid = int.Parse(dt.Rows[i][4].ToString());
                 double quantity = double.Parse(dt.Rows[i][1].ToString());
 
-                string query = "INSERT INTO orderhistory (status, address, date, pay_meth, pay_stat, product_id, buyer_id, seller_id, agent_id) " +
-                               "VALUES ('processing', '" + label2.Text + "', GETDATE(), '" + m + "', 'pending', '" + pid + "', '" + buyer_id + "', '" + dt.Rows[i][2].ToString() + "', '" + dt.Rows[i][3].ToString() + "')";
+                string query = "INSERT INTO orderhistory (status, address, date, pay_meth, pay_stat, product_id, buyer_id, seller_id, agent_id , quantity,total_price) " +
+                               "VALUES ('processing', '" + label2.Text + "', GETDATE(), '" + m + "', 'pending', '" + pid + "', '" + buyer_id + "', '" + dt.Rows[i][2].ToString() + "', '" + dt.Rows[i][3].ToString() + "' , '"+ quantity + "' , '"+ total_p+"')";
                 string query2 = "DELETE FROM [order] WHERE order_id = '" + int.Parse(dt.Rows[i][0].ToString()) + "'";
                 string query3 = "DELETE FROM [cart] WHERE product_id = '" + pid + "' AND b_id = '" + buyer_id + "'";
                 string q4 = "UPDATE product SET available_unit = available_unit - '" + quantity + "' WHERE product_id = '" + pid + "'";

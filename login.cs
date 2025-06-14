@@ -100,7 +100,7 @@ namespace Farmlink
                     else if (r.Equals("seller", StringComparison.OrdinalIgnoreCase))
                     {
                         this.Visible = false;
-                        S_Home b_Home = new S_Home(data[0].ToString(), data[1].ToString());
+                        S_Home b_Home = new S_Home(data[0].ToString());
                         b_Home.Visible = true;
                     }
                     else if (r.Equals("agent", StringComparison.OrdinalIgnoreCase))
@@ -111,9 +111,9 @@ namespace Farmlink
                     }
                     else if (r.Equals("Admin", StringComparison.OrdinalIgnoreCase))
                     {
-                        //this.Visible = false;
-                        //S_Home b_Home = new S_Home();
-                        //b_Home.Visible = true;
+                        this.Visible = false;
+                        A_home b_Home = new A_home(data[0].ToString());
+                        b_Home.Visible = true;
                     }
                 }
                 else { 

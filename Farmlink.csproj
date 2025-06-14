@@ -92,6 +92,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="a-manageuser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="a-manageuser.Designer.cs">
+      <DependentUpon>a-manageuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agent_home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agent_home.Designer.cs">
+      <DependentUpon>agent_home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="a_orders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="a_orders.Designer.cs">
+      <DependentUpon>a_orders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="a_payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="a_payment.Designer.cs">
+      <DependentUpon>a_payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="B-Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +145,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FarmlinkDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="A_home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="A_home.Designer.cs">
+      <DependentUpon>A_home.cs</DependentUpon>
     </Compile>
     <Compile Include="intro.cs">
       <SubType>Form</SubType>
@@ -178,6 +208,21 @@
     <Compile Include="Buyer_payment.Designer.cs">
       <DependentUpon>Buyer_payment.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="a-manageuser.resx">
+      <DependentUpon>a-manageuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="agent_home.resx">
+      <DependentUpon>agent_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="A_home.resx">
+      <DependentUpon>A_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_orders.resx">
+      <DependentUpon>a_orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="a_payment.resx">
+      <DependentUpon>a_payment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="B-Home.resx">
       <DependentUpon>B-Home.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -250,9 +295,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Grow. Link. Thrive..png" />
   </ItemGroup>
   <ItemGroup>
@@ -296,6 +338,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

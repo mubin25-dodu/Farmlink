@@ -28,9 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sproduct));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.addpro = new System.Windows.Forms.Button();
             this.listing = new System.Windows.Forms.Panel();
+            this.agent_ass = new System.Windows.Forms.CheckBox();
             this.path = new System.Windows.Forms.Label();
             this.backbtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -45,9 +50,32 @@
             this.name = new System.Windows.Forms.Label();
             this.pname = new System.Windows.Forms.TextBox();
             this.desin = new System.Windows.Forms.RichTextBox();
-            this.agent_ass = new System.Windows.Forms.CheckBox();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.farmlinkDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.farmlinkDataSet = new Farmlink.FarmlinkDataSet();
+            this.noti = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orderTableAdapter = new Farmlink.FarmlinkDataSetTableAdapters.orderTableAdapter();
+            this.productTableAdapter = new Farmlink.FarmlinkDataSetTableAdapters.productTableAdapter();
+            this.products = new System.Windows.Forms.DataGridView();
+            this.productidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availableunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.selleridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.listing.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proimg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmlinkDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmlinkDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // addpro
@@ -86,11 +114,24 @@
             this.listing.Controls.Add(this.name);
             this.listing.Controls.Add(this.pname);
             this.listing.Controls.Add(this.desin);
-            this.listing.Location = new System.Drawing.Point(47, 104);
+            this.listing.Location = new System.Drawing.Point(49, 83);
             this.listing.Name = "listing";
-            this.listing.Size = new System.Drawing.Size(1055, 574);
+            this.listing.Size = new System.Drawing.Size(1055, 584);
             this.listing.TabIndex = 26;
             this.listing.Paint += new System.Windows.Forms.PaintEventHandler(this.listing_Paint);
+            // 
+            // agent_ass
+            // 
+            this.agent_ass.AutoSize = true;
+            this.agent_ass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agent_ass.ForeColor = System.Drawing.Color.Transparent;
+            this.agent_ass.Location = new System.Drawing.Point(698, 388);
+            this.agent_ass.Name = "agent_ass";
+            this.agent_ass.Size = new System.Drawing.Size(158, 29);
+            this.agent_ass.TabIndex = 31;
+            this.agent_ass.Text = "Assign Agent";
+            this.agent_ass.UseVisualStyleBackColor = true;
+            this.agent_ass.CheckedChanged += new System.EventHandler(this.agent_ass_CheckedChanged);
             // 
             // path
             // 
@@ -286,18 +327,157 @@
             this.desin.Text = "";
             this.desin.TextChanged += new System.EventHandler(this.desin_TextChanged);
             // 
-            // agent_ass
+            // productBindingSource
             // 
-            this.agent_ass.AutoSize = true;
-            this.agent_ass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agent_ass.ForeColor = System.Drawing.Color.Transparent;
-            this.agent_ass.Location = new System.Drawing.Point(698, 388);
-            this.agent_ass.Name = "agent_ass";
-            this.agent_ass.Size = new System.Drawing.Size(158, 29);
-            this.agent_ass.TabIndex = 31;
-            this.agent_ass.Text = "Assign Agent";
-            this.agent_ass.UseVisualStyleBackColor = true;
-            this.agent_ass.CheckedChanged += new System.EventHandler(this.agent_ass_CheckedChanged);
+            this.productBindingSource.DataMember = "product";
+            this.productBindingSource.DataSource = this.farmlinkDataSetBindingSource;
+            // 
+            // farmlinkDataSetBindingSource
+            // 
+            this.farmlinkDataSetBindingSource.DataSource = this.farmlinkDataSet;
+            this.farmlinkDataSetBindingSource.Position = 0;
+            // 
+            // farmlinkDataSet
+            // 
+            this.farmlinkDataSet.DataSetName = "FarmlinkDataSet";
+            this.farmlinkDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // noti
+            // 
+            this.noti.AutoSize = true;
+            this.noti.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noti.ForeColor = System.Drawing.Color.Red;
+            this.noti.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.noti.Location = new System.Drawing.Point(207, 39);
+            this.noti.Name = "noti";
+            this.noti.Size = new System.Drawing.Size(684, 28);
+            this.noti.TabIndex = 27;
+            this.noti.Text = " Double-click on the table cells to edit the product information.";
+            this.noti.Click += new System.EventHandler(this.noti_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataMember = "order";
+            this.orderBindingSource.DataSource = this.farmlinkDataSetBindingSource;
+            // 
+            // orderTableAdapter
+            // 
+            this.orderTableAdapter.ClearBeforeFill = true;
+            // 
+            // productTableAdapter
+            // 
+            this.productTableAdapter.ClearBeforeFill = true;
+            // 
+            // products
+            // 
+            this.products.AllowUserToAddRows = false;
+            this.products.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.products.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.products.AutoGenerateColumns = false;
+            this.products.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.products.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.products.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.products.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.products.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.products.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productidDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.unitpriceDataGridViewTextBoxColumn,
+            this.availableunitDataGridViewTextBoxColumn,
+            this.imageDataGridViewTextBoxColumn,
+            this.selleridDataGridViewTextBoxColumn,
+            this.agentidDataGridViewTextBoxColumn});
+            this.products.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.products.DataSource = this.productBindingSource1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.products.DefaultCellStyle = dataGridViewCellStyle6;
+            this.products.Location = new System.Drawing.Point(44, 83);
+            this.products.MultiSelect = false;
+            this.products.Name = "products";
+            this.products.RowHeadersVisible = false;
+            this.products.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.products.Size = new System.Drawing.Size(1058, 619);
+            this.products.TabIndex = 27;
+            this.products.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.products_CellContentClick);
+            this.products.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.products_CellValueChanged);
+            // 
+            // productidDataGridViewTextBoxColumn
+            // 
+            this.productidDataGridViewTextBoxColumn.DataPropertyName = "product_id";
+            this.productidDataGridViewTextBoxColumn.HeaderText = "product_id";
+            this.productidDataGridViewTextBoxColumn.Name = "productidDataGridViewTextBoxColumn";
+            this.productidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // unitpriceDataGridViewTextBoxColumn
+            // 
+            this.unitpriceDataGridViewTextBoxColumn.DataPropertyName = "unit_price";
+            this.unitpriceDataGridViewTextBoxColumn.HeaderText = "unit_price";
+            this.unitpriceDataGridViewTextBoxColumn.Name = "unitpriceDataGridViewTextBoxColumn";
+            // 
+            // availableunitDataGridViewTextBoxColumn
+            // 
+            this.availableunitDataGridViewTextBoxColumn.DataPropertyName = "available_unit";
+            this.availableunitDataGridViewTextBoxColumn.HeaderText = "available_unit";
+            this.availableunitDataGridViewTextBoxColumn.Name = "availableunitDataGridViewTextBoxColumn";
+            // 
+            // imageDataGridViewTextBoxColumn
+            // 
+            this.imageDataGridViewTextBoxColumn.DataPropertyName = "image";
+            this.imageDataGridViewTextBoxColumn.HeaderText = "image";
+            this.imageDataGridViewTextBoxColumn.Name = "imageDataGridViewTextBoxColumn";
+            // 
+            // selleridDataGridViewTextBoxColumn
+            // 
+            this.selleridDataGridViewTextBoxColumn.DataPropertyName = "seller_id";
+            this.selleridDataGridViewTextBoxColumn.HeaderText = "seller_id";
+            this.selleridDataGridViewTextBoxColumn.Name = "selleridDataGridViewTextBoxColumn";
+            // 
+            // agentidDataGridViewTextBoxColumn
+            // 
+            this.agentidDataGridViewTextBoxColumn.DataPropertyName = "agent_id";
+            this.agentidDataGridViewTextBoxColumn.HeaderText = "agent_id";
+            this.agentidDataGridViewTextBoxColumn.Name = "agentidDataGridViewTextBoxColumn";
+            // 
+            // productBindingSource1
+            // 
+            this.productBindingSource1.DataMember = "product";
+            this.productBindingSource1.DataSource = this.farmlinkDataSetBindingSource;
             // 
             // sproduct
             // 
@@ -306,8 +486,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.BackgroundImage = global::Farmlink.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Controls.Add(this.listing);
+            this.Controls.Add(this.noti);
             this.Controls.Add(this.addpro);
+            this.Controls.Add(this.listing);
+            this.Controls.Add(this.products);
             this.DoubleBuffered = true;
             this.Name = "sproduct";
             this.Size = new System.Drawing.Size(1165, 729);
@@ -315,6 +497,12 @@
             this.listing.ResumeLayout(false);
             this.listing.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proimg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmlinkDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmlinkDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,5 +527,23 @@
         public System.Windows.Forms.Button backbtn;
         private System.Windows.Forms.Label path;
         private System.Windows.Forms.CheckBox agent_ass;
+        private System.Windows.Forms.Label noti;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.BindingSource orderBindingSource;
+        private System.Windows.Forms.BindingSource farmlinkDataSetBindingSource;
+        private FarmlinkDataSet farmlinkDataSet;
+        private FarmlinkDataSetTableAdapters.orderTableAdapter orderTableAdapter;
+        private System.Windows.Forms.BindingSource productBindingSource;
+        private FarmlinkDataSetTableAdapters.productTableAdapter productTableAdapter;
+        private System.Windows.Forms.DataGridView products;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitpriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn availableunitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn selleridDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource productBindingSource1;
     }
 }

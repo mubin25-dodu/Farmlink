@@ -270,13 +270,12 @@
             // 
             // total_price
             // 
-            this.total_price.AutoSize = true;
             this.total_price.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.total_price.ForeColor = System.Drawing.Color.White;
             this.total_price.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.total_price.Location = new System.Drawing.Point(329, 585);
+            this.total_price.Location = new System.Drawing.Point(842, 370);
             this.total_price.Name = "total_price";
-            this.total_price.Size = new System.Drawing.Size(107, 28);
+            this.total_price.Size = new System.Drawing.Size(320, 243);
             this.total_price.TabIndex = 28;
             this.total_price.Text = "Products";
             // 

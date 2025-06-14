@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cancelbtn = new System.Windows.Forms.Button();
             this.profilepic = new System.Windows.Forms.PictureBox();
             this.orderbtn = new System.Windows.Forms.Button();
             this.logout = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.totalamount = new System.Windows.Forms.Label();
             this.paymentbtn = new System.Windows.Forms.Button();
             this.backpanel = new System.Windows.Forms.Panel();
-            this.cancelbtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilepic)).BeginInit();
             this.bpanel.SuspendLayout();
@@ -68,6 +68,23 @@
             this.panel1.Size = new System.Drawing.Size(193, 726);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // cancelbtn
+            // 
+            this.cancelbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cancelbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cancelbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelbtn.ForeColor = System.Drawing.Color.White;
+            this.cancelbtn.Location = new System.Drawing.Point(0, 372);
+            this.cancelbtn.Name = "cancelbtn";
+            this.cancelbtn.Size = new System.Drawing.Size(190, 45);
+            this.cancelbtn.TabIndex = 22;
+            this.cancelbtn.Text = "Cancel Payment";
+            this.cancelbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cancelbtn.UseVisualStyleBackColor = false;
+            this.cancelbtn.Click += new System.EventHandler(this.cancelbtn_Click);
             // 
             // profilepic
             // 
@@ -233,9 +250,9 @@
             this.display_product.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.display_product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.display_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.display_product.Location = new System.Drawing.Point(16, 80);
+            this.display_product.Location = new System.Drawing.Point(16, 87);
             this.display_product.Name = "display_product";
-            this.display_product.Size = new System.Drawing.Size(1167, 672);
+            this.display_product.Size = new System.Drawing.Size(1167, 657);
             this.display_product.TabIndex = 22;
             this.display_product.Paint += new System.Windows.Forms.PaintEventHandler(this.display_product_Paint_2);
             // 
@@ -309,23 +326,6 @@
             this.backpanel.Name = "backpanel";
             this.backpanel.Size = new System.Drawing.Size(1355, 732);
             this.backpanel.TabIndex = 29;
-            // 
-            // cancelbtn
-            // 
-            this.cancelbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cancelbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cancelbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelbtn.ForeColor = System.Drawing.Color.White;
-            this.cancelbtn.Location = new System.Drawing.Point(0, 372);
-            this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(190, 45);
-            this.cancelbtn.TabIndex = 22;
-            this.cancelbtn.Text = "Cancel Payment";
-            this.cancelbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cancelbtn.UseVisualStyleBackColor = false;
-            this.cancelbtn.Click += new System.EventHandler(this.cancelbtn_Click);
             // 
             // B_Home
             // 

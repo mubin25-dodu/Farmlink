@@ -142,7 +142,7 @@ namespace Farmlink
             }
            
 
-            string query = "INSERT INTO userinfo (uid,fullname, mail, fulladdress, pass, roles, status_ ,district ) VALUES ('" + id + "', '" + name + "', '" + email + "', '" + fulladdress + "', '" + qpass + "', '" + roles + "',' "+ stat + "' , '"+dis+"');";
+            string query = "INSERT INTO userinfo (uid,fullname, mail, fulladdress, pass, roles, status_ ,profile_pic , phone ,district  ) VALUES ('" + id + "', '" + name + "', '" + email + "', '" + fulladdress + "', '" + qpass + "', '" + roles + "',' "+ stat + "' , '"+path.Text+"','"+num.Text+"', '"+dis+"');";
 
 
             if ( db.write(query) > 0)
@@ -166,6 +166,21 @@ namespace Farmlink
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void image_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Title = "Select an image";
+            open.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                string imagepath;
+                imagepath = open.FileName;
+                path.Text = imagepath;
+                photo.Image = new Bitmap(imagepath);
+            }
         }
     }
 }

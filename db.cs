@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Farmlink
@@ -16,53 +17,68 @@ namespace Farmlink
 
         public DataRow read(string q)
         {
-            // Create a connection object
-            SqlConnection con = new SqlConnection(constring);
-            con.Open();
-
-            // query build
-            string query = q;
-
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.Fill(dt);
-            con.Close();
-            if (dt.Rows.Count==1) {
-                return dt.Rows[0]; ;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(constring))
+                {
+                    con.Open();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(q, con);
+                    da.Fill(dt);
+                    if (dt.Rows.Count == 1)
+                    {
+                        return dt.Rows[0];
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
             }
-            else{
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database read error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
-           
         }
+
         public int write(string q)
         {
-            // Create a connection object
-            SqlConnection con = new SqlConnection(constring);
-            con.Open();
-            // query build
-            string query = q;
-            // execute the query
-            SqlCommand cmd = new SqlCommand(query, con);
-            int i = cmd.ExecuteNonQuery();
-            // check if the query executed successfully
-            con.Close();
-            return i;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(constring))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(q, con);
+                    int i = cmd.ExecuteNonQuery();
+                    return i;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database write error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
         }
+
         public DataTable readAll(string q)
         {
-            // Create a connection object
-            SqlConnection con = new SqlConnection(constring);
-            con.Open();
-            // query build
-            string query = q;
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.Fill(dt);
-            con.Close();
-            return dt;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(constring))
+                {
+                    con.Open();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(q, con);
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database readAll error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new DataTable();
+            }
         }
-       
     }
-    
-    }
+}

@@ -1,6 +1,6 @@
 ﻿namespace Farmlink
 {
-    partial class S_Home
+    partial class A_home
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(S_Home));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(A_home));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.payment = new System.Windows.Forms.Button();
             this.orderbtn = new System.Windows.Forms.Button();
             this.logout = new System.Windows.Forms.Button();
-            this.mypbtn = new System.Windows.Forms.Button();
+            this.manage = new System.Windows.Forms.Button();
             this.home = new System.Windows.Forms.Button();
             this.uid = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
-            this.spanel = new System.Windows.Forms.Panel();
+            this.apanel = new System.Windows.Forms.Panel();
             this.tablepanel = new System.Windows.Forms.Panel();
             this.profilecard = new System.Windows.Forms.Panel();
             this.mail = new System.Windows.Forms.Label();
@@ -57,14 +57,12 @@
             this.backbtn = new System.Windows.Forms.Button();
             this.agenttable = new System.Windows.Forms.DataGridView();
             this.hireag = new System.Windows.Forms.Label();
-            this.hire = new System.Windows.Forms.Button();
-            this.agent = new System.Windows.Forms.Label();
-            this.agentfee = new System.Windows.Forms.Button();
+            this.agent_section = new System.Windows.Forms.Button();
             this.Total = new System.Windows.Forms.Label();
             this.Totalcard = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.spanel.SuspendLayout();
+            this.apanel.SuspendLayout();
             this.tablepanel.SuspendLayout();
             this.profilecard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile)).BeginInit();
@@ -78,15 +76,14 @@
             this.panel1.Controls.Add(this.payment);
             this.panel1.Controls.Add(this.orderbtn);
             this.panel1.Controls.Add(this.logout);
-            this.panel1.Controls.Add(this.mypbtn);
+            this.panel1.Controls.Add(this.manage);
             this.panel1.Controls.Add(this.home);
             this.panel1.Controls.Add(this.uid);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(186, 729);
-            this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.TabIndex = 4;
             // 
             // pictureBox1
             // 
@@ -133,7 +130,7 @@
             this.orderbtn.Text = "Order";
             this.orderbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.orderbtn.UseVisualStyleBackColor = false;
-            this.orderbtn.Click += new System.EventHandler(this.button4_Click);
+            this.orderbtn.Click += new System.EventHandler(this.orderbtn_Click);
             // 
             // logout
             // 
@@ -153,25 +150,24 @@
             this.logout.UseVisualStyleBackColor = false;
             this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
-            // mypbtn
+            // manage
             // 
-            this.mypbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.mypbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.mypbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.mypbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mypbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mypbtn.ForeColor = System.Drawing.Color.White;
-            this.mypbtn.Image = global::Farmlink.Properties.Resources.milk;
-            this.mypbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mypbtn.Location = new System.Drawing.Point(0, 327);
-            this.mypbtn.Name = "mypbtn";
-            this.mypbtn.Size = new System.Drawing.Size(186, 44);
-            this.mypbtn.TabIndex = 18;
-            this.mypbtn.Text = "My Products";
-            this.mypbtn.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.mypbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.mypbtn.UseVisualStyleBackColor = false;
-            this.mypbtn.Click += new System.EventHandler(this.button2_Click);
+            this.manage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.manage.Cursor = System.Windows.Forms.Cursors.Default;
+            this.manage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.manage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manage.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manage.ForeColor = System.Drawing.Color.White;
+            this.manage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manage.Location = new System.Drawing.Point(0, 327);
+            this.manage.Name = "manage";
+            this.manage.Size = new System.Drawing.Size(186, 44);
+            this.manage.TabIndex = 18;
+            this.manage.Text = "Manage Users";
+            this.manage.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.manage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.manage.UseVisualStyleBackColor = false;
+            this.manage.Click += new System.EventHandler(this.manage_Click);
             // 
             // home
             // 
@@ -191,7 +187,6 @@
             this.home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.home.UseVisualStyleBackColor = false;
-            this.home.Click += new System.EventHandler(this.home_Click);
             // 
             // uid
             // 
@@ -217,24 +212,21 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "FarmLink";
             // 
-            // spanel
+            // apanel
             // 
-            this.spanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.spanel.BackgroundImage = global::Farmlink.Properties.Resources.background;
-            this.spanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.spanel.Controls.Add(this.tablepanel);
-            this.spanel.Controls.Add(this.hireag);
-            this.spanel.Controls.Add(this.hire);
-            this.spanel.Controls.Add(this.agent);
-            this.spanel.Controls.Add(this.agentfee);
-            this.spanel.Controls.Add(this.Total);
-            this.spanel.Controls.Add(this.Totalcard);
-            this.spanel.ForeColor = System.Drawing.SystemColors.Control;
-            this.spanel.Location = new System.Drawing.Point(185, 0);
-            this.spanel.Name = "spanel";
-            this.spanel.Size = new System.Drawing.Size(1165, 729);
-            this.spanel.TabIndex = 3;
-            this.spanel.Paint += new System.Windows.Forms.PaintEventHandler(this.spanel_Paint);
+            this.apanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.apanel.BackgroundImage = global::Farmlink.Properties.Resources.background;
+            this.apanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.apanel.Controls.Add(this.tablepanel);
+            this.apanel.Controls.Add(this.hireag);
+            this.apanel.Controls.Add(this.agent_section);
+            this.apanel.Controls.Add(this.Total);
+            this.apanel.Controls.Add(this.Totalcard);
+            this.apanel.ForeColor = System.Drawing.SystemColors.Control;
+            this.apanel.Location = new System.Drawing.Point(185, 0);
+            this.apanel.Name = "apanel";
+            this.apanel.Size = new System.Drawing.Size(1165, 729);
+            this.apanel.TabIndex = 5;
             // 
             // tablepanel
             // 
@@ -243,11 +235,10 @@
             this.tablepanel.Controls.Add(this.agentcount);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.agenttable);
-            this.tablepanel.Location = new System.Drawing.Point(96, 87);
+            this.tablepanel.Location = new System.Drawing.Point(90, 535);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 67;
-            this.tablepanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tablepanel_Paint);
             // 
             // profilecard
             // 
@@ -294,7 +285,6 @@
             this.button1.Text = "Cancel";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // donep
             // 
@@ -311,7 +301,6 @@
             this.donep.Text = "Hire Request";
             this.donep.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.donep.UseVisualStyleBackColor = false;
-            this.donep.Click += new System.EventHandler(this.donep_Click);
             // 
             // comm
             // 
@@ -412,40 +401,39 @@
             this.backbtn.TabIndex = 48;
             this.backbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.backbtn.UseVisualStyleBackColor = false;
-            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
             // 
             // agenttable
             // 
             this.agenttable.AllowUserToAddRows = false;
             this.agenttable.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            this.agenttable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.agenttable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.agenttable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.agenttable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.agenttable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.agenttable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.agenttable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.agenttable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.agenttable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.agenttable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.agenttable.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.agenttable.DefaultCellStyle = dataGridViewCellStyle3;
             this.agenttable.Location = new System.Drawing.Point(3, 57);
             this.agenttable.MultiSelect = false;
             this.agenttable.Name = "agenttable";
@@ -453,7 +441,6 @@
             this.agenttable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.agenttable.Size = new System.Drawing.Size(962, 476);
             this.agenttable.TabIndex = 30;
-            this.agenttable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.agenttable_CellClick);
             // 
             // hireag
             // 
@@ -461,59 +448,28 @@
             this.hireag.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hireag.ForeColor = System.Drawing.Color.PeachPuff;
             this.hireag.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.hireag.Location = new System.Drawing.Point(805, 236);
+            this.hireag.Location = new System.Drawing.Point(507, 236);
             this.hireag.Name = "hireag";
             this.hireag.Size = new System.Drawing.Size(190, 64);
             this.hireag.TabIndex = 66;
             this.hireag.Text = "count";
             // 
-            // hire
+            // agent_section
             // 
-            this.hire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.hire.Cursor = System.Windows.Forms.Cursors.Default;
-            this.hire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hire.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hire.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.hire.Location = new System.Drawing.Point(785, 136);
-            this.hire.Name = "hire";
-            this.hire.Padding = new System.Windows.Forms.Padding(0, 0, 0, 120);
-            this.hire.Size = new System.Drawing.Size(237, 213);
-            this.hire.TabIndex = 65;
-            this.hire.Text = "Hire An Agent";
-            this.hire.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.hire.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.hire.UseVisualStyleBackColor = false;
-            this.hire.Click += new System.EventHandler(this.hire_Click);
-            // 
-            // agent
-            // 
-            this.agent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.agent.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agent.ForeColor = System.Drawing.Color.PeachPuff;
-            this.agent.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.agent.Location = new System.Drawing.Point(495, 236);
-            this.agent.Name = "agent";
-            this.agent.Size = new System.Drawing.Size(190, 64);
-            this.agent.TabIndex = 64;
-            this.agent.Text = "count";
-            // 
-            // agentfee
-            // 
-            this.agentfee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.agentfee.Cursor = System.Windows.Forms.Cursors.Default;
-            this.agentfee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agentfee.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agentfee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.agentfee.Location = new System.Drawing.Point(475, 136);
-            this.agentfee.Name = "agentfee";
-            this.agentfee.Padding = new System.Windows.Forms.Padding(0, 0, 0, 120);
-            this.agentfee.Size = new System.Drawing.Size(237, 213);
-            this.agentfee.TabIndex = 63;
-            this.agentfee.Text = "Agent Fee Deducted";
-            this.agentfee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.agentfee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.agentfee.UseVisualStyleBackColor = false;
-            this.agentfee.Click += new System.EventHandler(this.agentfee_Click);
+            this.agent_section.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.agent_section.Cursor = System.Windows.Forms.Cursors.Default;
+            this.agent_section.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agent_section.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agent_section.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.agent_section.Location = new System.Drawing.Point(487, 136);
+            this.agent_section.Name = "agent_section";
+            this.agent_section.Padding = new System.Windows.Forms.Padding(0, 0, 0, 120);
+            this.agent_section.Size = new System.Drawing.Size(237, 213);
+            this.agent_section.TabIndex = 65;
+            this.agent_section.Text = "Approved Agents";
+            this.agent_section.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.agent_section.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.agent_section.UseVisualStyleBackColor = false;
             // 
             // Total
             // 
@@ -546,20 +502,20 @@
             this.Totalcard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Totalcard.UseVisualStyleBackColor = false;
             // 
-            // S_Home
+            // A_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.spanel);
             this.Controls.Add(this.panel1);
-            this.Name = "S_Home";
-            this.Text = "S_Home";
-            this.Load += new System.EventHandler(this.S_Home_Load);
+            this.Controls.Add(this.apanel);
+            this.Name = "A_home";
+            this.Text = "Admin";
+            this.Load += new System.EventHandler(this.A_home_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.spanel.ResumeLayout(false);
+            this.apanel.ResumeLayout(false);
             this.tablepanel.ResumeLayout(false);
             this.tablepanel.PerformLayout();
             this.profilecard.ResumeLayout(false);
@@ -571,35 +527,34 @@
         }
 
         #endregion
+
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Button payment;
         public System.Windows.Forms.Button orderbtn;
         public System.Windows.Forms.Button logout;
-        public System.Windows.Forms.Button mypbtn;
+        public System.Windows.Forms.Button manage;
         public System.Windows.Forms.Button home;
         private System.Windows.Forms.LinkLabel uid;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.Button payment;
-        private System.Windows.Forms.Panel spanel;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label agent;
-        public System.Windows.Forms.Button agentfee;
+        private System.Windows.Forms.Label hireag;
+        public System.Windows.Forms.Button agent_section;
         private System.Windows.Forms.Label Total;
         public System.Windows.Forms.Button Totalcard;
-        private System.Windows.Forms.Label hireag;
-        public System.Windows.Forms.Button hire;
-        private System.Windows.Forms.Panel tablepanel;
         public System.Windows.Forms.Button backbtn;
         private System.Windows.Forms.DataGridView agenttable;
-        private System.Windows.Forms.Panel profilecard;
-        private System.Windows.Forms.PictureBox profile;
-        private System.Windows.Forms.Label agentcount;
-        private System.Windows.Forms.Label name;
-        private System.Windows.Forms.Label rating;
-        private System.Windows.Forms.Label comm;
-        private System.Windows.Forms.Label workingwith;
-        private System.Windows.Forms.Label workarea;
+        private System.Windows.Forms.Label mail;
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button donep;
-        private System.Windows.Forms.Label mail;
+        private System.Windows.Forms.Label comm;
+        private System.Windows.Forms.Label workingwith;
+        private System.Windows.Forms.Label agentcount;
+        private System.Windows.Forms.Label workarea;
+        private System.Windows.Forms.Label name;
+        private System.Windows.Forms.PictureBox profile;
+        private System.Windows.Forms.Panel profilecard;
+        private System.Windows.Forms.Label rating;
+        private System.Windows.Forms.Panel tablepanel;
+        private System.Windows.Forms.Panel apanel;
     }
 }
