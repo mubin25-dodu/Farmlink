@@ -22,12 +22,12 @@ namespace Farmlink
 
         private void sell_order_Load(object sender, EventArgs e)
         {
-            populate("recived", "recived");
+            populate("received", "received");
             populate("cancelled", "cancelled");
             populate("processing", "on the way");
             tablepanel.Visible = false;
             db d = new db();
-            DataTable dt = d.readAll(" select history_id from orderhistory where seller_id = '" + seller_id + "' and status ='processing' or status = 'Collection Request'");
+            DataTable dt = d.readAll(" select history_id from orderhistory where seller_id = '" + seller_id + "' and ( status ='processing' or status = 'Collection Request')");
             noti1.Text = "pending orders-> " + (dt.Rows.Count.ToString());
             dt.Clear();
             DataTable dr = d.readAll(" select history_id from orderhistory where seller_id = '" + seller_id + "' and status ='on the way'");
@@ -36,7 +36,7 @@ namespace Farmlink
             DataTable drr = d.readAll(" select history_id from orderhistory where seller_id = '" + seller_id + "' and status ='delivered'");
             noti3.Text = "delivered orders-> " + (drr.Rows.Count.ToString());
             drr.Clear();
-            DataTable drrr = d.readAll(" select history_id from orderhistory where seller_id = '" + seller_id + "' and status ='canceled -> customer' or status = 'canceled -> seller' or status = 'canceled -> agent'");
+            DataTable drrr = d.readAll(" select history_id from orderhistory where seller_id = '" + seller_id + "' and (status ='canceled -> customer' or status = 'canceled -> seller' or status = 'canceled -> agent')");
             noti4.Text = "cancelled orders-> " + (drrr.Rows.Count.ToString());
             drrr.Clear();
         }
@@ -101,18 +101,32 @@ namespace Farmlink
             if (e.ColumnIndex == 0)
             {
                 Console.WriteLine(e.ColumnIndex);
-                string query = " Update orderhistory Set status ='Collection Request'  where history_id = '"+int.Parse(table.Rows[e.ColumnIndex].Cells["history_id"].Value.ToString())+"'";
+                int id = int.Parse(table.Rows[e.RowIndex].Cells["history_id"].Value.ToString());
+                string check = "select status from orderhistory where history_id = '"+id+"'";
                 db d = new db();
-                if (d.write(query) > 0)
+                DataRow dr = d.read(check);
+
+                if (dr[0].ToString() == "processing")
                 {
-                    noti1.Text="Collection request sent successfully.";
-                    pending.PerformClick();
+
+                    string query = " Update orderhistory Set status ='Collection Request'  where history_id = '" + id + "'";
+                    if (d.write(query) > 0)
+                    {
+                        tablenoti.Text = "Collection request sent successfully.";
+                        pending.PerformClick();
+                    }
+                    else
+                    {
+                        tablenoti.Text = "Failed to send collection request.";
+                    }
                 }
-                else
+                else if (dr[0].ToString() == "Collection Request")
                 {
-                    noti1.Text="Failed to send collection request.";
+                    tablenoti.Text = "Collection request already sent for this order.";
+                    return;
+                } 
                 }
-            }
+            
         }
 
         private void processing_odr_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -144,9 +158,9 @@ namespace Farmlink
                         JOIN  
                             product p ON o.product_id = p.product_id  
                         WHERE  
-                            o.seller_id = '" + seller_id + @"'  
-                            and  o.status = 'processing'
-                             or o.status ='Collection Request'
+                            o.seller_id = 'se-0001'  
+                            and  (o.status = 'processing'
+                            or o.status ='Collection Request')
                             and( o.pay_meth =  'cod' or   
                             o.pay_stat = 'paid')  
                         ORDER BY  
@@ -189,9 +203,7 @@ namespace Farmlink
             table.DataSource = null;
             table.Rows.Clear();
             tablepanel.Visible = false;
-            S_Home sh = new S_Home(seller_id);
-            tablenoti.Text = null;
-           sh.mypbtn.PerformClick();
+          
 
         }
 
@@ -202,7 +214,7 @@ namespace Farmlink
 
         private void success_Click(object sender, EventArgs e)
         {
-            populate("recived", "recived");
+            populate("received", "received");
 
 
         }

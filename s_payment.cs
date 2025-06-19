@@ -34,27 +34,30 @@ namespace Farmlink
         {
             mobilepay.Visible = false;
 
-            query = "SELECT SUM(p.seller_share) AS total_sell,  " +
-                " SUM(o.total_price) AS total_sales,  SUM(p.seller_share - w.amount) AS withdrawable_balance,  " +
-                "  SUM(w.amount) AS total_withdrawn, sum(p.platform_share) as platformshare,  sum(p.agent_share) as " +
+            query = "SELECT SUM(ISNULL(p.seller_share,0)) AS total_sell,  " +
+                " SUM(ISNULL(p.seller_share,0) - ISNULL(w.amount,0)) AS withdrawable_balance,  " +
+                " SUM(ISNULL(w.amount,0)) AS total_withdrawn, sum(ISNULL(p.platform_share,0)) as platformshare,  sum(ISNULL(p.agent_share,0)) as " +
                 "agentshare FROM pay_history p JOIN orderhistory o ON o.history_id = p.history_id LEFT JOIN withdraw w ON  w.uid = o.seller_id  " +
-                "WHERE o.seller_id = '" + seller_id + "'and status Not like '%cancel%' or status = 'recived' ";
+                "WHERE o.seller_id = '" + seller_id + "' and status = 'received' ";
+            string query2 = "select SUM( ISNULL(total_price, 0)) AS total_sales from orderhistory where seller_id='"+seller_id+"' and status = 'on the way' ";
             db d = new db();
+            DataRow drr = d.read(query2);
             DataRow dr = d.read(query);
+                Pending.Text = "Pending Amount: " + (0+ drr[0].ToString()) + " BDT";
+            
             if (dr != null && dr[0] != DBNull.Value)
             {
                 Total.Text = "Total Amount: " + dr[0].ToString() + " BDT";
-                Pending.Text = "Pending Amount: " + dr[1].ToString() + " BDT";
-                Withdraw.Text = "Withdrawable Amount: " + dr[2].ToString() + " BDT";
-                Withdrawn.Text = "Withdrawed Amount: " + dr[3].ToString() + " BDT";
-                platformfee.Text = "Platform Fee: " + dr[4].ToString() + " BDT";
-                agent.Text = "Agent Fee: " + dr[5].ToString() + " BDT";
-                withdrawable_balance = double.Parse(dr[2].ToString());
+                Withdraw.Text = "Withdrawable Amount: " + dr[1].ToString() + " BDT";
+                Withdrawn.Text = "Withdrawed Amount: " + dr[2].ToString() + " BDT";
+                platformfee.Text = "Platform Fee: " + dr[3].ToString() + " BDT";
+                agent.Text = "Agent Fee: " + dr[4].ToString() + " BDT";
+
+                withdrawable_balance = double.Parse(dr[1].ToString());
             }
             else
             {
                 Total.Text = "Total Amount: 0 BDT";
-                Pending.Text = "Pending Amount: 0 BDT";
                 Withdraw.Text = "Withdrawable Amount: 0 BDT";
                 Withdrawn.Text = "Withdrawed Amount: 0 BDT";
                 platformfee.Text = "Platform Fee: 0 BDT";

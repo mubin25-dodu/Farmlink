@@ -14,7 +14,7 @@ namespace Farmlink
     {
         string query;
         string admin_id;
-        int clicked = 0;
+        string clicked = " ";
         string temp_id;
         public a_manageuser(string id)
         {
@@ -23,11 +23,10 @@ namespace Farmlink
           
         }
 
-        private void ban_user_Click(object sender, EventArgs e)
-        {
+        private void loadproducts(string query) {
             table.DataSource = null;
             tablepanel.Show();
-            query = "select * from userinfo where status_ <> 'approved'";
+
             db d = new db();
             DataTable dt = d.readAll(query);
             if (dt.Rows != null)
@@ -46,6 +45,14 @@ namespace Farmlink
                 profile.Name = "Profile";
                 table.Columns.Insert(0, profile);
             }
+            //clicked = " ";
+        }
+
+        private void ban_user_Click(object sender, EventArgs e)
+        {
+            clicked = "ban";
+            query = "select * from userinfo where status_ <> 'approved'";
+            loadproducts(query);
         }
 
         private void backbtn_Click(object sender, EventArgs e)
@@ -103,27 +110,9 @@ namespace Farmlink
 
         private void customer_Click(object sender, EventArgs e)
         {
-            table.DataSource = null;
-            tablepanel.Show();
+            clicked = "customer";
             query = "select * from userinfo where status_ ='approved' and uid like '%cu-%'";
-            db d = new db();
-            DataTable dt = d.readAll(query);
-            if (dt.Rows != null)
-            {
-                table.DataSource = dt;
-                table.AutoGenerateColumns = true;
-
-                if (table.Columns.Contains("Profile"))
-                {
-                    table.Columns.Remove("Profile");
-                }
-                DataGridViewButtonColumn profile = new DataGridViewButtonColumn();
-                profile.HeaderText = "Profile";
-                profile.Text = "Profile";
-                profile.UseColumnTextForButtonValue = true;
-                profile.Name = "Profile";
-                table.Columns.Insert(0, profile);
-            }
+            loadproducts(query);
         }
 
         private void reject_Click(object sender, EventArgs e)
@@ -149,52 +138,16 @@ namespace Farmlink
 
         private void agents_Click(object sender, EventArgs e)
         {
-            table.DataSource = null;
-            tablepanel.Show();
+            clicked = "agent";
             query = "select * from userinfo where status_ ='approved' and uid like '%ag-%'";
-            db d = new db();
-            DataTable dt = d.readAll(query);
-            if (dt.Rows != null)
-            {
-                table.DataSource = dt;
-                table.AutoGenerateColumns = true;
-
-                if (table.Columns.Contains("Profile"))
-                {
-                    table.Columns.Remove("Profile");
-                }
-                DataGridViewButtonColumn profile = new DataGridViewButtonColumn();
-                profile.HeaderText = "Profile";
-                profile.Text = "Profile";
-                profile.UseColumnTextForButtonValue = true;
-                profile.Name = "Profile";
-                table.Columns.Insert(0, profile);
-            }
+            loadproducts(query);
         }
 
         private void seller_Click(object sender, EventArgs e)
         {
-            table.DataSource = null;
-            tablepanel.Show();
+            clicked = "seller";
             query = "select * from userinfo where status_ ='approved' and uid like '%se-%'";
-            db d = new db();
-            DataTable dt = d.readAll(query);
-            if (dt.Rows != null)
-            {
-                table.DataSource = dt;
-                table.AutoGenerateColumns = true;
-
-                if (table.Columns.Contains("Profile"))
-                {
-                    table.Columns.Remove("Profile");
-                }
-                DataGridViewButtonColumn profile = new DataGridViewButtonColumn();
-                profile.HeaderText = "Profile";
-                profile.Text = "Profile";
-                profile.UseColumnTextForButtonValue = true;
-                profile.Name = "Profile";
-                table.Columns.Insert(0, profile);
-            }
+            loadproducts(query);
         }
 
         private void crossbtn_Click(object sender, EventArgs e)
@@ -207,6 +160,28 @@ namespace Farmlink
             tablepanel.Hide();
             profilecard.Hide();
          
+        }
+
+        private void searchbox_TextChanged(object sender, EventArgs e)
+        {
+           
+            if(clicked == "ban") { 
+                query = "select * from userinfo where status_ <> 'approved' and (fullname like '%" + searchbox.Text + "%' or fulladdress like '%" + searchbox.Text + "%' or uid like '%" + searchbox.Text + "%' or status like '%" + searchbox.Text + "%'";
+            }
+            else if (clicked == "customer")
+            {
+                query = "select * from userinfo where status_ ='approved' and uid like '%cu-%' and (fullname like '%" + searchbox.Text + "%' or fulladdress like '%" + searchbox.Text + "%' or uid like '%" + searchbox.Text + "%')";
+            }
+            else if (clicked == "agent")
+            {
+                query = "select * from userinfo where status_ ='approved' and uid like '%ag-%' and (fullname like '%" + searchbox.Text + "%' or fulladdress like '%" + searchbox.Text + "%' or uid like '%" + searchbox.Text + "%')";
+            }
+            else if (clicked == "seller")
+            {
+                query = "select * from userinfo where status_ ='approved' and uid like '%se-%' and (fullname like '%" + searchbox.Text + "%' or fulladdress like '%" + searchbox.Text + "%' or uid like '%" + searchbox.Text + "%')";
+            }
+
+            loadproducts(query);
         }
     }
 }

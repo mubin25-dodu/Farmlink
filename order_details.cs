@@ -26,6 +26,8 @@ namespace Farmlink
             this.product_id = i;
             this.buyer_id = bid;
             total_price= q * p;
+            Console.WriteLine("asdasdasd" + product_id + "==" + buyer_id);
+
 
         }
 
@@ -42,26 +44,18 @@ namespace Farmlink
         private void remove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
                   
-                string query = "DELETE FROM [order] WHERE product_id = '" + product_id + "' and customer_id = '"+buyer_id+"'";
-                Console.WriteLine("asdasdasd"+product_id);
-                if (new db().write(query) != 0)
+                string query = "DELETE FROM [order] WHERE (product_id = '" + product_id + "' and customer_id = '"+buyer_id+"')";
+                if (new db().write(query) == 1)
                 {
                     MessageBox.Show("Order removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //var parent = this.Parent as Buyer_payment;
-                //parent.LoadProducts(" SELECT * FROM [order] WHERE  product_id = '" + product_id + "' and customer_id = '"+buyer_id+"'");
-                //B_Home n = new B_Home(buyer_id);
-                var parentForm = this.FindForm() as B_Home;
-                if (parentForm != null && parentForm.paymentbtn != null)
-                {
-                    parentForm.paymentbtn.PerformClick();
+                    Buyer_payment n = new Buyer_payment(buyer_id);
+                    n.LoadProducts("SELECT * FROM [order] WHERE customer_id = '" + buyer_id + "'");
                 }
-            }
                 else
                 {
                     MessageBox.Show("Failed to remove order. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            
-            this.Refresh();
+
 
         }
 

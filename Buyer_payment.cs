@@ -21,10 +21,9 @@ namespace Farmlink
 
 
         public void LoadProducts(string qu)
-        {
+        { 
+            
             details.Controls.Clear();
-
-
             db db = new db();
             string query = qu;
             DataTable dr = db.readAll(query);
@@ -34,6 +33,7 @@ namespace Farmlink
                 for (int i = 0; i < dr.Rows.Count; i++)
                 {
                     int product_id = int.Parse(dr.Rows[i][6].ToString());
+                    Console.WriteLine("sdsassdsaasdas===="+buyer_id);
 
                     string get_product = "SELECT * FROM product Where product_id = '" + product_id + "' ";
                     DataRow gr = db.read(get_product);
@@ -52,24 +52,36 @@ namespace Farmlink
         }
 
 
-        public Buyer_payment( string id , double tp )
+        public Buyer_payment( string id  )
         {
-            InitializeComponent();
-            string query = "SELECT * FROM [order] WHERE customer_id ='" + id+"'";
-            LoadProducts(query);
+            InitializeComponent();       
             this.buyer_id = id;
-            if (tp > 1000) {
-                this.total_price.Text ="Payment Details\n"+"Free Delevery \n"+ "Total Price: " + tp.ToString() + " BDT";
+            string query1 = "SELECT SUM(unit_price * quantity) FROM [order] o join product p on p.product_id = o.product_id WHERE o.customer_id = '" + id + "'";
+            db d = new db();
+            DataRow dr = d.read(query1);
+            if (dr != null)
+            {
+                total_p = double.Parse(dr[0].ToString());
+            }
+            else { 
+            MessageBox.Show("There is some error.\n report to admin.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+                string query = "SELECT * FROM [order] WHERE customer_id ='" + id + "'";
+            LoadProducts(query);
+
+            Console.WriteLine("finding buyer payment"+buyer_id);
+            if (total_p > 1000) {
+                this.total_price.Text ="Payment Details\n"+"Free Delevery \n"+ "Total Price: " + total_p.ToString() + " BDT";
             }
             else
             {
-                this.total_price.Text = "Delevery Fee +50 \nShop more " + (1000 - tp) + "BDT to Get Free Delevery" + "\nProduct Price: " + tp.ToString() + " BDT" + "\nDelevery Fee +50 = " + "\nTotal Price: " + (tp + 100);
-                tp += 50;
+                this.total_price.Text = "Delevery Fee +50 \nShop more " + (1000 - total_p) + "BDT to Get Free Delevery" + "\nProduct Price: " + total_p.ToString() + " BDT" + "\nDelevery Fee +50 = " + "\nTotal Price: " + (total_p + 100);
+                total_p += 50;
             }
-            this.total_p = tp;
         }
 
-        private void Buyer_payment_Load(object sender, EventArgs e)
+        protected void Buyer_payment_Load(object sender, EventArgs e)
         {
             donebtn.Visible = false;
             mobilepay.Visible = false;

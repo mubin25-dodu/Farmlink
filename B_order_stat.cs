@@ -22,28 +22,9 @@ namespace Farmlink
             Console.WriteLine(id);
         }
 
-        private void userinfoBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void userinfoDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void load()
         {
 
-        }
-
-        private void details_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void ordrhistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void B_order_stat_Load(object sender, EventArgs e )
-        {
             //history
             string query = @"SELECT   
                         p.name AS product_name,  
@@ -65,7 +46,7 @@ namespace Farmlink
 
             if (dt != null && dt.Rows.Count > 0)
             {
-                his_notifi.Text = "Number Of Orders -> "+ dt.Rows.Count;
+                his_notifi.Text = "Number Of Orders -> " + dt.Rows.Count;
                 orderhistory.AutoGenerateColumns = true;
                 orderhistory.DataSource = dt;
                 orderhistory.Columns[0].HeaderText = "Product Name";
@@ -99,7 +80,7 @@ namespace Farmlink
                         and ( o.status =  'processing' OR o.status = 'on the way')
                     ORDER BY  
                         o.date DESC;";
-       
+
             DataTable dr = d.readAll(qu);
 
             if (dr != null && dr.Rows.Count > 0)
@@ -121,49 +102,53 @@ namespace Farmlink
                 }
 
                 DataGridViewButtonColumn cancel = new DataGridViewButtonColumn();
-                    cancel.HeaderText = " Cancel Order ";
-                    cancel.Text = "cancel order";
-                    cancel.Name = "cancel_order";
-                    cancel.UseColumnTextForButtonValue = true;
-                    cancel.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                    //cancel.InheritedStyle.ForeColor = Color.Red;
+                cancel.HeaderText = " Cancel Order ";
+                cancel.Text = "cancel order";
+                cancel.Name = "cancel_order";
+                cancel.UseColumnTextForButtonValue = true;
+                cancel.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //cancel.InheritedStyle.ForeColor = Color.Red;
 
                 order.Columns.Insert(0, cancel);
 
 
-                foreach (DataGridViewRow row in order.Rows)
-                {
-                    if (row.Cells[1].Value.ToString() == "processing")
-                    {
-                        Console.WriteLine(row.Cells[1].Value.ToString());
-                        row.Cells["cancel_order"].ReadOnly = true;
-                        row.Cells["cancel_order"].Style.BackColor = Color.Red;
-                    }
-                }
+                //foreach (DataGridViewRow row in order.Rows)
+                //{
+                //    if (row.Cells[1].Value.ToString() == "processing")
+                //    {
+                //        Console.WriteLine(row.Cells[1].Value.ToString());
+                //        row.Cells["cancel_order"].ReadOnly = true;
+                //        row.Cells["cancel_order"].Style.BackColor = Color.Red;
+                //    }
+                //}
 
             }
             else
             {
                 ordr.Text = "No order found.";
             }
-            //dr.Clear();
-
-
-
         }
+            //dr.Clear();}
 
-        private void ordered_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void B_order_stat_Load(object sender, EventArgs e )
         {
+            load();
 
         }
 
-        private void order_CellClick(object sender, DataGridViewCellEventArgs e)
-        {   Console.WriteLine(e.ColumnIndex);
-            if (e.ColumnIndex==0) {
-            
+       
+        private void order_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            Console.WriteLine(e.ColumnIndex);
+            if (e.ColumnIndex == 0)
+            {
+
+   
+
                 int trycancel = e.RowIndex;
                 int history_id = int.Parse(order.Rows[trycancel].Cells["history_id"].Value.ToString());
-                string q = "select * from orderhistory where history_id = '"+ history_id + "' and status = 'processing' ";
+                string q = "select * from orderhistory where history_id = '" + history_id + "' and status = 'processing' ";
                 DataRow dt = new db().read(q);
                 if (dt == null)
                 {
@@ -171,28 +156,20 @@ namespace Farmlink
                     ordr.Text = "order can not be canceled it's being send";
                     return;
                 }
-                else { 
-                  string query = "Update orderhistory set status = 'canceled -> customer' WHERE history_id  = '" + history_id + "'";
-                if (new db().write(query) != 0)
+                else
                 {
-                        ordr.ForeColor = Color.Green;
+                    string query = "Update orderhistory set status = 'canceled -> customer' WHERE history_id  = '" + history_id + "'";
+                    if (new db().write(query) != 0)
+                    {
                         ordr.Text = "Order Canceled Successfully";
-                        B_order_stat_Load(sender, e);
-                }
+                        order.DataSource = null; 
+                        load();
+
+                    }
                 }
 
 
             }
-        }
-
-        private void order_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void order_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

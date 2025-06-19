@@ -12,7 +12,7 @@ namespace Farmlink
 {
     internal class db
     {
-        // Address of the database server
+
         string constring = "Data Source = MUBIN\\SQLEXPRESS; Initial Catalog = Farmlink; Integrated Security = True;";
 
         public DataRow read(string q)
@@ -50,7 +50,7 @@ namespace Farmlink
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand(q, con);
-                    int i = cmd.ExecuteNonQuery();
+                       int i = cmd.ExecuteNonQuery();
                     return i;
                 }
             }

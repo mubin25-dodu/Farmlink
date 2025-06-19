@@ -77,7 +77,7 @@
             this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelbtn.ForeColor = System.Drawing.Color.White;
-            this.cancelbtn.Location = new System.Drawing.Point(0, 372);
+            this.cancelbtn.Location = new System.Drawing.Point(3, 475);
             this.cancelbtn.Name = "cancelbtn";
             this.cancelbtn.Size = new System.Drawing.Size(190, 45);
             this.cancelbtn.TabIndex = 22;
@@ -223,7 +223,7 @@
             this.searchbtn.ForeColor = System.Drawing.Color.White;
             this.searchbtn.Image = global::Farmlink.Properties.Resources.transparency;
             this.searchbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.searchbtn.Location = new System.Drawing.Point(303, 48);
+            this.searchbtn.Location = new System.Drawing.Point(294, 49);
             this.searchbtn.Margin = new System.Windows.Forms.Padding(300, 3, 3, 3);
             this.searchbtn.Name = "searchbtn";
             this.searchbtn.Size = new System.Drawing.Size(32, 32);
@@ -237,22 +237,25 @@
             this.searchbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.searchbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
             this.searchbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchbox.Location = new System.Drawing.Point(37, 46);
+            this.searchbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.searchbox.Location = new System.Drawing.Point(37, 49);
             this.searchbox.Multiline = true;
             this.searchbox.Name = "searchbox";
-            this.searchbox.Size = new System.Drawing.Size(258, 35);
+            this.searchbox.Size = new System.Drawing.Size(258, 32);
             this.searchbox.TabIndex = 24;
             this.searchbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // display_product
             // 
+            this.display_product.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.display_product.AutoScroll = true;
             this.display_product.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.display_product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.display_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.display_product.Location = new System.Drawing.Point(16, 87);
+            this.display_product.Location = new System.Drawing.Point(30, 87);
             this.display_product.Name = "display_product";
-            this.display_product.Size = new System.Drawing.Size(1167, 657);
+            this.display_product.Size = new System.Drawing.Size(1150, 660);
             this.display_product.TabIndex = 22;
             this.display_product.Paint += new System.Windows.Forms.PaintEventHandler(this.display_product_Paint_2);
             // 

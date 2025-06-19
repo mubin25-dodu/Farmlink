@@ -235,7 +235,7 @@
             this.tablepanel.Controls.Add(this.agentcount);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.agenttable);
-            this.tablepanel.Location = new System.Drawing.Point(90, 535);
+            this.tablepanel.Location = new System.Drawing.Point(71, 221);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 67;

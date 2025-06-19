@@ -12,65 +12,66 @@ namespace Farmlink
 {
     public partial class a_orders : UserControl
     {
-        int clicked = 0;
+        string clicked = " ";
+        double p_share = 0.05; // Platform share percentage
         public a_orders()
         {
             InitializeComponent();
             tablepanel.Visible = false;
 
         }
-        private void populate(string stat, string notif)
+        private void populate(string query)
         {
             table.DataSource = null;
             table.Rows.Clear();
             table.Columns.Clear();
             tablepanel.Visible = true;
-            string query2 = @"SELECT   
-                                p.name AS product_name,  
-                                o.status,  
-                                o.date,  
-                                o.quantity  
-                            FROM  
-                                orderhistory o  
-                            JOIN  
-                                product p ON o.product_id = p.product_id  
-                            WHERE  
-                                o.status = '" + stat + @"'  
-                                AND (o.pay_meth = 'cod' OR o.pay_stat = 'paid')  
-                            ORDER BY  
-                                o.date DESC;";
 
             db d = new db();
-            DataTable dr = d.readAll(query2);
+            DataTable dt = d.readAll(query);
 
-            if (dr != null && dr.Rows.Count > 0)
+            if (dt != null && dt.Rows.Count > 0)
             {
-                if (stat == "on the way") { tablenoti.Text = noti2.Text = notif + " orders-> " + dr.Rows.Count; }
-                else if (stat == "delivered") { tablenoti.Text = noti4.Text = notif + " orders-> " + dr.Rows.Count; }
-                else if (stat == "cancelled") { tablenoti.Text = noti4.Text = notif + " orders-> " + dr.Rows.Count; }
+                //tablenoti.Text = noti1.Text = "orders-> " + dt.Rows.Count;
+                table.DataSource = dt;
+               
+                table.AutoGenerateColumns = true;
 
-                table.DataSource = dr;
-                table.Columns[0].HeaderText = "Product Name";
-                table.Columns[1].HeaderText = "Status";
-                table.Columns[2].HeaderText = "Ordered Date";
-                table.Columns[3].HeaderText = "Quantity";
+                if ((clicked == "req" ) && !table.Columns.Contains("CollectionRequest"))
+                {
+                    DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
+                    check.HeaderText = "Mark collected";
+                    check.Name = "Mark collected";
+                    check.Width = 150;
+                    check.ReadOnly = false;
+                    table.Columns.Insert(0, check);
+                }
+                else if (clicked == "delevred" && !table.Columns.Contains("CollectionRequest"))
+                {
+                        DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
+                        check.HeaderText = "Mark Delivered";
+                        check.Name = "Mark Delivered";
+                        check.Width = 150;
+                        check.ReadOnly = false;
+                        table.Columns.Insert(0, check);
+                    
+                }
+
+
             }
             else
             {
-                if (stat == "on the way") { tablenoti.Text = noti2.Text = notif + " orders-> 0"; }
-                else if (stat == "delivered") { tablenoti.Text = noti4.Text = notif + " orders-> 0"; }
-                else if (stat == "cancelled") { tablenoti.Text = noti4.Text = notif + " orders-> 0"; }
                 table.DataSource = null;
             }
         }
         private void a_orders_Load(object sender, EventArgs e)
         {
-            populate("recived", "recived");
-            populate("cancelled", "cancelled");
-            populate("processing", "on the way");
+            //populate("received", "received");
+            //populate("cancelled", "cancelled");
+            //populate("processing", "on the way");
             tablepanel.Visible = false;
             db d = new db();
-            DataTable dt = d.readAll(" select history_id from orderhistory where status = 'Collection Request'");
+            DataTable dt = d.readAll("select history_id from orderhistory where status = 'Collection Request'");
             noti1.Text = "Collection Request-> " + (dt.Rows.Count.ToString());
             dt.Clear();
             DataTable dr = d.readAll(" select history_id from orderhistory where  status = 'on the way'");
@@ -87,12 +88,8 @@ namespace Farmlink
 
         private void req_Click(object sender, EventArgs e)
         {
-            clicked = 1;
-            table.DataSource = null;
-            table.Rows.Clear();
-            table.Columns.Clear();
-            tablepanel.Visible = true;
-
+            clicked = "req";
+           
 
             string query = @"SELECT   
                             o.history_id,
@@ -110,64 +107,28 @@ namespace Farmlink
                             o.pay_stat = 'paid' )
                         ORDER BY  
                             o.date DESC;";
-
-            db d = new db();
-            DataTable dt = d.readAll(query);
-
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                tablenoti.Text = noti1.Text = "orders-> " + dt.Rows.Count;
-                table.DataSource = dt;
-                table.Columns[0].HeaderText = "History ID/Product";
-                table.Columns[1].HeaderText = "Product Name";
-                table.Columns[2].HeaderText = "Status";
-                table.Columns[3].HeaderText = "Ordered Date";
-                table.Columns[4].HeaderText = "Quantity";
-
-                if (!table.Columns.Contains("CollectionRequest"))
-                {
-                    DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
-                    check.HeaderText = "Mark collected";
-                    check.Name = "Mark collected";
-                    check.Width = 150;
-                    check.ReadOnly = false;
-                    table.Columns.Insert(0, check);
-
-                    foreach (DataGridViewRow row in table.Rows)
-                    {
-                        if (row.Cells[2].Value != null && row.Cells[2].Value.ToString() == "Delivered")
-                        {
-                            row.Cells["Mark Delivered"].Value = true;
-                        }
-                    }
-                }
+            populate(query);
 
 
-            }
-            else
-            {
-                tablenoti.Text = noti1.Text = "No req Orders";
-            }
         }
 
         private void Processing_Click(object sender, EventArgs e)
         {
-            populate("on the way", "on the way");
+            clicked = "Processing";
+            populate(" select  p.name AS product_name, o.status,o.date, o.quantity FROM orderhistory o JOIN product p ON o.product_id = p.product_id WHERE o.status = 'on the way' AND(o.pay_meth = 'cod' OR o.pay_stat = 'paid' ) ORDER BY o.date DESC; ");
+            
         }
 
         private void success_Click(object sender, EventArgs e)
         {
-            populate("recived", "Successfull");
+            clicked = "success";
+            populate(" select  p.name AS product_name, o.status,o.date, o.quantity FROM orderhistory o JOIN product p ON o.product_id = p.product_id WHERE o.status = 'received' AND(o.pay_meth = 'cod' OR o.pay_stat = 'paid' ) ORDER BY o.date DESC; ");
+
         }
 
         private void failed_Click(object sender, EventArgs e)
         {
-            table.DataSource = null;
-            table.Rows.Clear();
-            table.Columns.Clear();
 
-
-            tablepanel.Visible = true;
             string query2 = @"SELECT   
                                 p.name AS product_name,  
                                 o.status,  
@@ -183,39 +144,21 @@ namespace Farmlink
                             ORDER BY  
                                 o.date DESC;";
 
-            db d = new db();
-            DataTable dr = d.readAll(query2);
-
-            if (dr != null && dr.Rows.Count > 0)
-            {
-                tablenoti.Text = noti4.Text = "cancelled orders-> " + dr.Rows.Count;
-                table.DataSource = dr;
-                table.Columns[0].HeaderText = "Product Name";
-                table.Columns[1].HeaderText = "Status";
-                table.Columns[2].HeaderText = "Ordered Date";
-                table.Columns[3].HeaderText = "Quantity";
-            }
-            else
-            {
-                tablenoti.Text = noti4.Text = "No cancelled orders found.";
-                table.DataSource = null;
-            }
+            populate(query2);
         }
 
         private void Delevred_Click(object sender, EventArgs e)
         {
-            clicked = 2;
-            table.DataSource = null;
-            table.Rows.Clear();
-            table.Columns.Clear();
-            tablepanel.Visible = true;
+            clicked = "delevred";
+
 
             string query = @"SELECT   
                             o.history_id,
                             p.name AS product_name,  
                             o.status,   
                             o.date,  
-                            o.quantity  
+                            o.quantity,
+                            o.total_price
                         FROM  
                             orderhistory o  
                         JOIN  
@@ -227,46 +170,20 @@ namespace Farmlink
                         ORDER BY  
                             o.date DESC;";
 
-            db d = new db();
-            DataTable dt = d.readAll(query);
-
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                tablenoti.Text = noti1.Text = "orders-> " + dt.Rows.Count;
-                table.DataSource = dt;
-                table.Columns[0].Visible = false;
-                table.Columns[1].HeaderText = "Product Name";
-                table.Columns[2].HeaderText = "Status";
-                table.Columns[3].HeaderText = "Ordered Date";
-                table.Columns[4].HeaderText = "Quantity";
-
-                if (!table.Columns.Contains("CollectionRequest"))
-                {
-                    DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
-                    check.HeaderText = "Mark Delivered";
-                    check.Name = "Mark Delivered";
-                    check.Width = 150;
-                    check.ReadOnly = false;
-                    table.Columns.Insert(0,check);
-                }
-            }
-            else
-            {
-                tablenoti.Text = noti1.Text = "No Delivered Orders";
-            }
+            populate(query);
         }
 
         private void table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 && clicked == 1)
+            if (e.ColumnIndex == 0 && clicked == "req")
             {
                 Console.WriteLine(e.ColumnIndex);
-                string query = " Update orderhistory Set status ='on the way'  where history_id = '" + int.Parse(table.Rows[e.ColumnIndex].Cells["history_id"].Value.ToString()) + "'";
+                string query = "Update orderhistory Set status ='on the way'  where history_id = '" + int.Parse(table.Rows[e.ColumnIndex].Cells["history_id"].Value.ToString()) + "'";
                 db d = new db();
                 if (d.write(query) > 0)
                 {
                     noti1.Text = "on the way.";
-                    req.PerformClick(); 
+                    req.PerformClick();
 
                 }
                 else
@@ -274,26 +191,155 @@ namespace Farmlink
                     noti1.Text = "Failed.";
                 }
             }
-            else if (e.ColumnIndex == 0 && clicked == 2)
+            else if (e.ColumnIndex == 0 && clicked == "delevred")
             {
-                Console.WriteLine(e.ColumnIndex);
-                string query = " Update orderhistory Set status ='recived'  where history_id = '" + int.Parse(table.Rows[e.ColumnIndex].Cells["history_id"].Value.ToString()) + "'";
+                int rowIndex = e.RowIndex;
+
+                int historyId = int.Parse(table.Rows[rowIndex].Cells["history_id"].Value.ToString());
+                double price = double.Parse(table.Rows[rowIndex].Cells["total_price"].Value.ToString());
+
+                string query = "UPDATE orderhistory SET status = 'received' WHERE history_id = '"+historyId+"'";
+               //?if agent exist
+                string q2 = "SELECT a.comm_percent FROM agent a JOIN orderhistory o ON o.agent_id = a.agent_id WHERE o.history_id = '"+historyId+"'";
+
                 db d = new db();
+
                 if (d.write(query) > 0)
                 {
-                    noti1.Text = "on the way.";
+                    DataRow dr = d.read(q2);
+                    if (dr != null)
+                    {
+                        double comm = double.Parse(dr[0].ToString());
+                        double agent_share = (price * comm) / 100;
+                        double platform_share = price * p_share;
+                        double seller_share = price - (agent_share + platform_share);
+
+                        string q3 = "INSERT INTO pay_history (history_id, agent_share, platform_share, seller_share) " +
+                                    "VALUES ('"+historyId+"', '"+agent_share+"', '"+platform_share+"', '"+seller_share+"')";
+
+                        d.write(q3);
+                    }
+
+                    noti1.Text = "Delevred.";
                     Delevred.PerformClick();
                 }
-                else
-                {
-                    noti1.Text = "Failed.";
-                }
+
             }
-        }
+            else
+            {
+                noti1.Text = "Failed.";
+            }
+            }
+        
 
         private void backbtn_Click(object sender, EventArgs e)
         {
             tablepanel.Visible = false;
+        }
+
+        private void searchbox_TextChanged(object sender, EventArgs e)
+        {
+            if (clicked == "req")
+            {
+                string query = @"SELECT   
+                                    o.history_id,  
+                                    p.name AS product_name,  
+                                    o.status,  
+                                    o.date,  
+                                    o.quantity  
+                                FROM  
+                                    orderhistory o  
+                                JOIN  
+                                    product p ON o.product_id = p.product_id  
+                                WHERE  
+                                    o.status = 'Collection Request'  
+                                    AND (o.pay_meth = 'cod' OR o.pay_stat = 'paid')  
+                                    AND o.history_id LIKE '%" + searchbox.Text + @"%'  
+                                ORDER BY  
+                                    o.date DESC;";
+                populate(query);
+            }
+            else if (clicked == "delevred")
+            {
+                string query = @"SELECT   
+                                    o.history_id,  
+                                    p.name AS product_name,  
+                                    o.status,  
+                                    o.date,  
+                                    o.quantity,
+                                    o.total_price
+                                FROM  
+                                    orderhistory o  
+                                JOIN  
+                                    product p ON o.product_id = p.product_id  
+                                WHERE  
+                                    o.status = 'on the way' 
+                                    AND (o.pay_meth = 'cod' OR o.pay_stat = 'paid') 
+                                    AND o.history_id LIKE '%" + searchbox.Text + @"%'  
+                                ORDER BY  
+                                    o.date DESC;";
+                populate(query);
+            }else if (clicked == "Processing")
+            {
+                string query = @"SELECT   
+                                    o.history_id,  
+                                    p.name AS product_name,  
+                                    o.status,  
+                                    o.date,  
+                                    o.quantity  
+                                FROM  
+                                    orderhistory o  
+                                JOIN  
+                                    product p ON o.product_id = p.product_id  
+                                WHERE  
+                                    o.status = 'on the way' 
+                                    AND (o.pay_meth = 'cod' OR o.pay_stat = 'paid') 
+                                    AND o.history_id LIKE '%" + searchbox.Text + @"%'  
+                                ORDER BY  
+                                    o.date DESC;";
+                populate(query);
+            }
+            else if (clicked == "success")
+            {
+                string query = @"SELECT   
+                                    o.history_id,  
+                                    p.name AS product_name,  
+                                    o.status,  
+                                    o.date,  
+                                    o.quantity  
+                                FROM  
+                                    orderhistory o  
+                                JOIN  
+                                    product p ON o.product_id = p.product_id  
+                                WHERE  
+                                    o.status = 'received' 
+                                    AND (o.pay_meth = 'cod' OR o.pay_stat = 'paid') 
+                                    AND o.history_id LIKE '%" + searchbox.Text + @"%'  
+                                ORDER BY  
+                                    o.date DESC;";
+                populate(query);
+            }
+            else if (clicked == "failed")
+            {
+                string query = @"SELECT   
+                                    o.history_id,  
+                                    p.name AS product_name,  
+                                    o.status,  
+                                    o.date,  
+                                    o.quantity
+                                FROM  
+                                    orderhistory o  
+                                JOIN  
+                                    product p ON o.product_id = p.product_id  
+                                WHERE  
+                                     o.status like '%cancel%' 
+                                     AND (o.pay_meth = 'cod' OR o.pay_stat = 'paid') 
+                                     AND o.history_id LIKE '%" + searchbox.Text + @"%' 
+                                ORDER BY  
+                                     o.date DESC;";
+                populate(query);
+            }
+
         }
     }
 }

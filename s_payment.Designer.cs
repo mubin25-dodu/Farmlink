@@ -251,7 +251,7 @@
             this.mobilepay.Controls.Add(this.amount);
             this.mobilepay.Controls.Add(this.phone);
             this.mobilepay.Controls.Add(this.num);
-            this.mobilepay.Location = new System.Drawing.Point(349, 126);
+            this.mobilepay.Location = new System.Drawing.Point(324, 135);
             this.mobilepay.Name = "mobilepay";
             this.mobilepay.Size = new System.Drawing.Size(381, 475);
             this.mobilepay.TabIndex = 61;

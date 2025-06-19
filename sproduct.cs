@@ -46,6 +46,8 @@ namespace Farmlink
 
         private void addpro_Click(object sender, EventArgs e)
         {
+            searchbox.Hide();
+            searchbtn.Hide();
             products.Hide();
             noti.Text = "";
             listing.Visible = true;
@@ -60,6 +62,8 @@ namespace Farmlink
         {
             listing.Visible = false;
             products.Show();
+            searchbox.Show();
+            searchbtn.Show();
             noti.Text = " Double-click on the table cells to edit the product information.";
         }
 
@@ -126,17 +130,19 @@ namespace Farmlink
         {
 
         }
-
-        private void sproduct_Load(object sender, EventArgs e)
-        {  
-            //noti.Text = "";
-            string query = "SELECT * FROM product WHERE seller_id = '"+seller_id+"'";
+        private void loadproducts(string query) {
+            
+            
+               
             DataTable dt = new db().readAll(query);
             if (dt.Rows.Count > 0)
             {
+     
+                noti.Text = " Double-click on the table cells to edit the product information.\n " +
+                            "                               Products found -> "+dt.Rows.Count;
                 products.DataSource = dt;
                 //products.Columns[0].HeaderText = "Product ID";
-                products.Columns[6].ReadOnly = true; 
+                products.Columns[6].ReadOnly = true;
                 products.Columns[7].ReadOnly = true;
                 products.Columns[1].HeaderText = "Product Name";
                 products.Columns[2].HeaderText = "Description";
@@ -147,11 +153,20 @@ namespace Farmlink
                 products.Columns[7].HeaderText = "Agent ID";
 
                 
+
             }
             else
             {
-                MessageBox.Show("No products found for this seller.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               noti.Text= " No products found";
             }
+        }
+
+        private void sproduct_Load(object sender, EventArgs e)
+        {  
+            //noti.Text = "";
+            string query = "SELECT * FROM product WHERE seller_id = '"+seller_id+"'";
+            loadproducts(query);
+
         }
 
         private void agent_ass_CheckedChanged(object sender, EventArgs e)
@@ -206,55 +221,28 @@ namespace Farmlink
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void fillByToolStripButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.productTableAdapter.FillBy(this.farmlinkDataSet.product);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
 
         private void products_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+            //if (e.ColumnIndex == 8) {
+            //    // Remove button clicked
+            //    string productId = products.Rows[e.RowIndex].Cells[0].Value.ToString();
+            //    string query = "DELETE FROM product WHERE product_id = '" + productId + "'";
+            //    if (new db().write(query) > 0)
+            //    {
+            //        timer1.Start();
+            //        noti.Text = "Product removed successfully!";
+            //        loadproducts("SELECT * FROM product WHERE seller_id = '" + seller_id + "'");
+            //    }
+            //    else
+            //    {
+            //        timer1.Start();
+            //        noti.Text = "Failed to remove product. Please try again.";
+            //    }
+            //}
         }
 
-        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.productTableAdapter.FillBy1(this.farmlinkDataSet.product);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillBy1ToolStripButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.orderTableAdapter.FillBy1(this.farmlinkDataSet.order);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
+       
         private void products_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >-1) {
@@ -279,8 +267,12 @@ namespace Farmlink
                     timer1.Start();
                     noti.Text = "Failed to update product. Please try again.";
                 }
-                this.Refresh();
             }
+        }
+
+        private void searchbox_TextChanged(object sender, EventArgs e)
+        {
+            loadproducts("SELECT * FROM product WHERE seller_id = '" + seller_id + "' AND name LIKE '%" + searchbox.Text + "%'");
         }
 
         private void noti_Click(object sender, EventArgs e)

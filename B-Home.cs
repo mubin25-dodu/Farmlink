@@ -78,7 +78,10 @@ namespace Farmlink
             }
             else
             {
-                MessageBox.Show("No products found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               note.Text = "No products found.";
+                note.Visible = true;
+                display_product.Visible = false;
+                empty_cart.Hide();
             }
             dr.Clear();
         }
@@ -171,8 +174,11 @@ namespace Farmlink
 
                     if (db == null)
                     {
-                        MessageBox.Show("Product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        continue;
+                        display_product.Visible = false;
+                        note.Visible = true;
+                        empty_cart.Visible = true;
+                        totalamount.Hide();
+                        paymentbtn.Hide();
                     }
                     else
                     {
@@ -197,13 +203,10 @@ namespace Farmlink
             }
             else
             { 
-                note.Visible = true;
-                empty_cart.Visible = true;
-                totalamount.Hide();
-                paymentbtn.Hide();
+                
                 //note.BringToFront();
                 //empty_cart.BringToFront();
-                display_product.Visible = false;
+
   
 
             }
@@ -212,9 +215,11 @@ namespace Farmlink
         }
 
         public void home_Click(object sender, EventArgs e)
-        {
+        {            
+            cancelbtn.Hide();
             bpanel.Controls.Clear();
             bpanel.Controls.AddRange(new Control[] { display_product, searchbox, searchbtn });
+
             totalamount.Visible = false;
             paymentbtn.Visible = false;
             searchbox.Visible = true;
@@ -275,7 +280,7 @@ namespace Farmlink
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            LoadProducts("SELECT * FROM product where name like'%"+searchbox.Text+"%'");
         }
 
         private void bpanel_Paint_1(object sender, PaintEventArgs e)
@@ -285,8 +290,7 @@ namespace Farmlink
         private void display_product_Paint_2(object sender, PaintEventArgs e)
         {
 
-            //display_product.Location = new Point(100, 50);
-            //display_product.Dock = DockStyle.None; // Ensure manual positioning is used
+           
         }
 
         private void empty_cart_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -361,7 +365,7 @@ namespace Farmlink
                 display_product.Controls.Clear();
                 display_product.Hide();
                 bpanel.BringToFront();
-                Buyer_payment paymentControl = new Buyer_payment(uid,payable);
+                Buyer_payment paymentControl = new Buyer_payment(uid);
                 paymentControl.Visible = true;
                 bpanel.Controls.Add(paymentControl);
                 payable = 0;
