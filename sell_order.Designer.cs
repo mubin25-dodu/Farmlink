@@ -83,6 +83,7 @@
             this.table.Location = new System.Drawing.Point(3, 57);
             this.table.MultiSelect = false;
             this.table.Name = "table";
+            this.table.ReadOnly = true;
             this.table.RowHeadersVisible = false;
             this.table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.table.Size = new System.Drawing.Size(962, 476);
@@ -108,7 +109,7 @@
             this.tablepanel.Controls.Add(this.tablenoti);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.table);
-            this.tablepanel.Location = new System.Drawing.Point(52, 78);
+            this.tablepanel.Location = new System.Drawing.Point(77, 75);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 39;

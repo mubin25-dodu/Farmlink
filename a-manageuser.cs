@@ -12,10 +12,9 @@ namespace Farmlink
 {
     public partial class a_manageuser : UserControl
     {
-        string query;
-        string admin_id;
-        string clicked = " ";
-        string temp_id;
+        private string query;
+        private string admin_id;
+        private string clicked = " ";
         public a_manageuser(string id)
         {
             InitializeComponent();
@@ -51,7 +50,7 @@ namespace Farmlink
         private void ban_user_Click(object sender, EventArgs e)
         {
             clicked = "ban";
-            query = "select * from userinfo where status_ <> 'approved'";
+            query = "select * from userinfo where status_ <> '%approved%'";
             loadproducts(query);
         }
 
@@ -76,7 +75,28 @@ namespace Farmlink
             db d = new db();
             if (d.write(query) == 1)
             {
-                customer.PerformClick();
+                profilecard.Hide();
+
+                if (clicked == "customer") {
+                    query = "select * from userinfo where status_ ='approved' and uid like '%cu-%'";
+
+                }
+                else if (clicked == "ban") {
+                    query = "select * from userinfo where status_ <> 'approved'";
+                }
+                else if (clicked == "agent")
+                {
+                    query = "select * from userinfo where status_ ='approved' and uid like '%ag-%'";
+                }
+                else if (clicked == "seller")
+                {
+                    query = "select * from userinfo where status_ ='approved' and uid like '%se-%'";
+                }
+                else if (clicked == "agdmin")
+                {
+                    query = "select * from userinfo where status_ ='approved' and uid like '%ad-%'";
+                }
+                loadproducts(query);
             }
             else
             {
@@ -90,7 +110,7 @@ namespace Farmlink
             if (e.ColumnIndex==0) { 
                     profilecard.Show();
                     userid.Text =table.Rows[e.RowIndex].Cells["uid"].Value.ToString();
-                    Console.WriteLine(temp_id+"------");
+
                     name.Text = "Name:" + table.Rows[e.RowIndex].Cells["fullname"].Value.ToString();
                     mail.Text = "Mail:"+table.Rows[e.RowIndex].Cells["mail"].Value.ToString();
                     address.Text ="Address:"+ table.Rows[e.RowIndex].Cells["fulladdress"].Value.ToString();
@@ -181,6 +201,18 @@ namespace Farmlink
                 query = "select * from userinfo where status_ ='approved' and uid like '%se-%' and (fullname like '%" + searchbox.Text + "%' or fulladdress like '%" + searchbox.Text + "%' or uid like '%" + searchbox.Text + "%')";
             }
 
+            loadproducts(query);
+        }
+
+        private void andmincount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void admin_Click(object sender, EventArgs e)
+        {
+            clicked = "agdmin";
+            query = "select * from userinfo where status_ ='approved' and uid like '%ad-%'";
             loadproducts(query);
         }
     }

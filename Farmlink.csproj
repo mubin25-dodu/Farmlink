@@ -104,6 +104,12 @@
     <Compile Include="agent_home.Designer.cs">
       <DependentUpon>agent_home.cs</DependentUpon>
     </Compile>
+    <Compile Include="agent_products.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="agent_products.Designer.cs">
+      <DependentUpon>agent_products.cs</DependentUpon>
+    </Compile>
     <Compile Include="a_orders.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="agent_home.resx">
       <DependentUpon>agent_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="agent_products.resx">
+      <DependentUpon>agent_products.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="A_home.resx">
       <DependentUpon>A_home.cs</DependentUpon>

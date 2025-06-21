@@ -1,9 +1,11 @@
-﻿using System;
+﻿using CefSharp.DevTools.FedCm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,20 +29,20 @@ namespace Farmlink
         private void a_payment_Load(object sender, EventArgs e)
         {
             tablepanel.Hide();
-            query = "select sum(agent_share + platform_share + seller_share) from pay_history ";
+            string query = @"SELECT 
+                                SUM(agent_share + platform_share + seller_share) AS total_amount,
+                                SUM(agent_share) AS agent_fee,
+                                SUM(platform_share) AS platform_fee,
+                                SUM(seller_share) AS seller_fee
+                            FROM pay_history;
+";
+
             db d = new db();
             DataRow dr = d.read(query);
             Total.Text = "Total Amount: " + dr[0].ToString() + " BDT";
-            query = "select sum(agent_share) from pay_history";
-            dr = d.read(query);
-            agent.Text = "Agent Fee: " + dr[0].ToString() + " BDT";
-            query = "select sum(platform_share) from pay_history";
-            dr = d.read(query);
-            platform.Text = "Platform Fee: " + dr[0].ToString() + " BDT";
-            query = "select sum(seller_share) from pay_history";
-            dr = d.read(query);
-            seller.Text = "Withdrawable Amount: " + dr[0].ToString() + " BDT";
-
+            agent.Text = "Agent Fee: " +  dr[1].ToString() + " BDT";
+            platform.Text = "Platform Fee: " + dr[2].ToString()  + " BDT";
+            seller.Text = "Withdrawable Amount: " +dr[3].ToString() + " BDT";
             query = "select sum(amount) from withdraw";
             dr = d.read(query);
             widthdrawd.Text = "Withdrawed Amount: " + dr[0].ToString() + " BDT";
@@ -70,6 +72,41 @@ namespace Farmlink
         {
             tablepanel.Hide();
             table.DataSource = null;
+            searchbox.Text = "";
+        }
+
+        private void searchbox_TextChanged(object sender, EventArgs e)
+        {
+            tablepanel.Show();
+            query = "select * from withdraw where uid like '%" + searchbox.Text + "%'";
+
+            db d = new db();
+            DataTable dt = d.readAll(query);
+            if (dt.Rows.Count > 0)
+            {
+                tablepanel.Show();
+                table.DataSource = dt;
+                table.AutoGenerateColumns = true;
+                query = "select sum(amount) as total from withdraw where uid like '%" + searchbox.Text + "%'";
+                dt = d.readAll(query);
+                noti.Text = "Withdrawed Amount: " + dt.Rows[0]["total"].ToString() + " BDT";
+
+            }
+            else
+            {
+                noti.Text = "No withdraw history found.";
+                table.DataSource = null;
+            }
+        }
+
+        private void searchbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

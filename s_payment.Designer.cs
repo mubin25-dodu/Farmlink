@@ -69,7 +69,7 @@
             this.Total.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Total.ForeColor = System.Drawing.Color.PeachPuff;
             this.Total.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Total.Location = new System.Drawing.Point(158, 237);
+            this.Total.Location = new System.Drawing.Point(219, 205);
             this.Total.Name = "Total";
             this.Total.Size = new System.Drawing.Size(190, 64);
             this.Total.TabIndex = 48;
@@ -81,11 +81,12 @@
             this.Withdrawn.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Withdrawn.ForeColor = System.Drawing.Color.PeachPuff;
             this.Withdrawn.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Withdrawn.Location = new System.Drawing.Point(158, 477);
+            this.Withdrawn.Location = new System.Drawing.Point(773, 204);
             this.Withdrawn.Name = "Withdrawn";
             this.Withdrawn.Size = new System.Drawing.Size(190, 64);
             this.Withdrawn.TabIndex = 55;
             this.Withdrawn.Text = "count";
+            this.Withdrawn.Click += new System.EventHandler(this.Withdrawn_Click);
             // 
             // Withdrawnbtn
             // 
@@ -94,7 +95,7 @@
             this.Withdrawnbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Withdrawnbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Withdrawnbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Withdrawnbtn.Location = new System.Drawing.Point(134, 379);
+            this.Withdrawnbtn.Location = new System.Drawing.Point(749, 106);
             this.Withdrawnbtn.Name = "Withdrawnbtn";
             this.Withdrawnbtn.Padding = new System.Windows.Forms.Padding(0, 0, 50, 120);
             this.Withdrawnbtn.Size = new System.Drawing.Size(237, 213);
@@ -103,6 +104,7 @@
             this.Withdrawnbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Withdrawnbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Withdrawnbtn.UseVisualStyleBackColor = false;
+            this.Withdrawnbtn.Click += new System.EventHandler(this.Withdrawnbtn_Click);
             // 
             // Withdraw
             // 
@@ -110,11 +112,12 @@
             this.Withdraw.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Withdraw.ForeColor = System.Drawing.Color.PeachPuff;
             this.Withdraw.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Withdraw.Location = new System.Drawing.Point(715, 237);
+            this.Withdraw.Location = new System.Drawing.Point(503, 206);
             this.Withdraw.Name = "Withdraw";
             this.Withdraw.Size = new System.Drawing.Size(190, 54);
             this.Withdraw.TabIndex = 53;
             this.Withdraw.Text = "count";
+            this.Withdraw.Click += new System.EventHandler(this.Withdraw_Click);
             // 
             // Withdrawabtn
             // 
@@ -123,7 +126,7 @@
             this.Withdrawabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Withdrawabtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Withdrawabtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Withdrawabtn.Location = new System.Drawing.Point(688, 137);
+            this.Withdrawabtn.Location = new System.Drawing.Point(476, 106);
             this.Withdrawabtn.Name = "Withdrawabtn";
             this.Withdrawabtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 120);
             this.Withdrawabtn.Size = new System.Drawing.Size(237, 213);
@@ -140,7 +143,7 @@
             this.Pending.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pending.ForeColor = System.Drawing.Color.PeachPuff;
             this.Pending.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Pending.Location = new System.Drawing.Point(438, 237);
+            this.Pending.Location = new System.Drawing.Point(218, 447);
             this.Pending.Name = "Pending";
             this.Pending.Size = new System.Drawing.Size(190, 64);
             this.Pending.TabIndex = 51;
@@ -153,7 +156,7 @@
             this.Pendingcard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Pendingcard.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pendingcard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Pendingcard.Location = new System.Drawing.Point(415, 137);
+            this.Pendingcard.Location = new System.Drawing.Point(195, 347);
             this.Pendingcard.Name = "Pendingcard";
             this.Pendingcard.Padding = new System.Windows.Forms.Padding(0, 0, 50, 120);
             this.Pendingcard.Size = new System.Drawing.Size(237, 213);
@@ -172,7 +175,7 @@
             this.Totalcard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Totalcard.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Totalcard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Totalcard.Location = new System.Drawing.Point(134, 135);
+            this.Totalcard.Location = new System.Drawing.Point(195, 103);
             this.Totalcard.Name = "Totalcard";
             this.Totalcard.Padding = new System.Windows.Forms.Padding(0, 0, 50, 120);
             this.Totalcard.Size = new System.Drawing.Size(237, 213);
@@ -190,7 +193,7 @@
             this.Platformfeebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Platformfeebtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Platformfeebtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Platformfeebtn.Location = new System.Drawing.Point(415, 379);
+            this.Platformfeebtn.Location = new System.Drawing.Point(476, 347);
             this.Platformfeebtn.Name = "Platformfeebtn";
             this.Platformfeebtn.Padding = new System.Windows.Forms.Padding(0, 0, 0, 120);
             this.Platformfeebtn.Size = new System.Drawing.Size(237, 213);
@@ -207,7 +210,7 @@
             this.platformfee.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.platformfee.ForeColor = System.Drawing.Color.PeachPuff;
             this.platformfee.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.platformfee.Location = new System.Drawing.Point(438, 477);
+            this.platformfee.Location = new System.Drawing.Point(499, 445);
             this.platformfee.Name = "platformfee";
             this.platformfee.Size = new System.Drawing.Size(190, 64);
             this.platformfee.TabIndex = 58;
@@ -220,7 +223,7 @@
             this.agentfee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.agentfee.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.agentfee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.agentfee.Location = new System.Drawing.Point(688, 379);
+            this.agentfee.Location = new System.Drawing.Point(749, 347);
             this.agentfee.Name = "agentfee";
             this.agentfee.Padding = new System.Windows.Forms.Padding(0, 0, 0, 120);
             this.agentfee.Size = new System.Drawing.Size(237, 213);
@@ -236,7 +239,7 @@
             this.agent.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.agent.ForeColor = System.Drawing.Color.PeachPuff;
             this.agent.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.agent.Location = new System.Drawing.Point(711, 477);
+            this.agent.Location = new System.Drawing.Point(772, 445);
             this.agent.Name = "agent";
             this.agent.Size = new System.Drawing.Size(190, 64);
             this.agent.TabIndex = 60;
@@ -251,7 +254,7 @@
             this.mobilepay.Controls.Add(this.amount);
             this.mobilepay.Controls.Add(this.phone);
             this.mobilepay.Controls.Add(this.num);
-            this.mobilepay.Location = new System.Drawing.Point(324, 135);
+            this.mobilepay.Location = new System.Drawing.Point(404, 94);
             this.mobilepay.Name = "mobilepay";
             this.mobilepay.Size = new System.Drawing.Size(381, 475);
             this.mobilepay.TabIndex = 61;
@@ -313,9 +316,9 @@
             this.amount.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.amount.Location = new System.Drawing.Point(42, 217);
             this.amount.Name = "amount";
-            this.amount.Size = new System.Drawing.Size(108, 28);
+            this.amount.Size = new System.Drawing.Size(162, 28);
             this.amount.TabIndex = 16;
-            this.amount.Text = "Enter Pin";
+            this.amount.Text = "Enter Amount";
             // 
             // phone
             // 
@@ -325,9 +328,9 @@
             this.phone.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.phone.Location = new System.Drawing.Point(42, 133);
             this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(236, 28);
+            this.phone.Size = new System.Drawing.Size(257, 28);
             this.phone.TabIndex = 15;
-            this.phone.Text = "Enter Phone Number";
+            this.phone.Text = "Enter Account Number";
             // 
             // num
             // 

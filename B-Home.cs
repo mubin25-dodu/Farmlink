@@ -13,14 +13,13 @@ namespace Farmlink
 {
     public partial class B_Home : Form
     {
-        string uid;  
-        string name;
-        double payable = 0;
-        string seller_id;
-        string agent_id;
-        double quanti,now_available;
-        int buttonpress = 0;
-        string propic;
+        private string uid;  
+        private string name;
+        private double payable = 0;
+        private string seller_id;
+        private string agent_id;
+        private double quanti,now_available;
+        private string propic;
 
 
         //int product_id;
@@ -123,7 +122,7 @@ namespace Farmlink
                
                 intro form2 = new intro();
                 form2.Show();
-                this.Hide();
+                this.Close();
             }
         }
 

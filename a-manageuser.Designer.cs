@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(a_manageuser));
             this.noti1 = new System.Windows.Forms.Label();
             this.noti2 = new System.Windows.Forms.Label();
@@ -40,6 +40,9 @@
             this.agents = new System.Windows.Forms.Button();
             this.table = new System.Windows.Forms.DataGridView();
             this.tablepanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.searchbtn = new System.Windows.Forms.Button();
+            this.searchbox = new System.Windows.Forms.TextBox();
             this.profilecard = new System.Windows.Forms.Panel();
             this.crossbtn = new System.Windows.Forms.Button();
             this.userid = new System.Windows.Forms.Label();
@@ -53,9 +56,8 @@
             this.backbtn = new System.Windows.Forms.Button();
             this.seller = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.searchbtn = new System.Windows.Forms.Button();
-            this.searchbox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.andmincount = new System.Windows.Forms.Label();
+            this.admin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.tablepanel.SuspendLayout();
             this.profilecard.SuspendLayout();
@@ -157,34 +159,34 @@
             // 
             this.table.AllowUserToAddRows = false;
             this.table.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            this.table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.table.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.table.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.table.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.table.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.table.DefaultCellStyle = dataGridViewCellStyle6;
             this.table.Location = new System.Drawing.Point(1, 58);
             this.table.MultiSelect = false;
             this.table.Name = "table";
@@ -205,10 +207,58 @@
             this.tablepanel.Controls.Add(this.tablenoti);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.table);
-            this.tablepanel.Location = new System.Drawing.Point(97, 98);
+            this.tablepanel.Location = new System.Drawing.Point(97, 104);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 60;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.LightGray;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label2.Location = new System.Drawing.Point(658, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(265, 19);
+            this.label2.TabIndex = 71;
+            this.label2.Text = "Search by Name > ID > Status or District";
+            // 
+            // searchbtn
+            // 
+            this.searchbtn.AutoSize = true;
+            this.searchbtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.searchbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbtn.ForeColor = System.Drawing.Color.White;
+            this.searchbtn.Image = global::Farmlink.Properties.Resources.transparency;
+            this.searchbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.searchbtn.Location = new System.Drawing.Point(917, 24);
+            this.searchbtn.Margin = new System.Windows.Forms.Padding(300, 3, 3, 3);
+            this.searchbtn.Name = "searchbtn";
+            this.searchbtn.Size = new System.Drawing.Size(32, 32);
+            this.searchbtn.TabIndex = 70;
+            this.searchbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.searchbtn.UseVisualStyleBackColor = false;
+            // 
+            // searchbox
+            // 
+            this.searchbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.searchbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.searchbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.searchbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.searchbox.Location = new System.Drawing.Point(660, 24);
+            this.searchbox.Multiline = true;
+            this.searchbox.Name = "searchbox";
+            this.searchbox.Size = new System.Drawing.Size(258, 32);
+            this.searchbox.TabIndex = 69;
+            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
             // 
             // profilecard
             // 
@@ -221,7 +271,7 @@
             this.profilecard.Controls.Add(this.address);
             this.profilecard.Controls.Add(this.name);
             this.profilecard.Controls.Add(this.profile);
-            this.profilecard.Location = new System.Drawing.Point(316, 136);
+            this.profilecard.Location = new System.Drawing.Point(312, 58);
             this.profilecard.Name = "profilecard";
             this.profilecard.Size = new System.Drawing.Size(322, 417);
             this.profilecard.TabIndex = 68;
@@ -398,53 +448,36 @@
             this.label1.TabIndex = 66;
             this.label1.Text = "count";
             // 
-            // searchbtn
+            // andmincount
             // 
-            this.searchbtn.AutoSize = true;
-            this.searchbtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.searchbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.searchbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.searchbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchbtn.ForeColor = System.Drawing.Color.White;
-            this.searchbtn.Image = global::Farmlink.Properties.Resources.transparency;
-            this.searchbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.searchbtn.Location = new System.Drawing.Point(917, 24);
-            this.searchbtn.Margin = new System.Windows.Forms.Padding(300, 3, 3, 3);
-            this.searchbtn.Name = "searchbtn";
-            this.searchbtn.Size = new System.Drawing.Size(32, 32);
-            this.searchbtn.TabIndex = 70;
-            this.searchbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.searchbtn.UseVisualStyleBackColor = false;
+            this.andmincount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.andmincount.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.andmincount.ForeColor = System.Drawing.Color.PeachPuff;
+            this.andmincount.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.andmincount.Location = new System.Drawing.Point(472, 500);
+            this.andmincount.Name = "andmincount";
+            this.andmincount.Size = new System.Drawing.Size(190, 44);
+            this.andmincount.TabIndex = 68;
+            this.andmincount.Text = "count";
+            this.andmincount.Click += new System.EventHandler(this.andmincount_Click);
             // 
-            // searchbox
+            // admin
             // 
-            this.searchbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.searchbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.searchbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            this.searchbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.searchbox.Location = new System.Drawing.Point(660, 24);
-            this.searchbox.Multiline = true;
-            this.searchbox.Name = "searchbox";
-            this.searchbox.Size = new System.Drawing.Size(258, 32);
-            this.searchbox.TabIndex = 69;
-            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label2.Location = new System.Drawing.Point(658, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(265, 19);
-            this.label2.TabIndex = 71;
-            this.label2.Text = "Search by Name > ID > Status or District";
+            this.admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.admin.Cursor = System.Windows.Forms.Cursors.Default;
+            this.admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.admin.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.admin.Location = new System.Drawing.Point(448, 400);
+            this.admin.Name = "admin";
+            this.admin.Padding = new System.Windows.Forms.Padding(0, 0, 50, 120);
+            this.admin.Size = new System.Drawing.Size(237, 213);
+            this.admin.TabIndex = 69;
+            this.admin.Text = "Active Admins";
+            this.admin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.admin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.admin.UseVisualStyleBackColor = false;
+            this.admin.Click += new System.EventHandler(this.admin_Click);
             // 
             // a_manageuser
             // 
@@ -462,6 +495,8 @@
             this.Controls.Add(this.ban_user);
             this.Controls.Add(this.delev);
             this.Controls.Add(this.agents);
+            this.Controls.Add(this.andmincount);
+            this.Controls.Add(this.admin);
             this.DoubleBuffered = true;
             this.Name = "a_manageuser";
             this.Size = new System.Drawing.Size(1165, 770);
@@ -502,5 +537,7 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button searchbtn;
         private System.Windows.Forms.TextBox searchbox;
+        private System.Windows.Forms.Label andmincount;
+        public System.Windows.Forms.Button admin;
     }
 }

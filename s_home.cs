@@ -88,17 +88,15 @@ namespace Farmlink
         private void button4_Click(object sender, EventArgs e)
         {
             spanel.Controls.Clear();
-            sell_order signinControl = new sell_order(id);
+            sell_order signinControl = new sell_order(id, "seller_id");
             signinControl.Dock = DockStyle.Fill;
             spanel.Controls.Add(signinControl);
         }
 
         private void payment_Click(object sender, EventArgs e)
         {
-         
-
             spanel.Controls.Clear();
-            s_payment a = new s_payment(id);
+            s_payment a = new s_payment(id , "seller_id");
             a.Dock = DockStyle.Fill;
             spanel.Controls.Add(a);
         }
@@ -118,7 +116,7 @@ namespace Farmlink
             profilecard.Hide();
             tablepanel.Show();
             tablepanel.BringToFront();
-            string query = "select  u.fullname as fullname , u.mail as mail , profile_pic as pro , district as area2, working_area_2 as address, comm_percent  as comm,rating as rate, agent_id as agent from userinfo u join agent a on a.agent_id = u.uid where status_ = 'approved' and working_area_2 = '"+district+"' or district = '"+district+"' ";
+            string query = "select  u.fullname as fullname , u.mail as mail , profile_pic as pro , district as area2, working_area_2 as address, comm_percent  as comm,rating as rate, agent_id as agent from userinfo u join agent a on a.agent_id = u.uid where status_ like '%approved%' and working_area_2 = '" + district+"' or district = '"+district+"' ";
             DataTable dt = new db().readAll(query);
             if (dt != null && dt.Rows.Count > 0)
             {

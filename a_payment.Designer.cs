@@ -46,6 +46,9 @@
             this.table = new System.Windows.Forms.DataGridView();
             this.widthdrawd = new System.Windows.Forms.Label();
             this.widthdraw = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.searchbtn = new System.Windows.Forms.Button();
+            this.searchbox = new System.Windows.Forms.TextBox();
             this.tablepanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
@@ -172,6 +175,9 @@
             // tablepanel
             // 
             this.tablepanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tablepanel.Controls.Add(this.label2);
+            this.tablepanel.Controls.Add(this.searchbtn);
+            this.tablepanel.Controls.Add(this.searchbox);
             this.tablepanel.Controls.Add(this.noti);
             this.tablepanel.Controls.Add(this.button5);
             this.tablepanel.Controls.Add(this.table);
@@ -283,6 +289,56 @@
             this.widthdraw.UseVisualStyleBackColor = false;
             this.widthdraw.Click += new System.EventHandler(this.widthdraw_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.LightGray;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label2.Location = new System.Drawing.Point(653, -1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 19);
+            this.label2.TabIndex = 77;
+            this.label2.Text = "Search by ID ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // searchbtn
+            // 
+            this.searchbtn.AutoSize = true;
+            this.searchbtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.searchbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbtn.ForeColor = System.Drawing.Color.White;
+            this.searchbtn.Image = global::Farmlink.Properties.Resources.transparency;
+            this.searchbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.searchbtn.Location = new System.Drawing.Point(912, 20);
+            this.searchbtn.Margin = new System.Windows.Forms.Padding(300, 3, 3, 3);
+            this.searchbtn.Name = "searchbtn";
+            this.searchbtn.Size = new System.Drawing.Size(32, 32);
+            this.searchbtn.TabIndex = 76;
+            this.searchbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.searchbtn.UseVisualStyleBackColor = false;
+            this.searchbtn.Click += new System.EventHandler(this.searchbtn_Click);
+            // 
+            // searchbox
+            // 
+            this.searchbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.searchbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.searchbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.searchbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.searchbox.Location = new System.Drawing.Point(655, 20);
+            this.searchbox.Multiline = true;
+            this.searchbox.Name = "searchbox";
+            this.searchbox.Size = new System.Drawing.Size(258, 32);
+            this.searchbox.TabIndex = 75;
+            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
+            // 
             // a_payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,5 +384,8 @@
         private System.Windows.Forms.DataGridView table;
         private System.Windows.Forms.Label widthdrawd;
         public System.Windows.Forms.Button widthdraw;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Button searchbtn;
+        private System.Windows.Forms.TextBox searchbox;
     }
 }

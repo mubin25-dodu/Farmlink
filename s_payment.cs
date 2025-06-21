@@ -14,13 +14,15 @@ namespace Farmlink
     public partial class s_payment : UserControl
     {
         string seller_id;
-        string query;
+        string query,query2;
         double withdrawable_balance;
-        public s_payment(string id)
+        private string role;
+        public s_payment(string id , string r)
         {
             InitializeComponent();
 
             this.seller_id = id;
+            this.role = r;
 
 
         }
@@ -34,35 +36,71 @@ namespace Farmlink
         {
             mobilepay.Visible = false;
 
-            query = "SELECT SUM(ISNULL(p.seller_share,0)) AS total_sell,  " +
-                " SUM(ISNULL(p.seller_share,0) - ISNULL(w.amount,0)) AS withdrawable_balance,  " +
-                " SUM(ISNULL(w.amount,0)) AS total_withdrawn, sum(ISNULL(p.platform_share,0)) as platformshare,  sum(ISNULL(p.agent_share,0)) as " +
-                "agentshare FROM pay_history p JOIN orderhistory o ON o.history_id = p.history_id LEFT JOIN withdraw w ON  w.uid = o.seller_id  " +
-                "WHERE o.seller_id = '" + seller_id + "' and status = 'received' ";
-            string query2 = "select SUM( ISNULL(total_price, 0)) AS total_sales from orderhistory where seller_id='"+seller_id+"' and status = 'on the way' ";
             db d = new db();
-            DataRow drr = d.read(query2);
-            DataRow dr = d.read(query);
-                Pending.Text = "Pending Amount: " + (0+ drr[0].ToString()) + " BDT";
-            
-            if (dr != null && dr[0] != DBNull.Value)
+            if (role == "agent_id")
             {
-                Total.Text = "Total Amount: " + dr[0].ToString() + " BDT";
-                Withdraw.Text = "Withdrawable Amount: " + dr[1].ToString() + " BDT";
-                Withdrawn.Text = "Withdrawed Amount: " + dr[2].ToString() + " BDT";
-                platformfee.Text = "Platform Fee: " + dr[3].ToString() + " BDT";
-                agent.Text = "Agent Fee: " + dr[4].ToString() + " BDT";
+                query = "SELECT  sum(ISNULL(p.agent_share,0)) AS total_sell,  " +
+                   " SUM(ISNULL(p.agent_share,0) - ISNULL(w.amount,0)) AS withdrawable_balance,  " +
+                   " SUM(ISNULL(w.amount,0)) AS total_withdrawn " +
+                   " FROM pay_history p JOIN orderhistory o ON o.history_id = p.history_id LEFT JOIN withdraw w ON  w.uid = o." + role + "  " +
+                   "WHERE o." + role + " = '" + seller_id + "' and status = 'received' ";
 
-                withdrawable_balance = double.Parse(dr[1].ToString());
+                DataRow dr = d.read(query);
+                if (dr != null && dr[0] != DBNull.Value)
+                {
+                    Total.Text = "Total Amount: " + dr[0].ToString() + " BDT";
+                    Withdraw.Text = "Withdrawable Amount: " + dr[1].ToString() + " BDT";
+                    Withdrawn.Text = "Withdrawed Amount: " + dr[2].ToString() + " BDT";
+                    withdrawable_balance = double.Parse(dr[1].ToString());
+                    platformfee.Hide();
+                    Platformfeebtn.Hide();
+                    agent.Hide();
+                    agentfee.Hide();
+                    Pending.Hide();
+                    Pendingcard.Hide();
+
+                }
+                else
+                {
+                    Total.Text = "Total Amount: 0 BDT";
+                    Withdraw.Text = "Withdrawable Amount: 0 BDT";
+                    Withdrawn.Text = "Withdrawed Amount: 0 BDT";
+
+                }
+
             }
-            else
+            else if (role=="seller_id")
             {
-                Total.Text = "Total Amount: 0 BDT";
-                Withdraw.Text = "Withdrawable Amount: 0 BDT";
-                Withdrawn.Text = "Withdrawed Amount: 0 BDT";
-                platformfee.Text = "Platform Fee: 0 BDT";
-                agentfee.Text = "Agent Fee: 0 BDT";
+                query = "SELECT SUM(ISNULL(p.seller_share,0)) AS total_sell,  " +
+                    " SUM(ISNULL(p.seller_share,0) - ISNULL(w.amount,0)) AS withdrawable_balance,  " +
+                    " SUM(ISNULL(w.amount,0)) AS total_withdrawn, sum(ISNULL(p.platform_share,0)) as platformshare,  sum(ISNULL(p.agent_share,0)) as " +
+                    "agentshare FROM pay_history p JOIN orderhistory o ON o.history_id = p.history_id LEFT JOIN withdraw w ON  w.uid = o." + role + "  " +
+                    "WHERE o." + role + " = '" + seller_id + "' and status = 'received' ";
+                query2 = "select SUM( ISNULL(total_price, 0)) AS total_sales from orderhistory where seller_id='" + seller_id + "' and status = 'on the way' ";
+                DataRow drr = d.read(query2);
+                Pending.Text = "Pending Amount: " + (0 + drr[0].ToString()) + " BDT";
+                DataRow dr = d.read(query);
+                if (dr != null && dr[0] != DBNull.Value)
+                {
+                    Total.Text = "Total Amount: " + dr[0].ToString() + " BDT";
+                    Withdraw.Text = "Withdrawable Amount: " + dr[1].ToString() + " BDT";
+                    Withdrawn.Text = "Withdrawed Amount: " + dr[2].ToString() + " BDT";
+                    platformfee.Text = "Platform Fee: " + dr[3].ToString() + " BDT";
+                    agent.Text = "Agent Fee: " + dr[4].ToString() + " BDT";
+
+                    withdrawable_balance = double.Parse(dr[1].ToString());
+                }
+                else
+                {
+                    Total.Text = "Total Amount: 0 BDT";
+                    Withdraw.Text = "Withdrawable Amount: 0 BDT";
+                    Withdrawn.Text = "Withdrawed Amount: 0 BDT";
+                    platformfee.Text = "Platform Fee: 0 BDT";
+                    agentfee.Text = "Agent Fee: 0 BDT";
+                }
             }
+    
+
         }
 
         private void Platformfeebtn_Click(object sender, EventArgs e)
@@ -87,7 +125,7 @@ namespace Farmlink
                 {
                     MessageBox.Show("Withdraw successfull.");
                     mobilepay.Visible = false;
-                    s_payment k = new s_payment(seller_id);
+                    s_payment k = new s_payment(seller_id ,"seller_id");
                 }
                 else
                 {
@@ -104,8 +142,23 @@ namespace Farmlink
 
         private void backbtn_Click(object sender, EventArgs e)
         {
-            s_payment k = new s_payment(seller_id);
+            s_payment k = new s_payment(seller_id ,"seller_id");
             mobilepay.Visible = false;
+
+        }
+
+        private void Withdrawnbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Withdrawn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Withdraw_Click(object sender, EventArgs e)
+        {
 
         }
     }

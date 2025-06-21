@@ -25,13 +25,14 @@ namespace Farmlink
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Size = new Size(1366, 768);
+            tablepanel.Hide();
         }
 
         private void orderbtn_Click(object sender, EventArgs e)
         {
              apanel.Controls.Clear();
              a_orders aOrdersControl = new a_orders();
-                apanel.Controls.Add(aOrdersControl);
+             apanel.Controls.Add(aOrdersControl);
 
         }
 
@@ -59,6 +60,18 @@ namespace Farmlink
                 intro form2 = new intro();
                 form2.Show(); this.Visible = false;
             }
+        }
+
+        private void apanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            apanel.Controls.Clear();
+            apanel.Controls.AddRange(new Control[] { Total, Totalcard, hireag, tablepanel , agent_section });
+            tablepanel.Hide();
         }
     }
 }

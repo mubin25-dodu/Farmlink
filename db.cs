@@ -50,7 +50,7 @@ namespace Farmlink
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand(q, con);
-                       int i = cmd.ExecuteNonQuery();
+                    int i = cmd.ExecuteNonQuery();
                     return i;
                 }
             }

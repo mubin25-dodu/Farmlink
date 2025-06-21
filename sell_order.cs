@@ -13,11 +13,13 @@ namespace Farmlink
 {
     public partial class sell_order : UserControl
     {
-        private string seller_id;
-        public sell_order(string id)
+        private string id;
+        private string role;
+        public sell_order(string i, string r)
         {
             InitializeComponent();
-            this.seller_id = id;
+            this.id = i;
+            this.role = r;
         }
 
         private void sell_order_Load(object sender, EventArgs e)
@@ -27,16 +29,16 @@ namespace Farmlink
             populate("processing", "on the way");
             tablepanel.Visible = false;
             db d = new db();
-            DataTable dt = d.readAll(" select history_id from orderhistory where seller_id = '" + seller_id + "' and ( status ='processing' or status = 'Collection Request')");
+            DataTable dt = d.readAll($"select history_id from orderhistory where {role} = '{id}' and (status = 'processing' or status = 'Collection Request')");
             noti1.Text = "pending orders-> " + (dt.Rows.Count.ToString());
             dt.Clear();
-            DataTable dr = d.readAll(" select history_id from orderhistory where seller_id = '" + seller_id + "' and status ='on the way'");
+            DataTable dr = d.readAll(" select history_id from orderhistory where " + role+ " = '" + id + "' and status ='on the way'");
             noti2.Text = "on the way orders-> " + (dt.Rows.Count.ToString());
             dr.Clear();
-            DataTable drr = d.readAll(" select history_id from orderhistory where seller_id = '" + seller_id + "' and status ='delivered'");
+            DataTable drr = d.readAll(" select history_id from orderhistory where " + role+ " = '" + id + "' and status ='delivered'");
             noti3.Text = "delivered orders-> " + (drr.Rows.Count.ToString());
             drr.Clear();
-            DataTable drrr = d.readAll(" select history_id from orderhistory where seller_id = '" + seller_id + "' and (status ='canceled -> customer' or status = 'canceled -> seller' or status = 'canceled -> agent')");
+            DataTable drrr = d.readAll(" select history_id from orderhistory where " + role + " = '" + id + "' and (status = 'canceled -> customer' or status = 'canceled -> seller' or status = 'canceled -> agent')");
             noti4.Text = "cancelled orders-> " + (drrr.Rows.Count.ToString());
             drrr.Clear();
         }
@@ -58,7 +60,7 @@ namespace Farmlink
                             JOIN  
                                 product p ON o.product_id = p.product_id  
                             WHERE  
-                                o.seller_id = '" + seller_id + @"'  
+                                o."+role+" = '" + id + @"'  
                                 AND o.status = '" + stat + @"'  
                                 AND (o.pay_meth = 'cod' OR o.pay_stat = 'paid')  
                             ORDER BY  
@@ -101,7 +103,7 @@ namespace Farmlink
             if (e.ColumnIndex == 0)
             {
                 Console.WriteLine(e.ColumnIndex);
-                int id = int.Parse(table.Rows[e.RowIndex].Cells["history_id"].Value.ToString());
+                int i = int.Parse(table.Rows[e.RowIndex].Cells["history_id"].Value.ToString());
                 string check = "select status from orderhistory where history_id = '"+id+"'";
                 db d = new db();
                 DataRow dr = d.read(check);
@@ -109,7 +111,7 @@ namespace Farmlink
                 if (dr[0].ToString() == "processing")
                 {
 
-                    string query = " Update orderhistory Set status ='Collection Request'  where history_id = '" + id + "'";
+                    string query = " Update orderhistory Set status ='Collection Request'  where history_id = '" + i + "'";
                     if (d.write(query) > 0)
                     {
                         tablenoti.Text = "Collection request sent successfully.";
@@ -158,7 +160,7 @@ namespace Farmlink
                         JOIN  
                             product p ON o.product_id = p.product_id  
                         WHERE  
-                            o.seller_id = 'se-0001'  
+                            o."+role+" = '"+id+@"'  
                             and  (o.status = 'processing'
                             or o.status ='Collection Request')
                             and( o.pay_meth =  'cod' or   
@@ -237,7 +239,7 @@ namespace Farmlink
                             JOIN  
                                 product p ON o.product_id = p.product_id  
                             WHERE  
-                                o.seller_id = '" + seller_id + @"'  
+                                o."+role+" = '" + id + @"'  
                                and o.status like '%cancel%' 
                                 AND (o.pay_meth = 'cod' OR o.pay_stat = 'paid')  
                             ORDER BY  

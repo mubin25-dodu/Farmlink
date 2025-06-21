@@ -187,6 +187,7 @@
             this.home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.home.UseVisualStyleBackColor = false;
+            this.home.Click += new System.EventHandler(this.home_Click);
             // 
             // uid
             // 
@@ -227,6 +228,7 @@
             this.apanel.Name = "apanel";
             this.apanel.Size = new System.Drawing.Size(1165, 729);
             this.apanel.TabIndex = 5;
+            this.apanel.Paint += new System.Windows.Forms.PaintEventHandler(this.apanel_Paint);
             // 
             // tablepanel
             // 
@@ -235,7 +237,7 @@
             this.tablepanel.Controls.Add(this.agentcount);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.agenttable);
-            this.tablepanel.Location = new System.Drawing.Point(71, 221);
+            this.tablepanel.Location = new System.Drawing.Point(91, 71);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 67;

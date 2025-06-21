@@ -17,28 +17,13 @@ namespace Farmlink
 {
     public partial class login : Form
     {
-        private void MakeButtonRounded(Button btn, int radius)
-        {
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(btn.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(btn.Width - radius, btn.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, btn.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-            btn.Region = new Region(path);
-        }
         public login()
         {
             InitializeComponent();
-            MakeButtonRounded(button1, 40); 
-            MakeButtonRounded(getstarted, 40);
-
+         
         }
 
-        private void login_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -60,11 +45,6 @@ namespace Farmlink
 
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             
@@ -75,7 +55,6 @@ namespace Farmlink
             string query = "SELECT * FROM userinfo WHERE mail = '" + email + "' AND pass = '"+password+"'";
             db db = new db();
             DataRow data = db.read(query);
-
             if (this.mail.Text == "" && this.pass.Text == "")
             {
                 MessageBox.Show("Please fill the boxes", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -87,37 +66,40 @@ namespace Farmlink
                 pass.Clear();
             }
             else if (data != null)
+               
             {
-                if (data[6].ToString()== "approved") { 
-                
+                if ( data[6].ToString()== "approved") { 
+                 //Console.WriteLine(data[6].ToString().Substring(0, 8));
                     string r = data[5].ToString();
                     if (r.Equals("customer", StringComparison.OrdinalIgnoreCase))
                     {
-                        this.Visible = false;
+                        this.Close();
+
                         B_Home b_Home = new B_Home(data[0].ToString());
                         b_Home.Visible = true;
                     }
                     else if (r.Equals("seller", StringComparison.OrdinalIgnoreCase))
                     {
-                        this.Visible = false;
+                        this.Close();
                         S_Home b_Home = new S_Home(data[0].ToString());
                         b_Home.Visible = true;
                     }
                     else if (r.Equals("agent", StringComparison.OrdinalIgnoreCase))
                     {
-                        //this.Visible = false;
-                        //S_Home b_Home = new S_Home();
-                        //b_Home.Visible = true;
+                        this.Close();
+                        agent_home b_Home = new agent_home(data[0].ToString());
+                        b_Home.Visible = true;
                     }
                     else if (r.Equals("Admin", StringComparison.OrdinalIgnoreCase))
                     {
-                        this.Visible = false;
+                        this.Close();
+
                         A_home b_Home = new A_home(data[0].ToString());
                         b_Home.Visible = true;
                     }
                 }
                 else { 
-                    MessageBox.Show("You are not allowed to log in.\n Wait for few hours if you are new.\n or else contact support", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("You are not allowed to log in.\nWait for few hours if you are new.\nor else contact support", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                
             } 
@@ -126,7 +108,8 @@ namespace Farmlink
 
         private void getstarted_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
+
             signin signin = new signin();
             signin.Visible = true;
         }
