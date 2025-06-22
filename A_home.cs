@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CefSharp.DevTools.Autofill;
+using CefSharp.DevTools.Profiler;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Farmlink
 {
@@ -70,8 +73,59 @@ namespace Farmlink
         private void home_Click(object sender, EventArgs e)
         {
             apanel.Controls.Clear();
-            apanel.Controls.AddRange(new Control[] { Total, Totalcard, hireag, tablepanel , agent_section });
+            apanel.Controls.AddRange(new Control[] { tablepanel , agent_section });
             tablepanel.Hide();
+        }
+
+        private void agent_section_Click(object sender, EventArgs e)
+        {
+            tablepanel.Show();
+            string query = "SELECT * FROM agent where status <> 'approved'";
+            db d = new db();
+            DataTable dt = d.readAll(query);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                agentcount.Text = "Number Of request -> " + dt.Rows.Count;
+                agenttable.AutoGenerateColumns = true;
+                agenttable.DataSource = dt;
+
+
+                if (agenttable.Columns.Contains("Accept"))
+                {
+                    agenttable.Columns.Remove("Accept");
+                }
+
+                DataGridViewButtonColumn cancel = new DataGridViewButtonColumn();
+                cancel.HeaderText = " hire agent ";
+                cancel.Text = "Accept";
+                cancel.Name = "Accept";
+                cancel.UseColumnTextForButtonValue = true;
+                cancel.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                agenttable.Columns.Insert(0, cancel);
+            }
+        }
+
+        private void backbtn_Click(object sender, EventArgs e)
+        {
+            tablepanel.Hide();
+        }
+
+        private void agenttable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                string query = "update agent set status = 'approved' where agent_id = '" + agenttable.Rows[e.RowIndex].Cells["agent_id"].Value.ToString() + "'";
+                db d = new db();
+                if (d.write(query) == 1)
+                {
+                    MessageBox.Show("Agent Approved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Failed to approve agent.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

@@ -104,8 +104,9 @@ namespace Farmlink
             {
                 Console.WriteLine(e.ColumnIndex);
                 int i = int.Parse(table.Rows[e.RowIndex].Cells["history_id"].Value.ToString());
-                string check = "select status from orderhistory where history_id = '"+id+"'";
+                string check = "select status from orderhistory where history_id = '"+i+"'";
                 db d = new db();
+                Console.WriteLine(i+"sadas");
                 DataRow dr = d.read(check);
 
                 if (dr[0].ToString() == "processing")
@@ -160,13 +161,16 @@ namespace Farmlink
                         JOIN  
                             product p ON o.product_id = p.product_id  
                         WHERE  
-                            o."+role+" = '"+id+@"'  
+                            o."+role+" = '"+id+ @"'  
                             and  (o.status = 'processing'
                             or o.status ='Collection Request')
-                            and( o.pay_meth =  'cod' or   
-                            o.pay_stat = 'paid')  
+                            
                         ORDER BY  
                             o.date DESC;";
+
+            //and(o.pay_meth = 'cod' or
+
+            //               o.pay_stat = 'paid')
 
             db d = new db();
             DataTable dt = d.readAll(query);
@@ -181,16 +185,16 @@ namespace Farmlink
                 table.Columns[3].HeaderText = "Ordered Date";
                 table.Columns[4].HeaderText = "Quantity";
 
-                if (!table.Columns.Contains("CollectionRequest"))
+                if (table.Columns.Contains("Request"))
                 {
-                    DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
-                    check.HeaderText = "Collection Request";
-                    check.Name = "CollectionRequest";
-                    check.Width = 150;
-                    check.ReadOnly = false;
-                    table.Columns.Insert(0, check);
-
+                    table.Columns.Remove("Request");
                 }
+                DataGridViewButtonColumn profile = new DataGridViewButtonColumn();
+                profile.HeaderText = "Collection Request";
+                profile.Text = "Request";
+                profile.UseColumnTextForButtonValue = true;
+                profile.Name = "Request";
+                table.Columns.Insert(0, profile);
 
 
             }

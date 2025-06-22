@@ -43,29 +43,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.apanel = new System.Windows.Forms.Panel();
             this.tablepanel = new System.Windows.Forms.Panel();
-            this.profilecard = new System.Windows.Forms.Panel();
-            this.mail = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.donep = new System.Windows.Forms.Button();
-            this.comm = new System.Windows.Forms.Label();
-            this.workingwith = new System.Windows.Forms.Label();
-            this.workarea = new System.Windows.Forms.Label();
-            this.rating = new System.Windows.Forms.Label();
-            this.name = new System.Windows.Forms.Label();
-            this.profile = new System.Windows.Forms.PictureBox();
             this.agentcount = new System.Windows.Forms.Label();
             this.backbtn = new System.Windows.Forms.Button();
             this.agenttable = new System.Windows.Forms.DataGridView();
-            this.hireag = new System.Windows.Forms.Label();
             this.agent_section = new System.Windows.Forms.Button();
-            this.Total = new System.Windows.Forms.Label();
-            this.Totalcard = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.apanel.SuspendLayout();
             this.tablepanel.SuspendLayout();
-            this.profilecard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agenttable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -219,10 +204,7 @@
             this.apanel.BackgroundImage = global::Farmlink.Properties.Resources.background;
             this.apanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.apanel.Controls.Add(this.tablepanel);
-            this.apanel.Controls.Add(this.hireag);
             this.apanel.Controls.Add(this.agent_section);
-            this.apanel.Controls.Add(this.Total);
-            this.apanel.Controls.Add(this.Totalcard);
             this.apanel.ForeColor = System.Drawing.SystemColors.Control;
             this.apanel.Location = new System.Drawing.Point(185, 0);
             this.apanel.Name = "apanel";
@@ -233,145 +215,13 @@
             // tablepanel
             // 
             this.tablepanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tablepanel.Controls.Add(this.profilecard);
             this.tablepanel.Controls.Add(this.agentcount);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.agenttable);
-            this.tablepanel.Location = new System.Drawing.Point(91, 71);
+            this.tablepanel.Location = new System.Drawing.Point(78, 64);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 67;
-            // 
-            // profilecard
-            // 
-            this.profilecard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.profilecard.Controls.Add(this.mail);
-            this.profilecard.Controls.Add(this.button1);
-            this.profilecard.Controls.Add(this.donep);
-            this.profilecard.Controls.Add(this.comm);
-            this.profilecard.Controls.Add(this.workingwith);
-            this.profilecard.Controls.Add(this.workarea);
-            this.profilecard.Controls.Add(this.rating);
-            this.profilecard.Controls.Add(this.name);
-            this.profilecard.Controls.Add(this.profile);
-            this.profilecard.Location = new System.Drawing.Point(303, 57);
-            this.profilecard.Name = "profilecard";
-            this.profilecard.Size = new System.Drawing.Size(322, 417);
-            this.profilecard.TabIndex = 50;
-            // 
-            // mail
-            // 
-            this.mail.AutoSize = true;
-            this.mail.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mail.ForeColor = System.Drawing.Color.White;
-            this.mail.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.mail.Location = new System.Drawing.Point(4, 318);
-            this.mail.Name = "mail";
-            this.mail.Size = new System.Drawing.Size(42, 21);
-            this.mail.TabIndex = 31;
-            this.mail.Text = "mail";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1, 379);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(321, 38);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Cancel";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // donep
-            // 
-            this.donep.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.donep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            this.donep.Cursor = System.Windows.Forms.Cursors.Default;
-            this.donep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.donep.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.donep.Location = new System.Drawing.Point(-2, 342);
-            this.donep.Name = "donep";
-            this.donep.Size = new System.Drawing.Size(324, 38);
-            this.donep.TabIndex = 29;
-            this.donep.Text = "Hire Request";
-            this.donep.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.donep.UseVisualStyleBackColor = false;
-            // 
-            // comm
-            // 
-            this.comm.AutoSize = true;
-            this.comm.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comm.ForeColor = System.Drawing.Color.White;
-            this.comm.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.comm.Location = new System.Drawing.Point(261, 286);
-            this.comm.Name = "comm";
-            this.comm.Size = new System.Drawing.Size(58, 21);
-            this.comm.TabIndex = 28;
-            this.comm.Text = "comm";
-            // 
-            // workingwith
-            // 
-            this.workingwith.AutoSize = true;
-            this.workingwith.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.workingwith.ForeColor = System.Drawing.Color.White;
-            this.workingwith.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.workingwith.Location = new System.Drawing.Point(4, 254);
-            this.workingwith.Name = "workingwith";
-            this.workingwith.Size = new System.Drawing.Size(105, 21);
-            this.workingwith.TabIndex = 27;
-            this.workingwith.Text = "workingwith";
-            // 
-            // workarea
-            // 
-            this.workarea.AutoSize = true;
-            this.workarea.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.workarea.ForeColor = System.Drawing.Color.White;
-            this.workarea.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.workarea.Location = new System.Drawing.Point(4, 286);
-            this.workarea.Name = "workarea";
-            this.workarea.Size = new System.Drawing.Size(43, 21);
-            this.workarea.TabIndex = 26;
-            this.workarea.Text = "area";
-            // 
-            // rating
-            // 
-            this.rating.AutoSize = true;
-            this.rating.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rating.ForeColor = System.Drawing.Color.White;
-            this.rating.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.rating.Location = new System.Drawing.Point(281, 228);
-            this.rating.Name = "rating";
-            this.rating.Size = new System.Drawing.Size(38, 16);
-            this.rating.TabIndex = 25;
-            this.rating.Text = "rating";
-            // 
-            // name
-            // 
-            this.name.AutoSize = true;
-            this.name.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name.ForeColor = System.Drawing.Color.White;
-            this.name.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.name.Location = new System.Drawing.Point(3, 218);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(71, 28);
-            this.name.TabIndex = 24;
-            this.name.Text = "name";
-            // 
-            // profile
-            // 
-            this.profile.Location = new System.Drawing.Point(0, 0);
-            this.profile.Name = "profile";
-            this.profile.Size = new System.Drawing.Size(322, 215);
-            this.profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.profile.TabIndex = 23;
-            this.profile.TabStop = false;
             // 
             // agentcount
             // 
@@ -403,6 +253,7 @@
             this.backbtn.TabIndex = 48;
             this.backbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.backbtn.UseVisualStyleBackColor = false;
+            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
             // 
             // agenttable
             // 
@@ -443,18 +294,7 @@
             this.agenttable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.agenttable.Size = new System.Drawing.Size(962, 476);
             this.agenttable.TabIndex = 30;
-            // 
-            // hireag
-            // 
-            this.hireag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.hireag.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hireag.ForeColor = System.Drawing.Color.PeachPuff;
-            this.hireag.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.hireag.Location = new System.Drawing.Point(507, 236);
-            this.hireag.Name = "hireag";
-            this.hireag.Size = new System.Drawing.Size(190, 64);
-            this.hireag.TabIndex = 66;
-            this.hireag.Text = "count";
+            this.agenttable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.agenttable_CellContentClick);
             // 
             // agent_section
             // 
@@ -463,7 +303,7 @@
             this.agent_section.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.agent_section.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.agent_section.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.agent_section.Location = new System.Drawing.Point(487, 136);
+            this.agent_section.Location = new System.Drawing.Point(137, 64);
             this.agent_section.Name = "agent_section";
             this.agent_section.Padding = new System.Windows.Forms.Padding(0, 0, 0, 120);
             this.agent_section.Size = new System.Drawing.Size(237, 213);
@@ -472,37 +312,7 @@
             this.agent_section.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.agent_section.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.agent_section.UseVisualStyleBackColor = false;
-            // 
-            // Total
-            // 
-            this.Total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.Total.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Total.ForeColor = System.Drawing.Color.PeachPuff;
-            this.Total.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Total.Location = new System.Drawing.Point(211, 238);
-            this.Total.Name = "Total";
-            this.Total.Size = new System.Drawing.Size(190, 64);
-            this.Total.TabIndex = 61;
-            this.Total.Text = "count";
-            // 
-            // Totalcard
-            // 
-            this.Totalcard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.Totalcard.CausesValidation = false;
-            this.Totalcard.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Totalcard.Enabled = false;
-            this.Totalcard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Totalcard.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Totalcard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Totalcard.Location = new System.Drawing.Point(187, 136);
-            this.Totalcard.Name = "Totalcard";
-            this.Totalcard.Padding = new System.Windows.Forms.Padding(0, 0, 50, 120);
-            this.Totalcard.Size = new System.Drawing.Size(237, 213);
-            this.Totalcard.TabIndex = 62;
-            this.Totalcard.Text = "Total Earnings";
-            this.Totalcard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Totalcard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Totalcard.UseVisualStyleBackColor = false;
+            this.agent_section.Click += new System.EventHandler(this.agent_section_Click);
             // 
             // A_home
             // 
@@ -520,9 +330,6 @@
             this.apanel.ResumeLayout(false);
             this.tablepanel.ResumeLayout(false);
             this.tablepanel.PerformLayout();
-            this.profilecard.ResumeLayout(false);
-            this.profilecard.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agenttable)).EndInit();
             this.ResumeLayout(false);
 
@@ -539,23 +346,10 @@
         public System.Windows.Forms.Button home;
         private System.Windows.Forms.LinkLabel uid;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label hireag;
         public System.Windows.Forms.Button agent_section;
-        private System.Windows.Forms.Label Total;
-        public System.Windows.Forms.Button Totalcard;
         public System.Windows.Forms.Button backbtn;
         private System.Windows.Forms.DataGridView agenttable;
-        private System.Windows.Forms.Label mail;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button donep;
-        private System.Windows.Forms.Label comm;
-        private System.Windows.Forms.Label workingwith;
         private System.Windows.Forms.Label agentcount;
-        private System.Windows.Forms.Label workarea;
-        private System.Windows.Forms.Label name;
-        private System.Windows.Forms.PictureBox profile;
-        private System.Windows.Forms.Panel profilecard;
-        private System.Windows.Forms.Label rating;
         private System.Windows.Forms.Panel tablepanel;
         private System.Windows.Forms.Panel apanel;
     }

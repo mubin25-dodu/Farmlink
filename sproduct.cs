@@ -65,6 +65,8 @@ namespace Farmlink
             searchbox.Show();
             searchbtn.Show();
             noti.Text = " Double-click on the table cells to edit the product information.";
+            string query = "SELECT * FROM product WHERE seller_id = '" + seller_id + "'";
+            loadproducts(query);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -141,7 +143,7 @@ namespace Farmlink
                 noti.Text = " Double-click on the table cells to edit the product information.\n " +
                             "                               Products found -> "+dt.Rows.Count;
                 products.DataSource = dt;
-                //products.Columns[0].HeaderText = "Product ID";
+                products.Columns[0].Visible=false;
                 products.Columns[6].ReadOnly = true;
                 products.Columns[7].ReadOnly = true;
                 products.Columns[1].HeaderText = "Product Name";
@@ -151,8 +153,6 @@ namespace Farmlink
                 products.Columns[5].HeaderText = "Image Path";
                 products.Columns[6].HeaderText = "Seller ID";
                 products.Columns[7].HeaderText = "Agent ID";
-
-                
 
             }
             else
@@ -178,7 +178,7 @@ namespace Farmlink
                 DataRow dt = n.read(query);
                 if (n.read(query) != null)
                 {
-                    noti.Text = "You don't have any agent select from agent section";
+                    noti.Text = "You'r agent assigned " ;
 
                     this.agent = dt[0].ToString();
                 }

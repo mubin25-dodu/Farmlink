@@ -116,7 +116,7 @@ namespace Farmlink
             profilecard.Hide();
             tablepanel.Show();
             tablepanel.BringToFront();
-            string query = "select  u.fullname as fullname , u.mail as mail , profile_pic as pro , district as area2, working_area_2 as address, comm_percent  as comm,rating as rate, agent_id as agent from userinfo u join agent a on a.agent_id = u.uid where status_ like '%approved%' and working_area_2 = '" + district+"' or district = '"+district+"' ";
+            string query = "select  u.fullname as fullname , u.mail as mail , profile_pic as pro , district as area2, working_area_2 as address, comm_percent  as comm,rating as rate, agent_id as agent from userinfo u join agent a on a.agent_id = u.uid where status_ = 'approved' and (working_area_2 = '" + district+"' or district = '"+district+"') ";
             DataTable dt = new db().readAll(query);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -179,18 +179,28 @@ namespace Farmlink
         }
 
         private void donep_Click(object sender, EventArgs e)
-        {
-            string query = "insert into commission values('"+id+"','pending','"+agent_id+"' )";
-            db d = new db();
-            if (d.write(query) > 0)
+        {   db d = new db();
+            string q= "select * from commission where agent_id = '" + agent_id + "' and seller_id = '"+id+"'";
+            DataRow dr = d.read(q);
+            if (dr != null)
             {
-                MessageBox.Show("request send. wait for responce", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                profilecard.Hide();
-                tablepanel.Hide();
+                MessageBox.Show("You have already hired this agent.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
             else
             {
-                MessageBox.Show("Failed to hire agent. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string query = "insert into commission values('" + id + "','pending','" + agent_id + "' )";
+
+                if (d.write(query) > 0)
+                {
+                    MessageBox.Show("request send. wait for responce", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    profilecard.Hide();
+                    tablepanel.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to hire agent. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

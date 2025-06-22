@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Farmlink
 {
-    public partial class bhome : UserControl 
+    public partial class ordercard : UserControl 
     {
         double ava = 0;
         double price = 0;
@@ -20,7 +20,7 @@ namespace Farmlink
         int pid;
         string query;
         bool added_tocart = false;
-        public bhome( string name , double pr ,string des,string img,double av,int p,string i)
+        public ordercard( string name , double pr ,string des,string img,double av,int p,string i)
         {
             InitializeComponent();
             // Set the product details

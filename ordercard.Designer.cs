@@ -1,6 +1,6 @@
 ﻿namespace Farmlink
 {
-    partial class bhome
+    partial class ordercard
     {
         /// <summary> 
         /// Required designer variable.

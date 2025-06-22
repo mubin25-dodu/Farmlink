@@ -30,6 +30,7 @@ namespace Farmlink
             DataTable dt = d.readAll(query);
             if (dt.Rows != null)
             {
+                tablenoti.Text = "User found -> "+dt.Rows.Count.ToString();
                 table.DataSource = dt;
                 table.AutoGenerateColumns = true;
 
@@ -50,7 +51,8 @@ namespace Farmlink
         private void ban_user_Click(object sender, EventArgs e)
         {
             clicked = "ban";
-            query = "select * from userinfo where status_ <> '%approved%'";
+            query = "select * from userinfo where status_ <> 'approved'";
+            count.Text = new db().readAll(query).Rows.Count.ToString() ;
             loadproducts(query);
         }
 
@@ -59,14 +61,25 @@ namespace Farmlink
             table.DataSource = null;
             tablepanel.Hide();
             profilecard.Hide();
+            query = "select * from userinfo where status_ <> 'approved'";
+            count.Text = new db().readAll(query).Rows.Count.ToString();
 
         }
 
         private void accept_Click(object sender, EventArgs e)
         {
-            if (accept.Text != "Ban User")
+            if (accept.Text == "Ban User" && userid.Text == "ad-0000") {
+        
+                    MessageBox.Show("Nice Try. Do It Again");
+                    
+            }
+            else if (accept.Text != "Ban User")
             {
+                accept.Text = "Accept";
+                reject.Show();
                 query = "update userinfo set status_ = 'approved' where uid = '" + userid.Text + "'";
+
+
             }
             else
             {
@@ -100,31 +113,37 @@ namespace Farmlink
             }
             else
             {
-                MessageBox.Show("Failed to approve user.");
+                tablenoti.Text = "Failed to approve user.";
             }
         }
 
         private void table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-       
-            if (e.ColumnIndex==0) { 
-                    profilecard.Show();
-                    userid.Text =table.Rows[e.RowIndex].Cells["uid"].Value.ToString();
 
-                    name.Text = "Name:" + table.Rows[e.RowIndex].Cells["fullname"].Value.ToString();
-                    mail.Text = "Mail:"+table.Rows[e.RowIndex].Cells["mail"].Value.ToString();
-                    address.Text ="Address:"+ table.Rows[e.RowIndex].Cells["fulladdress"].Value.ToString();
-                    profile.Image = Image.FromFile(table.Rows[e.RowIndex].Cells["profile_pic"].Value.ToString());
-                if (table.Rows[e.RowIndex].Cells["status_"].Value.ToString() == "ban") { 
-                 reject.Hide();
-                 accept.Text = "Unban User";
+            if (e.ColumnIndex == 0)
+            {
+                profilecard.Show();
+                userid.Text = table.Rows[e.RowIndex].Cells["uid"].Value.ToString();
+
+                name.Text = "Name:" + table.Rows[e.RowIndex].Cells["fullname"].Value.ToString();
+                mail.Text = "Mail:" + table.Rows[e.RowIndex].Cells["mail"].Value.ToString();
+                address.Text = "Address:" + table.Rows[e.RowIndex].Cells["fulladdress"].Value.ToString();
+                profile.Image = Image.FromFile(table.Rows[e.RowIndex].Cells["profile_pic"].Value.ToString());
+                if (table.Rows[e.RowIndex].Cells["status_"].Value.ToString() == "ban")
+                {
+                    reject.Hide();
+                    accept.Text = "Unban User";
                 }
-                if (table.Rows[e.RowIndex].Cells["status_"].Value.ToString() == "approved")
+                 if (table.Rows[e.RowIndex].Cells["status_"].Value.ToString() == "approved")
                 {
                     reject.Hide();
                     accept.Text = "Ban User";
-                }
 
+
+
+
+
+                }
             }
         }
 
@@ -177,6 +196,8 @@ namespace Farmlink
 
         private void a_manageuser_Load(object sender, EventArgs e)
         {
+            query = "select * from userinfo where status_ <> 'approved'";
+            count.Text = new db().readAll(query).Rows.Count.ToString(); 
             tablepanel.Hide();
             profilecard.Hide();
          

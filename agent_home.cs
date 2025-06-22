@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.PerformanceData;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace Farmlink
     {
         private string agent_id;
         private string query;
+        private string seller_id;
 
         public agent_home( string id)
         {
@@ -22,20 +24,26 @@ namespace Farmlink
         }
 
         private void agent_home_Load(object sender, EventArgs e)
-        {
+        {   
+            count.Hide();
+            Req.PerformClick();
             tablepanel.Hide();
             profilecard.Hide();
+           agent.Hide();
+
         }
 
         private void Req_Click(object sender, EventArgs e)
         {
+
             tablepanel.Show();
             query = "select * from commission where agent_id = '"+agent_id+"' and status = 'pending'";
             db d = new db();
             DataTable dt = d.readAll(query);
             if (dt.Rows.Count > 0)
             {
-                tablepanel.Show();
+                count.Show();
+                count.Text = dt.Rows.Count.ToString();
                 table.DataSource = dt;
                 table.AutoGenerateColumns = true;
                 if (table.Columns.Contains("Profile"))
@@ -60,8 +68,9 @@ namespace Farmlink
             if (e.ColumnIndex == 0)
             {
                 profilecard.Show();
-                 string seller_id = table.Rows[e.RowIndex].Cells["seller_id"].Value.ToString();
+                 seller_id = table.Rows[e.RowIndex].Cells["seller_id"].Value.ToString();
                 query = "select * from userinfo where uid = '"+seller_id+"' ";
+
 
                 db d = new db();
                 DataRow dr = d.read(query);
@@ -146,10 +155,21 @@ namespace Farmlink
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             query = "update commission set status = 'rejected' where agent_id = '" + agent_id + "' ";
             db d = new db();
-            if (d.write(query) == 1)
+            if (cancel.Text== "cancel" && d.write(query) == 1)
             {
+                profilecard.Hide();
+                table.DataSource = null;
+                Req.PerformClick();
+            }
+            else if (cancel.Text=="Remove") {
+                string query = "update product set agent_id = NULL from product where seller_id ='"+seller_id+"' and agent_id = '"+agent_id+"' ";
+                string q2 = "delete from commission where agent_id= '"+agent_id+"' and seller_id ='"+seller_id+"' ";
+                db d2 = new db();
+                d2.write(query);
+                d2.write(q2);
                 profilecard.Hide();
                 table.DataSource = null;
                 Req.PerformClick();
@@ -169,7 +189,7 @@ namespace Farmlink
         {
             tablepanel.Show();
             accept.Hide();
-            cancel.Hide();
+            cancel.Text ="Remove";
             query = "select * from commission where agent_id = '" + agent_id + "' and status = 'accepted'";
             db d = new db();
             DataTable dt = d.readAll(query);
@@ -188,6 +208,8 @@ namespace Farmlink
                 profile.UseColumnTextForButtonValue = true;
                 profile.Name = "Profile";
                 table.Columns.Insert(0, profile);
+
+              
             }
             else
             {
@@ -225,6 +247,58 @@ namespace Farmlink
             spanel.Controls.Clear();
             spanel.Controls.Add(paymentControl);
 
+        }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            spanel.Controls.Remove(tablepanel);
+            spanel.Controls.Clear();
+            spanel.Controls.AddRange( new Control[] { tablepanel , Req , sellers, count , info } );
+            tablepanel.Hide();
+
+        }
+
+        private void profilecard_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        private void info_Click(object sender, EventArgs e)
+        {
+            string query = "select * from agent where agent_id = '" + agent_id + "' and status <> 'approved'";
+            db d = new db();
+            DataRow dr = d.read(query);
+            if (dr != null)
+            {
+                MessageBox.Show("you are already an agent. or wait for few min", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                agent.Show();
+            }
+            
+        }
+
+        private void apply_Click_1(object sender, EventArgs e)
+        {
+            string query = "insert into agent (agent_id , name , working_area_2 ,  comm_percent , status) values ('" + agent_id + "','" + fullname.Text + "','" + district.Text + "' , '" + comm.Text + "' , 'pending')";
+            db d = new db();
+            if (d.write(query) == 1)
+            {
+                MessageBox.Show("Request sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                agent.Hide();
+               
+            }
+            else
+            {
+                MessageBox.Show("Failed to send request.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            agent.Hide();
         }
     }
 }

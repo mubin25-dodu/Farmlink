@@ -253,7 +253,7 @@
             this.display_product.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.display_product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.display_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.display_product.Location = new System.Drawing.Point(30, 87);
+            this.display_product.Location = new System.Drawing.Point(37, 87);
             this.display_product.Name = "display_product";
             this.display_product.Size = new System.Drawing.Size(1150, 660);
             this.display_product.TabIndex = 22;
@@ -265,7 +265,7 @@
             this.note.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.note.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
             this.note.Location = new System.Drawing.Point(316, 326);
-            this.note.Margin = new System.Windows.Forms.Padding(250, 200, 300, 0);
+            this.note.Margin = new System.Windows.Forms.Padding(250, 200, 30, 0);
             this.note.Name = "note";
             this.note.Size = new System.Drawing.Size(614, 56);
             this.note.TabIndex = 31;
@@ -282,7 +282,7 @@
             this.empty_cart.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.empty_cart.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
             this.empty_cart.Location = new System.Drawing.Point(315, 389);
-            this.empty_cart.Margin = new System.Windows.Forms.Padding(250, 50, 350, 100);
+            this.empty_cart.Margin = new System.Windows.Forms.Padding(250, 50, 50, 100);
             this.empty_cart.Name = "empty_cart";
             this.empty_cart.Size = new System.Drawing.Size(533, 31);
             this.empty_cart.TabIndex = 32;

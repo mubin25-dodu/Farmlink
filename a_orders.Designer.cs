@@ -39,16 +39,12 @@
             this.tablenoti = new System.Windows.Forms.Label();
             this.backbtn = new System.Windows.Forms.Button();
             this.table = new System.Windows.Forms.DataGridView();
-            this.noti1 = new System.Windows.Forms.Label();
-            this.noti4 = new System.Windows.Forms.Label();
             this.failed = new System.Windows.Forms.Button();
-            this.noti3 = new System.Windows.Forms.Label();
             this.success = new System.Windows.Forms.Button();
-            this.noti2 = new System.Windows.Forms.Label();
             this.Processing = new System.Windows.Forms.Button();
             this.req = new System.Windows.Forms.Button();
-            this.delev = new System.Windows.Forms.Label();
             this.Delevred = new System.Windows.Forms.Button();
+            this.count = new System.Windows.Forms.Label();
             this.tablepanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +58,7 @@
             this.tablepanel.Controls.Add(this.tablenoti);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.table);
-            this.tablepanel.Location = new System.Drawing.Point(104, 98);
+            this.tablepanel.Location = new System.Drawing.Point(102, 67);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 49;
@@ -188,30 +184,6 @@
             this.table.TabIndex = 30;
             this.table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.table_CellClick);
             // 
-            // noti1
-            // 
-            this.noti1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.noti1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noti1.ForeColor = System.Drawing.Color.PeachPuff;
-            this.noti1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.noti1.Location = new System.Drawing.Point(193, 209);
-            this.noti1.Name = "noti1";
-            this.noti1.Size = new System.Drawing.Size(190, 44);
-            this.noti1.TabIndex = 48;
-            this.noti1.Text = "count";
-            // 
-            // noti4
-            // 
-            this.noti4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.noti4.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noti4.ForeColor = System.Drawing.Color.PeachPuff;
-            this.noti4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.noti4.Location = new System.Drawing.Point(474, 463);
-            this.noti4.Name = "noti4";
-            this.noti4.Size = new System.Drawing.Size(190, 40);
-            this.noti4.TabIndex = 55;
-            this.noti4.Text = "count";
-            // 
             // failed
             // 
             this.failed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
@@ -230,18 +202,6 @@
             this.failed.UseVisualStyleBackColor = false;
             this.failed.Click += new System.EventHandler(this.failed_Click);
             // 
-            // noti3
-            // 
-            this.noti3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.noti3.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noti3.ForeColor = System.Drawing.Color.PeachPuff;
-            this.noti3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.noti3.Location = new System.Drawing.Point(192, 465);
-            this.noti3.Name = "noti3";
-            this.noti3.Size = new System.Drawing.Size(190, 44);
-            this.noti3.TabIndex = 53;
-            this.noti3.Text = "count";
-            // 
             // success
             // 
             this.success.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
@@ -259,18 +219,6 @@
             this.success.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.success.UseVisualStyleBackColor = false;
             this.success.Click += new System.EventHandler(this.success_Click);
-            // 
-            // noti2
-            // 
-            this.noti2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.noti2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noti2.ForeColor = System.Drawing.Color.PeachPuff;
-            this.noti2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.noti2.Location = new System.Drawing.Point(473, 209);
-            this.noti2.Name = "noti2";
-            this.noti2.Size = new System.Drawing.Size(190, 44);
-            this.noti2.TabIndex = 51;
-            this.noti2.Text = "count";
             // 
             // Processing
             // 
@@ -308,18 +256,6 @@
             this.req.UseVisualStyleBackColor = false;
             this.req.Click += new System.EventHandler(this.req_Click);
             // 
-            // delev
-            // 
-            this.delev.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.delev.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delev.ForeColor = System.Drawing.Color.PeachPuff;
-            this.delev.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.delev.Location = new System.Drawing.Point(744, 209);
-            this.delev.Name = "delev";
-            this.delev.Size = new System.Drawing.Size(190, 44);
-            this.delev.TabIndex = 57;
-            this.delev.Text = "count";
-            // 
             // Delevred
             // 
             this.Delevred.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
@@ -338,6 +274,20 @@
             this.Delevred.UseVisualStyleBackColor = false;
             this.Delevred.Click += new System.EventHandler(this.Delevred_Click);
             // 
+            // count
+            // 
+            this.count.AutoEllipsis = true;
+            this.count.AutoSize = true;
+            this.count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.count.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.count.ForeColor = System.Drawing.Color.Red;
+            this.count.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.count.Location = new System.Drawing.Point(181, 284);
+            this.count.Name = "count";
+            this.count.Size = new System.Drawing.Size(74, 28);
+            this.count.TabIndex = 48;
+            this.count.Text = "count";
+            // 
             // a_orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,15 +296,11 @@
             this.BackgroundImage = global::Farmlink.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Controls.Add(this.tablepanel);
-            this.Controls.Add(this.noti1);
-            this.Controls.Add(this.noti4);
+            this.Controls.Add(this.count);
             this.Controls.Add(this.failed);
-            this.Controls.Add(this.noti3);
             this.Controls.Add(this.success);
-            this.Controls.Add(this.noti2);
             this.Controls.Add(this.Processing);
             this.Controls.Add(this.req);
-            this.Controls.Add(this.delev);
             this.Controls.Add(this.Delevred);
             this.DoubleBuffered = true;
             this.Name = "a_orders";
@@ -364,6 +310,7 @@
             this.tablepanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -373,18 +320,14 @@
         private System.Windows.Forms.Label tablenoti;
         public System.Windows.Forms.Button backbtn;
         private System.Windows.Forms.DataGridView table;
-        private System.Windows.Forms.Label noti1;
-        private System.Windows.Forms.Label noti4;
         public System.Windows.Forms.Button failed;
-        private System.Windows.Forms.Label noti3;
         public System.Windows.Forms.Button success;
-        private System.Windows.Forms.Label noti2;
         public System.Windows.Forms.Button Processing;
         public System.Windows.Forms.Button req;
-        private System.Windows.Forms.Label delev;
         public System.Windows.Forms.Button Delevred;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button searchbtn;
         private System.Windows.Forms.TextBox searchbox;
+        private System.Windows.Forms.Label count;
     }
 }

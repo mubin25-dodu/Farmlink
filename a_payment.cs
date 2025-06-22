@@ -29,20 +29,20 @@ namespace Farmlink
         private void a_payment_Load(object sender, EventArgs e)
         {
             tablepanel.Hide();
-            string query = @"SELECT 
-                                SUM(agent_share + platform_share + seller_share) AS total_amount,
-                                SUM(agent_share) AS agent_fee,
-                                SUM(platform_share) AS platform_fee,
-                                SUM(seller_share) AS seller_fee
-                            FROM pay_history;
-";
+            string query = @"SELECT
+                                SUM(ISNULL(agent_share, 0) + ISNULL(platform_share, 0) + ISNULL(seller_share, 0)) AS total_amount,
+                                SUM(ISNULL(agent_share, 0)) AS agent_fee,
+                                SUM(ISNULL(platform_share, 0)) AS platform_fee,
+                                SUM(ISNULL(seller_share, 0)) AS seller_fee
+                            FROM pay_history;;
+                            ";
 
             db d = new db();
             DataRow dr = d.read(query);
             Total.Text = "Total Amount: " + dr[0].ToString() + " BDT";
             agent.Text = "Agent Fee: " +  dr[1].ToString() + " BDT";
             platform.Text = "Platform Fee: " + dr[2].ToString()  + " BDT";
-            seller.Text = "Withdrawable Amount: " +dr[3].ToString() + " BDT";
+            seller.Text = "Total Sellers Amount: " +dr[3].ToString() + " BDT";
             query = "select sum(amount) from withdraw";
             dr = d.read(query);
             widthdrawd.Text = "Withdrawed Amount: " + dr[0].ToString() + " BDT";

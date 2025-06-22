@@ -71,7 +71,7 @@ namespace Farmlink
                     double av = double.Parse(dr.Rows[i][4].ToString());
                     int pid = int.Parse(dr.Rows[i][0].ToString());
 
-                    display_product.Controls.Add(new bhome(name, price, des, img, av, pid, uid));
+                    display_product.Controls.Add(new ordercard(name, price, des, img, av, pid, uid));
                  
                 }
             }
@@ -152,7 +152,6 @@ namespace Farmlink
             bpanel.Controls.Clear();
             bpanel.Controls.AddRange(new Control[] { display_product , totalamount, paymentbtn, note, empty_cart });
             display_product.Controls.Clear();
-            //bpanel.Controls.Clear();
             searchbox.Visible = false;
             searchbtn.Visible = false;
             display_product.Visible = true;
@@ -168,8 +167,10 @@ namespace Farmlink
                 for (int i = 0; i < d.Rows.Count; i++)
                 {
                     int pid = int.Parse(d.Rows[i][2].ToString());
+                    Console.WriteLine("pid "+ pid);
                     string qu = "SELECT * FROM product WHERE product_id = '" + pid + "'";
                     DataRow db = n.read(qu);
+                    //Console.WriteLine(db[0].ToString());
 
                     if (db == null)
                     {
@@ -201,12 +202,12 @@ namespace Farmlink
                 }             
             }
             else
-            { 
-                
-                //note.BringToFront();
-                //empty_cart.BringToFront();
+            {
+                display_product.Visible = false;
+                note.Show();
+                empty_cart.Show();
 
-  
+
 
             }
             d.Clear();

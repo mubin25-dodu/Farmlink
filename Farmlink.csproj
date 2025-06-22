@@ -134,11 +134,11 @@
     <Compile Include="bcart.Designer.cs">
       <DependentUpon>bcart.cs</DependentUpon>
     </Compile>
-    <Compile Include="bhome.cs">
+    <Compile Include="ordercard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="bhome.Designer.cs">
-      <DependentUpon>bhome.cs</DependentUpon>
+    <Compile Include="ordercard.Designer.cs">
+      <DependentUpon>ordercard.cs</DependentUpon>
     </Compile>
     <Compile Include="B_order_stat.cs">
       <SubType>UserControl</SubType>
@@ -239,8 +239,8 @@
     <EmbeddedResource Include="bcart.resx">
       <DependentUpon>bcart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="bhome.resx">
-      <DependentUpon>bhome.cs</DependentUpon>
+    <EmbeddedResource Include="ordercard.resx">
+      <DependentUpon>ordercard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="B_order_stat.resx">
       <DependentUpon>B_order_stat.cs</DependentUpon>

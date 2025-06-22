@@ -85,7 +85,7 @@ namespace Farmlink
 
         private void button4_Click(object sender, EventArgs e)
         {
-                        if (fullname.Text == "" || mail.Text == "" || address.Text == "" || role.Text == "" || pass.Text == "" || conpass.Text == "")
+          if (fullname.Text == "" || mail.Text == "" || address.Text == "" || role.Text == "" || pass.Text == "" || conpass.Text == "" || phone.Text == "" || district.Text=="")
             {
                 MessageBox.Show("Please fill in all the fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

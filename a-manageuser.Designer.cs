@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(a_manageuser));
-            this.noti1 = new System.Windows.Forms.Label();
-            this.noti2 = new System.Windows.Forms.Label();
             this.customer = new System.Windows.Forms.Button();
             this.ban_user = new System.Windows.Forms.Button();
-            this.delev = new System.Windows.Forms.Label();
             this.agents = new System.Windows.Forms.Button();
             this.table = new System.Windows.Forms.DataGridView();
             this.tablepanel = new System.Windows.Forms.Panel();
@@ -55,39 +52,13 @@
             this.tablenoti = new System.Windows.Forms.Label();
             this.backbtn = new System.Windows.Forms.Button();
             this.seller = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.andmincount = new System.Windows.Forms.Label();
             this.admin = new System.Windows.Forms.Button();
+            this.count = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.tablepanel.SuspendLayout();
             this.profilecard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile)).BeginInit();
             this.SuspendLayout();
-            // 
-            // noti1
-            // 
-            this.noti1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.noti1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noti1.ForeColor = System.Drawing.Color.PeachPuff;
-            this.noti1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.noti1.Location = new System.Drawing.Point(191, 235);
-            this.noti1.Name = "noti1";
-            this.noti1.Size = new System.Drawing.Size(190, 44);
-            this.noti1.TabIndex = 59;
-            this.noti1.Text = "count";
-            this.noti1.Click += new System.EventHandler(this.noti1_Click);
-            // 
-            // noti2
-            // 
-            this.noti2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.noti2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noti2.ForeColor = System.Drawing.Color.PeachPuff;
-            this.noti2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.noti2.Location = new System.Drawing.Point(471, 235);
-            this.noti2.Name = "noti2";
-            this.noti2.Size = new System.Drawing.Size(190, 44);
-            this.noti2.TabIndex = 62;
-            this.noti2.Text = "count";
             // 
             // customer
             // 
@@ -119,23 +90,11 @@
             this.ban_user.Padding = new System.Windows.Forms.Padding(0, 0, 50, 120);
             this.ban_user.Size = new System.Drawing.Size(237, 213);
             this.ban_user.TabIndex = 61;
-            this.ban_user.Text = "Banned Or Denied";
+            this.ban_user.Text = "Manage Access";
             this.ban_user.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ban_user.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.ban_user.UseVisualStyleBackColor = false;
             this.ban_user.Click += new System.EventHandler(this.ban_user_Click);
-            // 
-            // delev
-            // 
-            this.delev.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.delev.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delev.ForeColor = System.Drawing.Color.PeachPuff;
-            this.delev.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.delev.Location = new System.Drawing.Point(742, 235);
-            this.delev.Name = "delev";
-            this.delev.Size = new System.Drawing.Size(190, 44);
-            this.delev.TabIndex = 64;
-            this.delev.Text = "count";
             // 
             // agents
             // 
@@ -159,34 +118,34 @@
             // 
             this.table.AllowUserToAddRows = false;
             this.table.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
+            this.table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.table.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.table.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.table.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.table.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.table.DefaultCellStyle = dataGridViewCellStyle24;
             this.table.Location = new System.Drawing.Point(1, 58);
             this.table.MultiSelect = false;
             this.table.Name = "table";
@@ -207,7 +166,7 @@
             this.tablepanel.Controls.Add(this.tablenoti);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.table);
-            this.tablepanel.Location = new System.Drawing.Point(97, 104);
+            this.tablepanel.Location = new System.Drawing.Point(85, 98);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 60;
@@ -436,31 +395,6 @@
             this.seller.UseVisualStyleBackColor = false;
             this.seller.Click += new System.EventHandler(this.seller_Click);
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.PeachPuff;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label1.Location = new System.Drawing.Point(191, 500);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 44);
-            this.label1.TabIndex = 66;
-            this.label1.Text = "count";
-            // 
-            // andmincount
-            // 
-            this.andmincount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.andmincount.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.andmincount.ForeColor = System.Drawing.Color.PeachPuff;
-            this.andmincount.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.andmincount.Location = new System.Drawing.Point(472, 500);
-            this.andmincount.Name = "andmincount";
-            this.andmincount.Size = new System.Drawing.Size(190, 44);
-            this.andmincount.TabIndex = 68;
-            this.andmincount.Text = "count";
-            this.andmincount.Click += new System.EventHandler(this.andmincount_Click);
-            // 
             // admin
             // 
             this.admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
@@ -479,6 +413,19 @@
             this.admin.UseVisualStyleBackColor = false;
             this.admin.Click += new System.EventHandler(this.admin_Click);
             // 
+            // count
+            // 
+            this.count.AutoSize = true;
+            this.count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.count.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.count.ForeColor = System.Drawing.Color.Red;
+            this.count.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.count.Location = new System.Drawing.Point(173, 309);
+            this.count.Name = "count";
+            this.count.Size = new System.Drawing.Size(74, 28);
+            this.count.TabIndex = 70;
+            this.count.Text = "count";
+            // 
             // a_manageuser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,15 +434,11 @@
             this.BackgroundImage = global::Farmlink.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Controls.Add(this.tablepanel);
-            this.Controls.Add(this.noti1);
-            this.Controls.Add(this.noti2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.count);
             this.Controls.Add(this.customer);
             this.Controls.Add(this.seller);
             this.Controls.Add(this.ban_user);
-            this.Controls.Add(this.delev);
             this.Controls.Add(this.agents);
-            this.Controls.Add(this.andmincount);
             this.Controls.Add(this.admin);
             this.DoubleBuffered = true;
             this.Name = "a_manageuser";
@@ -508,16 +451,13 @@
             this.profilecard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label noti1;
-        private System.Windows.Forms.Label noti2;
         public System.Windows.Forms.Button customer;
         public System.Windows.Forms.Button ban_user;
-        private System.Windows.Forms.Label delev;
         public System.Windows.Forms.Button agents;
         private System.Windows.Forms.DataGridView table;
         private System.Windows.Forms.Panel tablepanel;
@@ -531,13 +471,12 @@
         private System.Windows.Forms.Label name;
         private System.Windows.Forms.PictureBox profile;
         public System.Windows.Forms.Button seller;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label userid;
         public System.Windows.Forms.Button crossbtn;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button searchbtn;
         private System.Windows.Forms.TextBox searchbox;
-        private System.Windows.Forms.Label andmincount;
         public System.Windows.Forms.Button admin;
+        private System.Windows.Forms.Label count;
     }
 }
