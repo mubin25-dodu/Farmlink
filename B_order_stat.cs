@@ -77,7 +77,8 @@ namespace Farmlink
                         product p ON o.product_id = p.product_id  
                     WHERE  
                         o.buyer_id = '" + buyer_id + @"'
-                        and ( o.status =  'processing' OR o.status = 'on the way')
+                        and (o.status NOT like '%canceled%')
+                        and (o.status NOT like '%received%')
                     ORDER BY  
                         o.date DESC;";
 
@@ -144,8 +145,6 @@ namespace Farmlink
             if (e.ColumnIndex == 0)
             {
 
-   
-
                 int trycancel = e.RowIndex;
                 int history_id = int.Parse(order.Rows[trycancel].Cells["history_id"].Value.ToString());
                 string q = "select * from orderhistory where history_id = '" + history_id + "' and status = 'processing' ";
@@ -161,6 +160,8 @@ namespace Farmlink
                     string query = "Update orderhistory set status = 'canceled -> customer' WHERE history_id  = '" + history_id + "'";
                     if (new db().write(query) != 0)
                     {
+                        string query2 = "Update product set available_unit = available_unit + " + double.Parse(dt[10].ToString())+" where product_id =  '" + int.Parse(dt[6].ToString()) + "')";
+                        ordr.ForeColor = Color.Green;
                         ordr.Text = "Order Canceled Successfully";
                         order.DataSource = null; 
                         load();

@@ -21,8 +21,28 @@ namespace Farmlink
         {
             InitializeComponent();
             this.agent_id= id;
-        }
+            DataRow dr = new db().read("SELECT * FROM userinfo WHERE uid = '" + id + "'");
 
+
+            aname.Text = dr[1].ToString();
+            Console.WriteLine(name);
+            propic.Image = Image.FromFile(dr[7].ToString());
+
+        }
+        private void btnactive(object sender, EventArgs e)
+        {
+            foreach (Control b in btnpanel.Controls)
+            {
+                if (b is Button)
+                {
+                    b.BackColor = Color.FromArgb(21, 72, 84);
+                }
+            }
+
+            Control click = (Control)sender;
+            click.BackColor = Color.FromArgb(30, 43, 39);
+
+        }
         private void agent_home_Load(object sender, EventArgs e)
         {   
             count.Hide();
@@ -219,7 +239,8 @@ namespace Farmlink
 
         private void mypbtn_Click(object sender, EventArgs e)
         {
-           agent_products products = new agent_products(agent_id);
+            btnactive(mypbtn, null);
+            agent_products products = new agent_products(agent_id);
             spanel.Controls.Clear();
             spanel.Controls.Add(products);
             products.Dock = DockStyle.Fill;
@@ -229,6 +250,7 @@ namespace Farmlink
 
         private void orderbtn_Click(object sender, EventArgs e)
         {
+            btnactive(orderbtn, null);
             sell_order order = new sell_order(agent_id, "agent_id");
             spanel.Controls.Clear();
             spanel.Controls.Add(order);
@@ -243,6 +265,7 @@ namespace Farmlink
 
         private void payment_Click(object sender, EventArgs e)
         {
+            btnactive(payment, null);
             s_payment paymentControl = new s_payment(agent_id, "agent_id");
             spanel.Controls.Clear();
             spanel.Controls.Add(paymentControl);
@@ -251,6 +274,7 @@ namespace Farmlink
 
         private void home_Click(object sender, EventArgs e)
         {
+            btnactive(home, null);
             spanel.Controls.Remove(tablepanel);
             spanel.Controls.Clear();
             spanel.Controls.AddRange( new Control[] { tablepanel , Req , sellers, count , info } );
@@ -299,6 +323,12 @@ namespace Farmlink
         private void button6_Click(object sender, EventArgs e)
         {
             agent.Hide();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            btnactive(shop , null);
+
         }
     }
 }

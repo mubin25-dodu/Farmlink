@@ -32,7 +32,7 @@ namespace Farmlink
 
             if (dt != null && dt.Rows.Count > 0)
             {
-                //tablenoti.Text = noti1.Text = "orders-> " + dt.Rows.Count;
+                tablenoti.Text = "orders-> " + dt.Rows.Count;
                 table.DataSource = dt;
                
                 table.AutoGenerateColumns = true;
@@ -61,6 +61,7 @@ namespace Farmlink
             }
             else
             {
+                tablenoti.Text = "No orders Found ";
                 table.DataSource = null;
             }
         }
@@ -125,14 +126,14 @@ namespace Farmlink
         private void Processing_Click(object sender, EventArgs e)
         {
             clicked = "Processing";
-            populate(" select  p.name AS product_name, o.status,o.date, o.quantity FROM orderhistory o JOIN product p ON o.product_id = p.product_id WHERE o.status = 'on the way' AND(o.pay_meth = 'cod' OR o.pay_stat = 'paid' ) ORDER BY o.date DESC; ");
+            populate(" select  p.name AS product_name, o.status,o.date, o.quantity FROM orderhistory o JOIN product p ON o.product_id = p.product_id WHERE o.status = 'on the way' ORDER BY o.date DESC; ");
             
         }
 
         private void success_Click(object sender, EventArgs e)
         {
             clicked = "success";
-            populate(" select  p.name AS product_name, o.status,o.date, o.quantity FROM orderhistory o JOIN product p ON o.product_id = p.product_id WHERE o.status = 'received' AND(o.pay_meth = 'cod' OR o.pay_stat = 'paid' ) ORDER BY o.date DESC; ");
+            populate(" select  p.name AS product_name, o.status,o.date, o.quantity FROM orderhistory o JOIN product p ON o.product_id = p.product_id WHERE o.status = 'received' ORDER BY o.date DESC; ");
 
         }
 
@@ -150,11 +151,12 @@ namespace Farmlink
                                 product p ON o.product_id = p.product_id  
                             WHERE  
                                  o.status like '%cancel%' 
-                                AND (o.pay_meth = 'cod' OR o.pay_stat = 'paid')  
+                           
                             ORDER BY  
                                 o.date DESC;";
 
             populate(query2);
+            //AND(o.pay_meth = 'cod' OR o.pay_stat = 'paid')
         }
 
         private void Delevred_Click(object sender, EventArgs e)

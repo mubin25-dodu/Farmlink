@@ -70,6 +70,7 @@
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.searchbox = new System.Windows.Forms.TextBox();
             this.searchbtn = new System.Windows.Forms.Button();
+            this.count = new System.Windows.Forms.Label();
             this.listing.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -116,7 +117,7 @@
             this.listing.Controls.Add(this.name);
             this.listing.Controls.Add(this.pname);
             this.listing.Controls.Add(this.desin);
-            this.listing.Location = new System.Drawing.Point(44, 98);
+            this.listing.Location = new System.Drawing.Point(44, 72);
             this.listing.Name = "listing";
             this.listing.Size = new System.Drawing.Size(1058, 584);
             this.listing.TabIndex = 26;
@@ -516,6 +517,17 @@
             this.searchbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.searchbtn.UseVisualStyleBackColor = false;
             // 
+            // count
+            // 
+            this.count.AutoSize = true;
+            this.count.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.count.ForeColor = System.Drawing.Color.SeaShell;
+            this.count.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.count.Location = new System.Drawing.Point(338, 80);
+            this.count.Name = "count";
+            this.count.Size = new System.Drawing.Size(0, 19);
+            this.count.TabIndex = 30;
+            // 
             // sproduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,11 +535,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.BackgroundImage = global::Farmlink.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Controls.Add(this.listing);
+            this.Controls.Add(this.count);
             this.Controls.Add(this.searchbtn);
             this.Controls.Add(this.searchbox);
             this.Controls.Add(this.noti);
             this.Controls.Add(this.addpro);
-            this.Controls.Add(this.listing);
             this.Controls.Add(this.products);
             this.DoubleBuffered = true;
             this.Name = "sproduct";
@@ -586,5 +599,6 @@
         private System.Windows.Forms.BindingSource productBindingSource1;
         private System.Windows.Forms.TextBox searchbox;
         public System.Windows.Forms.Button searchbtn;
+        private System.Windows.Forms.Label count;
     }
 }

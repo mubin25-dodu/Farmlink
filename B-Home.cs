@@ -34,6 +34,22 @@ namespace Farmlink
         this.now_available =av;
         Console.WriteLine(totalamount);
         }
+
+        private void btnactive(object sender, EventArgs e)
+        {
+            foreach (Control b in btnpanel.Controls)
+            {
+                if (b is Button)
+                {
+                    b.BackColor = Color.FromArgb(21, 72, 84);
+                }
+            }
+
+            Control click = (Control)sender;
+            click.BackColor = Color.FromArgb(30, 43, 39);
+
+        }
+
         public B_Home( string i)
         {
             InitializeComponent();
@@ -128,6 +144,7 @@ namespace Farmlink
 
         private void button4_Click(object sender, EventArgs e)
         {
+            btnactive(orderbtn, null);
             bpanel.Controls.Clear();
             bpanel.Controls.Add(new B_order_stat(uid));
         }
@@ -149,6 +166,7 @@ namespace Farmlink
 
         private void button2_Click(object sender, EventArgs e)
         {
+            btnactive(cartbtn, null);
             bpanel.Controls.Clear();
             bpanel.Controls.AddRange(new Control[] { display_product , totalamount, paymentbtn, note, empty_cart });
             display_product.Controls.Clear();
@@ -216,6 +234,7 @@ namespace Farmlink
 
         public void home_Click(object sender, EventArgs e)
         {            
+            btnactive(home, null);
             cancelbtn.Hide();
             bpanel.Controls.Clear();
             bpanel.Controls.AddRange(new Control[] { display_product, searchbox, searchbtn });
@@ -333,7 +352,9 @@ namespace Farmlink
         }
 
         private void cancelbtn_Click(object sender, EventArgs e)
-        {   payable = 0; 
+        {   
+            btnactive(cancelbtn, null);
+            payable = 0; 
             bpanel.Controls.Clear();
             cancelbtn.Hide();
             cartbtn.Visible = true;
@@ -341,6 +362,11 @@ namespace Farmlink
             orderbtn.Show();
             bpanel.Controls.AddRange(new Control[] { display_product, searchbox, searchbtn});
             LoadProducts("SELECT * FROM product");
+        }
+
+        private void btnpanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         public void paymentbtn_Click(object sender, EventArgs e) 

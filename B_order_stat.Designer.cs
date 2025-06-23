@@ -190,6 +190,7 @@
             this.order.Location = new System.Drawing.Point(85, 103);
             this.order.MultiSelect = false;
             this.order.Name = "order";
+            this.order.ReadOnly = true;
             this.order.RowHeadersVisible = false;
             this.order.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.order.Size = new System.Drawing.Size(971, 274);
@@ -231,6 +232,7 @@
             this.orderhistory.Location = new System.Drawing.Point(85, 404);
             this.orderhistory.MultiSelect = false;
             this.orderhistory.Name = "orderhistory";
+            this.orderhistory.ReadOnly = true;
             this.orderhistory.RowHeadersVisible = false;
             this.orderhistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.orderhistory.Size = new System.Drawing.Size(971, 294);

@@ -33,13 +33,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnpanel = new System.Windows.Forms.Panel();
+            this.home = new System.Windows.Forms.Button();
+            this.manage = new System.Windows.Forms.Button();
             this.payment = new System.Windows.Forms.Button();
             this.orderbtn = new System.Windows.Forms.Button();
+            this.propic = new System.Windows.Forms.PictureBox();
             this.logout = new System.Windows.Forms.Button();
-            this.manage = new System.Windows.Forms.Button();
-            this.home = new System.Windows.Forms.Button();
-            this.uid = new System.Windows.Forms.LinkLabel();
+            this.name = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.apanel = new System.Windows.Forms.Panel();
             this.tablepanel = new System.Windows.Forms.Panel();
@@ -48,7 +49,8 @@
             this.agenttable = new System.Windows.Forms.DataGridView();
             this.agent_section = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.propic)).BeginInit();
             this.apanel.SuspendLayout();
             this.tablepanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agenttable)).BeginInit();
@@ -57,40 +59,90 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.payment);
-            this.panel1.Controls.Add(this.orderbtn);
+            this.panel1.Controls.Add(this.btnpanel);
+            this.panel1.Controls.Add(this.propic);
             this.panel1.Controls.Add(this.logout);
-            this.panel1.Controls.Add(this.manage);
-            this.panel1.Controls.Add(this.home);
-            this.panel1.Controls.Add(this.uid);
+            this.panel1.Controls.Add(this.name);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(186, 729);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // pictureBox1
+            // btnpanel
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(19, 87);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(142, 110);
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
+            this.btnpanel.Controls.Add(this.home);
+            this.btnpanel.Controls.Add(this.manage);
+            this.btnpanel.Controls.Add(this.payment);
+            this.btnpanel.Controls.Add(this.orderbtn);
+            this.btnpanel.Location = new System.Drawing.Point(3, 231);
+            this.btnpanel.Name = "btnpanel";
+            this.btnpanel.Size = new System.Drawing.Size(195, 254);
+            this.btnpanel.TabIndex = 23;
+            // 
+            // home
+            // 
+            this.home.AutoSize = true;
+            this.home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.home.Cursor = System.Windows.Forms.Cursors.Default;
+            this.home.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.home.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.home.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.home.ForeColor = System.Drawing.Color.White;
+            this.home.Image = global::Farmlink.Properties.Resources.home;
+            this.home.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.home.Location = new System.Drawing.Point(0, 68);
+            this.home.Margin = new System.Windows.Forms.Padding(10);
+            this.home.Name = "home";
+            this.home.Size = new System.Drawing.Size(195, 52);
+            this.home.TabIndex = 17;
+            this.home.Text = "Home";
+            this.home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.home.UseVisualStyleBackColor = false;
+            this.home.Click += new System.EventHandler(this.home_Click);
+            // 
+            // manage
+            // 
+            this.manage.AutoSize = true;
+            this.manage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.manage.Cursor = System.Windows.Forms.Cursors.Default;
+            this.manage.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.manage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.manage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manage.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manage.ForeColor = System.Drawing.Color.White;
+            this.manage.Image = global::Farmlink.Properties.Resources.user;
+            this.manage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manage.Location = new System.Drawing.Point(0, 120);
+            this.manage.Margin = new System.Windows.Forms.Padding(10);
+            this.manage.Name = "manage";
+            this.manage.Size = new System.Drawing.Size(195, 44);
+            this.manage.TabIndex = 18;
+            this.manage.Text = "Manage Users";
+            this.manage.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.manage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.manage.UseVisualStyleBackColor = false;
+            this.manage.Click += new System.EventHandler(this.manage_Click);
             // 
             // payment
             // 
+            this.payment.AutoSize = true;
             this.payment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
             this.payment.Cursor = System.Windows.Forms.Cursors.Default;
+            this.payment.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.payment.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
             this.payment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.payment.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payment.ForeColor = System.Drawing.Color.White;
             this.payment.Image = global::Farmlink.Properties.Resources.booking;
             this.payment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.payment.Location = new System.Drawing.Point(0, 448);
+            this.payment.Location = new System.Drawing.Point(0, 164);
+            this.payment.Margin = new System.Windows.Forms.Padding(10);
             this.payment.Name = "payment";
-            this.payment.Size = new System.Drawing.Size(187, 45);
+            this.payment.Size = new System.Drawing.Size(195, 45);
             this.payment.TabIndex = 21;
             this.payment.Text = "Payments";
             this.payment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -100,22 +152,34 @@
             // 
             // orderbtn
             // 
+            this.orderbtn.AutoSize = true;
             this.orderbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
             this.orderbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.orderbtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.orderbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
             this.orderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.orderbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderbtn.ForeColor = System.Drawing.Color.White;
             this.orderbtn.Image = global::Farmlink.Properties.Resources.booking;
             this.orderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.orderbtn.Location = new System.Drawing.Point(0, 388);
+            this.orderbtn.Location = new System.Drawing.Point(0, 209);
+            this.orderbtn.Margin = new System.Windows.Forms.Padding(10);
             this.orderbtn.Name = "orderbtn";
-            this.orderbtn.Size = new System.Drawing.Size(187, 45);
+            this.orderbtn.Size = new System.Drawing.Size(195, 45);
             this.orderbtn.TabIndex = 20;
             this.orderbtn.Text = "Order";
             this.orderbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.orderbtn.UseVisualStyleBackColor = false;
             this.orderbtn.Click += new System.EventHandler(this.orderbtn_Click);
+            // 
+            // propic
+            // 
+            this.propic.Location = new System.Drawing.Point(19, 87);
+            this.propic.Name = "propic";
+            this.propic.Size = new System.Drawing.Size(142, 110);
+            this.propic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.propic.TabIndex = 22;
+            this.propic.TabStop = false;
             // 
             // logout
             // 
@@ -135,57 +199,18 @@
             this.logout.UseVisualStyleBackColor = false;
             this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
-            // manage
+            // name
             // 
-            this.manage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.manage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.manage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.manage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.manage.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manage.ForeColor = System.Drawing.Color.White;
-            this.manage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.manage.Location = new System.Drawing.Point(0, 327);
-            this.manage.Name = "manage";
-            this.manage.Size = new System.Drawing.Size(186, 44);
-            this.manage.TabIndex = 18;
-            this.manage.Text = "Manage Users";
-            this.manage.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.manage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.manage.UseVisualStyleBackColor = false;
-            this.manage.Click += new System.EventHandler(this.manage_Click);
-            // 
-            // home
-            // 
-            this.home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.home.Cursor = System.Windows.Forms.Cursors.Default;
-            this.home.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.home.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.home.ForeColor = System.Drawing.Color.White;
-            this.home.Image = global::Farmlink.Properties.Resources.home;
-            this.home.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.home.Location = new System.Drawing.Point(0, 260);
-            this.home.Name = "home";
-            this.home.Size = new System.Drawing.Size(190, 52);
-            this.home.TabIndex = 17;
-            this.home.Text = "Home";
-            this.home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.home.UseVisualStyleBackColor = false;
-            this.home.Click += new System.EventHandler(this.home_Click);
-            // 
-            // uid
-            // 
-            this.uid.AutoSize = true;
-            this.uid.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uid.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.uid.LinkColor = System.Drawing.Color.WhiteSmoke;
-            this.uid.Location = new System.Drawing.Point(23, 200);
-            this.uid.Name = "uid";
-            this.uid.Size = new System.Drawing.Size(83, 28);
-            this.uid.TabIndex = 8;
-            this.uid.TabStop = true;
-            this.uid.Text = "user id";
+            this.name.AutoSize = true;
+            this.name.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.name.LinkColor = System.Drawing.Color.WhiteSmoke;
+            this.name.Location = new System.Drawing.Point(23, 200);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(83, 28);
+            this.name.TabIndex = 8;
+            this.name.TabStop = true;
+            this.name.Text = "user id";
             // 
             // label6
             // 
@@ -218,7 +243,7 @@
             this.tablepanel.Controls.Add(this.agentcount);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.agenttable);
-            this.tablepanel.Location = new System.Drawing.Point(78, 64);
+            this.tablepanel.Location = new System.Drawing.Point(90, 64);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 67;
@@ -290,6 +315,7 @@
             this.agenttable.Location = new System.Drawing.Point(3, 57);
             this.agenttable.MultiSelect = false;
             this.agenttable.Name = "agenttable";
+            this.agenttable.ReadOnly = true;
             this.agenttable.RowHeadersVisible = false;
             this.agenttable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.agenttable.Size = new System.Drawing.Size(962, 476);
@@ -326,7 +352,9 @@
             this.Load += new System.EventHandler(this.A_home_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.btnpanel.ResumeLayout(false);
+            this.btnpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.propic)).EndInit();
             this.apanel.ResumeLayout(false);
             this.tablepanel.ResumeLayout(false);
             this.tablepanel.PerformLayout();
@@ -338,13 +366,13 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox propic;
         public System.Windows.Forms.Button payment;
         public System.Windows.Forms.Button orderbtn;
         public System.Windows.Forms.Button logout;
         public System.Windows.Forms.Button manage;
         public System.Windows.Forms.Button home;
-        private System.Windows.Forms.LinkLabel uid;
+        private System.Windows.Forms.LinkLabel name;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Button agent_section;
         public System.Windows.Forms.Button backbtn;
@@ -352,5 +380,6 @@
         private System.Windows.Forms.Label agentcount;
         private System.Windows.Forms.Panel tablepanel;
         private System.Windows.Forms.Panel apanel;
+        private System.Windows.Forms.Panel btnpanel;
     }
 }

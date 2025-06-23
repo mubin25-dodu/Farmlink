@@ -13,11 +13,12 @@ using System.Data.SqlClient;
 namespace Farmlink
 {
     public partial class sproduct : UserControl
-    {    int timer = 0;
-        string imagepath = "";
-        string seller_id;
-        int a = 1;
-        string agent ,query;
+    {   
+        private int timer = 0;
+        private string imagepath = "";
+        private string seller_id;
+         
+        private string agent ,query;
         public sproduct(string s)
         {
 
@@ -139,10 +140,10 @@ namespace Farmlink
             DataTable dt = new db().readAll(query);
             if (dt.Rows.Count > 0)
             {
-     
-                noti.Text = " Double-click on the table cells to edit the product information.\n " +
-                            "                               Products found -> "+dt.Rows.Count;
+
+                noti.Text = " Double-click on the table cells to edit the product information. ";
                 products.DataSource = dt;
+                count.Text = "Number of products -> " + dt.Rows.Count.ToString();
                 products.Columns[0].Visible=false;
                 products.Columns[6].ReadOnly = true;
                 products.Columns[7].ReadOnly = true;
@@ -154,6 +155,17 @@ namespace Farmlink
                 products.Columns[6].HeaderText = "Seller ID";
                 products.Columns[7].HeaderText = "Agent ID";
 
+                if (products.Columns.Contains("Remove"))
+                {
+                    products.Columns.Remove("Remove");
+                }
+                DataGridViewButtonColumn removeButton = new DataGridViewButtonColumn();
+                removeButton.HeaderText = "Remove";
+                removeButton.Text = "Remove";
+                removeButton.Name = "Remove";
+                removeButton.UseColumnTextForButtonValue = true;
+                removeButton.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                products.Columns.Insert(8 ,removeButton);
             }
             else
             {
@@ -179,7 +191,6 @@ namespace Farmlink
                 if (n.read(query) != null)
                 {
                     noti.Text = "You'r agent assigned " ;
-
                     this.agent = dt[0].ToString();
                 }
                 else {
@@ -204,42 +215,38 @@ namespace Farmlink
             {
                 timer1.Stop();
                 timer = 0;
-                noti.Text = "";
+                noti.Text = " Double-click on the table cells to edit the product information.\n ";
+                   
             }
         }
 
         private void fillByToolStripButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.orderTableAdapter.FillBy(this.farmlinkDataSet.order);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+            
 
         }
 
 
         private void products_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.ColumnIndex == 8) {
-            //    // Remove button clicked
-            //    string productId = products.Rows[e.RowIndex].Cells[0].Value.ToString();
-            //    string query = "DELETE FROM product WHERE product_id = '" + productId + "'";
-            //    if (new db().write(query) > 0)
-            //    {
-            //        timer1.Start();
-            //        noti.Text = "Product removed successfully!";
-            //        loadproducts("SELECT * FROM product WHERE seller_id = '" + seller_id + "'");
-            //    }
-            //    else
-            //    {
-            //        timer1.Start();
-            //        noti.Text = "Failed to remove product. Please try again.";
-            //    }
-            //}
+            if (e.ColumnIndex == 8)
+            {
+                // Remove button clicked
+                string productId = products.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Console.WriteLine(productId);
+                string query = "DELETE FROM product WHERE product_id = '" + productId + "'";
+                if (new db().write(query) > 0)
+                {
+                    timer1.Start();
+                    noti.Text = "Product removed successfully!";
+                    loadproducts("SELECT * FROM product WHERE seller_id = '" + seller_id + "'");
+                }
+                else
+                {
+                    timer1.Start();
+                    noti.Text = "Failed to remove product. Please try again.";
+                }
+            }
         }
 
        

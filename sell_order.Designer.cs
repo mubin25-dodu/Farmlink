@@ -28,22 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sell_order));
             this.table = new System.Windows.Forms.DataGridView();
-            this.noti1 = new System.Windows.Forms.Label();
             this.tablepanel = new System.Windows.Forms.Panel();
             this.tablenoti = new System.Windows.Forms.Label();
             this.backbtn = new System.Windows.Forms.Button();
             this.pending = new System.Windows.Forms.Button();
-            this.noti2 = new System.Windows.Forms.Label();
             this.Processing = new System.Windows.Forms.Button();
-            this.noti3 = new System.Windows.Forms.Label();
             this.success = new System.Windows.Forms.Button();
-            this.noti4 = new System.Windows.Forms.Label();
             this.failed = new System.Windows.Forms.Button();
+            this.count = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.tablepanel.SuspendLayout();
             this.SuspendLayout();
@@ -52,34 +49,34 @@
             // 
             this.table.AllowUserToAddRows = false;
             this.table.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.table.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.table.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.table.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.table.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.table.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.table.DefaultCellStyle = dataGridViewCellStyle9;
             this.table.Location = new System.Drawing.Point(3, 57);
             this.table.MultiSelect = false;
             this.table.Name = "table";
@@ -91,25 +88,13 @@
             this.table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pending_odr_CellClick);
             this.table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pending_odr_CellContentClick);
             // 
-            // noti1
-            // 
-            this.noti1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.noti1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noti1.ForeColor = System.Drawing.Color.PeachPuff;
-            this.noti1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.noti1.Location = new System.Drawing.Point(192, 204);
-            this.noti1.Name = "noti1";
-            this.noti1.Size = new System.Drawing.Size(190, 44);
-            this.noti1.TabIndex = 32;
-            this.noti1.Text = "count";
-            // 
             // tablepanel
             // 
             this.tablepanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tablepanel.Controls.Add(this.tablenoti);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.table);
-            this.tablepanel.Location = new System.Drawing.Point(77, 75);
+            this.tablepanel.Location = new System.Drawing.Point(85, 87);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 39;
@@ -164,18 +149,6 @@
             this.pending.UseVisualStyleBackColor = false;
             this.pending.Click += new System.EventHandler(this.pending_Click);
             // 
-            // noti2
-            // 
-            this.noti2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.noti2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noti2.ForeColor = System.Drawing.Color.PeachPuff;
-            this.noti2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.noti2.Location = new System.Drawing.Point(472, 204);
-            this.noti2.Name = "noti2";
-            this.noti2.Size = new System.Drawing.Size(190, 44);
-            this.noti2.TabIndex = 42;
-            this.noti2.Text = "count";
-            // 
             // Processing
             // 
             this.Processing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
@@ -193,18 +166,6 @@
             this.Processing.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Processing.UseVisualStyleBackColor = false;
             this.Processing.Click += new System.EventHandler(this.Processing_Click);
-            // 
-            // noti3
-            // 
-            this.noti3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.noti3.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noti3.ForeColor = System.Drawing.Color.PeachPuff;
-            this.noti3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.noti3.Location = new System.Drawing.Point(745, 204);
-            this.noti3.Name = "noti3";
-            this.noti3.Size = new System.Drawing.Size(190, 44);
-            this.noti3.TabIndex = 44;
-            this.noti3.Text = "count";
             // 
             // success
             // 
@@ -224,19 +185,6 @@
             this.success.UseVisualStyleBackColor = false;
             this.success.Click += new System.EventHandler(this.success_Click);
             // 
-            // noti4
-            // 
-            this.noti4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.noti4.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noti4.ForeColor = System.Drawing.Color.PeachPuff;
-            this.noti4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.noti4.Location = new System.Drawing.Point(192, 444);
-            this.noti4.Name = "noti4";
-            this.noti4.Size = new System.Drawing.Size(190, 40);
-            this.noti4.TabIndex = 46;
-            this.noti4.Text = "count";
-            this.noti4.Click += new System.EventHandler(this.failed_Click);
-            // 
             // failed
             // 
             this.failed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
@@ -255,6 +203,20 @@
             this.failed.UseVisualStyleBackColor = false;
             this.failed.Click += new System.EventHandler(this.failed_Click_1);
             // 
+            // count
+            // 
+            this.count.AutoEllipsis = true;
+            this.count.AutoSize = true;
+            this.count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.count.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.count.ForeColor = System.Drawing.Color.Red;
+            this.count.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.count.Location = new System.Drawing.Point(174, 280);
+            this.count.Name = "count";
+            this.count.Size = new System.Drawing.Size(74, 28);
+            this.count.TabIndex = 49;
+            this.count.Text = "count";
+            // 
             // sell_order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,13 +224,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Controls.Add(this.tablepanel);
-            this.Controls.Add(this.noti4);
+            this.Controls.Add(this.count);
             this.Controls.Add(this.failed);
-            this.Controls.Add(this.noti3);
             this.Controls.Add(this.success);
-            this.Controls.Add(this.noti2);
             this.Controls.Add(this.Processing);
-            this.Controls.Add(this.noti1);
             this.Controls.Add(this.pending);
             this.DoubleBuffered = true;
             this.Name = "sell_order";
@@ -278,21 +237,19 @@
             this.tablepanel.ResumeLayout(false);
             this.tablepanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.DataGridView table;
-        private System.Windows.Forms.Label noti1;
         private System.Windows.Forms.Panel tablepanel;
         public System.Windows.Forms.Button pending;
-        private System.Windows.Forms.Label noti2;
         public System.Windows.Forms.Button Processing;
-        private System.Windows.Forms.Label noti3;
         public System.Windows.Forms.Button success;
-        private System.Windows.Forms.Label noti4;
         public System.Windows.Forms.Button failed;
         public System.Windows.Forms.Button backbtn;
         private System.Windows.Forms.Label tablenoti;
+        private System.Windows.Forms.Label count;
     }
 }

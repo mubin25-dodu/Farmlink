@@ -24,23 +24,16 @@ namespace Farmlink
 
         private void sell_order_Load(object sender, EventArgs e)
         {
-            populate("received", "received");
-            populate("cancelled", "cancelled");
-            populate("processing", "on the way");
-            tablepanel.Visible = false;
+            tablepanel.Hide();
+            count.Hide();
+            string q = "select * from orderhistory where seller_id ='"+id+ "' and status ='processing'";
             db d = new db();
-            DataTable dt = d.readAll($"select history_id from orderhistory where {role} = '{id}' and (status = 'processing' or status = 'Collection Request')");
-            noti1.Text = "pending orders-> " + (dt.Rows.Count.ToString());
-            dt.Clear();
-            DataTable dr = d.readAll(" select history_id from orderhistory where " + role+ " = '" + id + "' and status ='on the way'");
-            noti2.Text = "on the way orders-> " + (dt.Rows.Count.ToString());
-            dr.Clear();
-            DataTable drr = d.readAll(" select history_id from orderhistory where " + role+ " = '" + id + "' and status ='delivered'");
-            noti3.Text = "delivered orders-> " + (drr.Rows.Count.ToString());
-            drr.Clear();
-            DataTable drrr = d.readAll(" select history_id from orderhistory where " + role + " = '" + id + "' and (status = 'canceled -> customer' or status = 'canceled -> seller' or status = 'canceled -> agent')");
-            noti4.Text = "cancelled orders-> " + (drrr.Rows.Count.ToString());
-            drrr.Clear();
+            DataTable t = d.readAll(q);
+            if (t != null && t.Rows.Count > 0)
+            {
+                count.Show();
+                count.Text = t.Rows.Count.ToString();
+            }
         }
         private void populate(string stat, string notif)
         {
@@ -62,7 +55,7 @@ namespace Farmlink
                             WHERE  
                                 o."+role+" = '" + id + @"'  
                                 AND o.status = '" + stat + @"'  
-                                AND (o.pay_meth = 'cod' OR o.pay_stat = 'paid')  
+                              
                             ORDER BY  
                                 o.date DESC;";
 
@@ -71,9 +64,10 @@ namespace Farmlink
 
             if (dr != null && dr.Rows.Count > 0)
             {
-                if (stat == "on the way") { tablenoti.Text = noti2.Text = notif + " orders-> " + dr.Rows.Count; }
-                else if (stat == "delivered") {  tablenoti.Text = noti4.Text = notif + " orders-> " + dr.Rows.Count; }
-                else if (stat == "cancelled") { tablenoti.Text =  noti4.Text = notif + " orders-> " + dr.Rows.Count; }
+                tablenoti.Text = "Orders-> " + dr.Rows.Count;
+                //if (stat == "on the way") { tablenoti.Text = noti2.Text = notif + " orders-> " + dr.Rows.Count; }
+                //else if (stat == "delivered") {  tablenoti.Text = noti4.Text = notif + " orders-> " + dr.Rows.Count; }
+                //else if (stat == "cancelled") { tablenoti.Text =  noti4.Text = notif + " orders-> " + dr.Rows.Count; }
 
                 table.DataSource = dr;
                 table.Columns[0].HeaderText = "Product Name";
@@ -83,9 +77,7 @@ namespace Farmlink
             }
             else
             {
-                if (stat == "on the way") { tablenoti.Text = noti2.Text = notif + " orders-> 0"; }
-                else if (stat == "delivered") {  tablenoti.Text =noti4.Text = notif + " orders-> 0"; }
-                else if (stat == "cancelled") { tablenoti.Text = noti4.Text = notif + " orders-> 0"; }
+                
                 table.DataSource = null;
             }
 
@@ -137,10 +129,6 @@ namespace Farmlink
 
         }
 
-        private void failed_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void pending_Click(object sender, EventArgs e)
         {
@@ -177,7 +165,7 @@ namespace Farmlink
 
             if (dt != null && dt.Rows.Count > 0)
             {
-                tablenoti.Text = noti1.Text = "pending orders-> " + dt.Rows.Count;
+                tablenoti.Text  = "pending orders-> " + dt.Rows.Count;
                 table.DataSource = dt;
                 table.Columns[0].Visible = false;
                 table.Columns[1].HeaderText = "Product Name";
@@ -200,7 +188,7 @@ namespace Farmlink
             }
             else
             {
-                tablenoti.Text = noti1.Text = "No pending Orders";
+                tablenoti.Text = "No pending Orders";
             }
         }
 
@@ -209,7 +197,16 @@ namespace Farmlink
             table.DataSource = null;
             table.Rows.Clear();
             tablepanel.Visible = false;
-          
+            count.Hide();
+            string q = "select * from orderhistory where seller_id = '"+id+ "' and status ='processing'";
+            db d = new db();
+            DataTable t = d.readAll(q);
+            if (t != null && t.Rows.Count > 0)
+            {
+                count.Show();
+                count.Text = t.Rows.Count.ToString();
+            }
+
 
         }
 
@@ -245,7 +242,6 @@ namespace Farmlink
                             WHERE  
                                 o."+role+" = '" + id + @"'  
                                and o.status like '%cancel%' 
-                                AND (o.pay_meth = 'cod' OR o.pay_stat = 'paid')  
                             ORDER BY  
                                 o.date DESC;";
 
@@ -254,7 +250,7 @@ namespace Farmlink
 
             if (dr != null && dr.Rows.Count > 0)
             {
-                tablenoti.Text = noti4.Text = "cancelled orders-> " + dr.Rows.Count;
+                tablenoti.Text = "cancelled orders-> " + dr.Rows.Count;
                 table.DataSource = dr;
                 table.Columns[0].HeaderText = "Product Name";
                 table.Columns[1].HeaderText = "Status";
@@ -263,7 +259,7 @@ namespace Farmlink
             }
             else
             {
-               tablenoti.Text = noti4.Text = "No cancelled orders found.";
+               tablenoti.Text = "No cancelled orders found.";
                 table.DataSource = null;
             }
 
