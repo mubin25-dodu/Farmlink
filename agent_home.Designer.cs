@@ -72,7 +72,6 @@
             this.notipro = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
             this.profile = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.noti = new System.Windows.Forms.Label();
             this.backbtn = new System.Windows.Forms.Button();
@@ -288,7 +287,7 @@
             this.agent.Controls.Add(this.apply);
             this.agent.Controls.Add(this.label16);
             this.agent.Controls.Add(this.button6);
-            this.agent.Location = new System.Drawing.Point(480, 307);
+            this.agent.Location = new System.Drawing.Point(258, 3);
             this.agent.Name = "agent";
             this.agent.Size = new System.Drawing.Size(475, 398);
             this.agent.TabIndex = 73;
@@ -459,7 +458,7 @@
             this.count.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.count.ForeColor = System.Drawing.Color.Black;
             this.count.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.count.Location = new System.Drawing.Point(151, 260);
+            this.count.Location = new System.Drawing.Point(152, 261);
             this.count.Name = "count";
             this.count.Size = new System.Drawing.Size(74, 28);
             this.count.TabIndex = 69;
@@ -505,12 +504,11 @@
             // 
             this.tablepanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tablepanel.Controls.Add(this.profilecard);
-            this.tablepanel.Controls.Add(this.label2);
             this.tablepanel.Controls.Add(this.label3);
             this.tablepanel.Controls.Add(this.noti);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.table);
-            this.tablepanel.Location = new System.Drawing.Point(86, 77);
+            this.tablepanel.Location = new System.Drawing.Point(88, 73);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 70;
@@ -518,6 +516,7 @@
             // profilecard
             // 
             this.profilecard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.profilecard.Controls.Add(this.agent);
             this.profilecard.Controls.Add(this.workarea);
             this.profilecard.Controls.Add(this.crossbtn);
             this.profilecard.Controls.Add(this.profiletable);
@@ -528,7 +527,7 @@
             this.profilecard.Controls.Add(this.notipro);
             this.profilecard.Controls.Add(this.name);
             this.profilecard.Controls.Add(this.profile);
-            this.profilecard.Location = new System.Drawing.Point(36, 57);
+            this.profilecard.Location = new System.Drawing.Point(31, 76);
             this.profilecard.Name = "profilecard";
             this.profilecard.Size = new System.Drawing.Size(910, 422);
             this.profilecard.TabIndex = 50;
@@ -697,18 +696,6 @@
             this.profile.TabIndex = 23;
             this.profile.TabStop = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label2.Location = new System.Drawing.Point(286, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 28);
-            this.label2.TabIndex = 54;
-            this.label2.Text = "Mail";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -805,7 +792,6 @@
             this.spanel.Controls.Add(this.sellers);
             this.spanel.Controls.Add(this.count);
             this.spanel.Controls.Add(this.Req);
-            this.spanel.Controls.Add(this.agent);
             this.spanel.ForeColor = System.Drawing.SystemColors.Control;
             this.spanel.Location = new System.Drawing.Point(185, 0);
             this.spanel.Name = "spanel";
@@ -881,7 +867,6 @@
         private System.Windows.Forms.Label notipro;
         private System.Windows.Forms.Label name;
         private System.Windows.Forms.PictureBox profile;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label noti;
         public System.Windows.Forms.Button backbtn;

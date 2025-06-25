@@ -45,11 +45,14 @@ namespace Farmlink
         }
         private void agent_home_Load(object sender, EventArgs e)
         {   
-            count.Hide();
             Req.PerformClick();
+            if (int.TryParse(count.Text, out int countValue) && countValue > 0)
+            {
+                count.Show();
+            }
             tablepanel.Hide();
             profilecard.Hide();
-           agent.Hide();
+            agent.Hide();
 
         }
 
@@ -60,10 +63,15 @@ namespace Farmlink
             query = "select * from commission where agent_id = '"+agent_id+"' and status = 'pending'";
             db d = new db();
             DataTable dt = d.readAll(query);
+            count.Hide();
+
             if (dt.Rows.Count > 0)
             {
-                count.Show();
+                Console.WriteLine("clicked");
+                //count.Show();
                 count.Text = dt.Rows.Count.ToString();
+                //count.BringToFront();
+                noti.Text = "Pending requests found -> " + dt.Rows.Count;
                 table.DataSource = dt;
                 table.AutoGenerateColumns = true;
                 if (table.Columns.Contains("Profile"))
@@ -76,7 +84,8 @@ namespace Farmlink
                 profile.UseColumnTextForButtonValue = true;
                 profile.Name = "Profile";
                 table.Columns.Insert(0, profile);
-            }
+             
+            }  
             else
             {
                 noti.Text = "No pending requests found.";
@@ -88,10 +97,10 @@ namespace Farmlink
             if (e.ColumnIndex == 0)
             {
                 profilecard.Show();
-                 seller_id = table.Rows[e.RowIndex].Cells["seller_id"].Value.ToString();
+                seller_id = table.Rows[e.RowIndex].Cells["seller_id"].Value.ToString();
                 query = "select * from userinfo where uid = '"+seller_id+"' ";
 
-
+                Console.WriteLine(seller_id);
                 db d = new db();
                 DataRow dr = d.read(query);
                 if (dr != null)
@@ -150,15 +159,17 @@ namespace Farmlink
 
         private void donep_Click(object sender, EventArgs e)
         {
-            query = "update commission set status = 'accepted' where agent_id = '" + agent_id + "' ";
+            query = "update commission set status = 'accepted' where agent_id = '" + agent_id + "' and seller_id = '"+seller_id+"' ";
             Console.WriteLine("agent---"+agent_id);
             db d = new db();
-            if (d.write(query) == 1)
+            if (d.write(query) ==1 )
             {
                 MessageBox.Show("Request accepted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 profilecard.Hide();
                 table.DataSource = null;
                 Req.PerformClick();
+                query = "update product set agent_id ='"+agent_id+"' where seller_id = '"+seller_id+"' ";
+                d.write(query);
             }
             else
             {
@@ -168,9 +179,15 @@ namespace Farmlink
 
         private void backbtn_Click(object sender, EventArgs e)
         {
+            Req.PerformClick();
             tablepanel.Hide();
             profilecard.Hide();
             table.DataSource = null;
+            if (int.TryParse(count.Text, out int countValue) && countValue > 0)
+            {
+                count.Show();
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -254,6 +271,8 @@ namespace Farmlink
             sell_order order = new sell_order(agent_id, "agent_id");
             spanel.Controls.Clear();
             spanel.Controls.Add(order);
+            //count.Hide();
+            
         }
 
         private void logout_Click(object sender, EventArgs e)
@@ -278,6 +297,8 @@ namespace Farmlink
             spanel.Controls.Remove(tablepanel);
             spanel.Controls.Clear();
             spanel.Controls.AddRange( new Control[] { tablepanel , Req , sellers, count , info } );
+            Req.PerformClick();
+            count.BringToFront();
             tablepanel.Hide();
 
         }

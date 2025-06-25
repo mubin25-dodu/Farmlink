@@ -168,10 +168,10 @@ namespace Farmlink
         {
             btnactive(cartbtn, null);
             bpanel.Controls.Clear();
-            bpanel.Controls.AddRange(new Control[] { display_product , totalamount, paymentbtn, note, empty_cart });
             display_product.Controls.Clear();
-            searchbox.Visible = false;
-            searchbtn.Visible = false;
+
+            bpanel.Controls.AddRange(new Control[] { display_product , totalamount, paymentbtn, note, empty_cart });
+
             display_product.Visible = true;
 
 
@@ -253,49 +253,15 @@ namespace Farmlink
         
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bhome1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void display_product_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
-
-        private void display_product_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void display_product_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint_1(object sender, PaintEventArgs e)
-        {
-        }
+      
+ 
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void searchbtn_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -314,10 +280,7 @@ namespace Farmlink
 
         private void empty_cart_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            LoadProducts("SELECT * FROM product");
-            display_product.Visible = true;
-            searchbox.Show();
-            searchbtn.Show();
+            home.PerformClick();
             
         }
 
@@ -362,6 +325,8 @@ namespace Farmlink
             orderbtn.Show();
             bpanel.Controls.AddRange(new Control[] { display_product, searchbox, searchbtn});
             LoadProducts("SELECT * FROM product");
+            string remove = "Delete from [order] where customer_id = '"+uid+"'";
+            new db().write(remove);
         }
 
         private void btnpanel_Paint(object sender, PaintEventArgs e)

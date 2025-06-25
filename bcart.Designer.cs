@@ -75,6 +75,9 @@
             this.checkBox.Text = "Add to Payment";
             this.checkBox.UseVisualStyleBackColor = true;
             this.checkBox.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
+            this.checkBox.Click += new System.EventHandler(this.checkBox_Click);
+            this.checkBox.MouseEnter += new System.EventHandler(this.checkBox_MouseEnter);
+            this.checkBox.MouseLeave += new System.EventHandler(this.checkBox_MouseLeave);
             // 
             // pictureBox
             // 
@@ -87,6 +90,9 @@
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 28;
             this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.checkBox_Click);
+            this.pictureBox.MouseEnter += new System.EventHandler(this.checkBox_MouseEnter);
+            this.pictureBox.MouseLeave += new System.EventHandler(this.checkBox_MouseLeave);
             // 
             // price_l
             // 
@@ -97,6 +103,9 @@
             this.price_l.Size = new System.Drawing.Size(46, 20);
             this.price_l.TabIndex = 37;
             this.price_l.Text = "price";
+            this.price_l.Click += new System.EventHandler(this.checkBox_Click);
+            this.price_l.MouseEnter += new System.EventHandler(this.checkBox_MouseEnter);
+            this.price_l.MouseLeave += new System.EventHandler(this.checkBox_MouseLeave);
             // 
             // selected
             // 
@@ -107,6 +116,9 @@
             this.selected.Size = new System.Drawing.Size(65, 25);
             this.selected.TabIndex = 36;
             this.selected.Text = "select";
+            this.selected.Click += new System.EventHandler(this.checkBox_Click);
+            this.selected.MouseEnter += new System.EventHandler(this.checkBox_MouseEnter);
+            this.selected.MouseLeave += new System.EventHandler(this.checkBox_MouseLeave);
             // 
             // amount
             // 
@@ -117,6 +129,9 @@
             this.amount.Size = new System.Drawing.Size(84, 25);
             this.amount.TabIndex = 33;
             this.amount.Text = "amount";
+            this.amount.Click += new System.EventHandler(this.checkBox_Click);
+            this.amount.MouseEnter += new System.EventHandler(this.checkBox_MouseEnter);
+            this.amount.MouseLeave += new System.EventHandler(this.checkBox_MouseLeave);
             // 
             // avelibility
             // 
@@ -127,6 +142,9 @@
             this.avelibility.Size = new System.Drawing.Size(78, 20);
             this.avelibility.TabIndex = 35;
             this.avelibility.Text = "avelibility";
+            this.avelibility.Click += new System.EventHandler(this.checkBox_Click);
+            this.avelibility.MouseEnter += new System.EventHandler(this.checkBox_MouseEnter);
+            this.avelibility.MouseLeave += new System.EventHandler(this.checkBox_MouseLeave);
             // 
             // pname
             // 
@@ -137,6 +155,9 @@
             this.pname.Size = new System.Drawing.Size(162, 28);
             this.pname.TabIndex = 34;
             this.pname.Text = "product name";
+            this.pname.Click += new System.EventHandler(this.checkBox_Click);
+            this.pname.MouseEnter += new System.EventHandler(this.checkBox_MouseEnter);
+            this.pname.MouseLeave += new System.EventHandler(this.checkBox_MouseLeave);
             // 
             // abouttext
             // 
@@ -149,6 +170,9 @@
             this.abouttext.TabIndex = 31;
             this.abouttext.Text = "description";
             this.abouttext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.abouttext.Click += new System.EventHandler(this.checkBox_Click);
+            this.abouttext.MouseEnter += new System.EventHandler(this.checkBox_MouseEnter);
+            this.abouttext.MouseLeave += new System.EventHandler(this.checkBox_MouseLeave);
             // 
             // bcart
             // 
@@ -171,6 +195,9 @@
             this.Name = "bcart";
             this.Size = new System.Drawing.Size(531, 276);
             this.Load += new System.EventHandler(this.bcart_Load);
+            this.Click += new System.EventHandler(this.checkBox_Click);
+            this.MouseEnter += new System.EventHandler(this.checkBox_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.checkBox_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

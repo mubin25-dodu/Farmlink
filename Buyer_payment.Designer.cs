@@ -270,14 +270,16 @@
             // 
             // total_price
             // 
+            this.total_price.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(0)))));
             this.total_price.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.total_price.ForeColor = System.Drawing.Color.White;
             this.total_price.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.total_price.Location = new System.Drawing.Point(842, 370);
+            this.total_price.Location = new System.Drawing.Point(550, 388);
             this.total_price.Name = "total_price";
-            this.total_price.Size = new System.Drawing.Size(320, 243);
+            this.total_price.Size = new System.Drawing.Size(612, 341);
             this.total_price.TabIndex = 28;
             this.total_price.Text = "Products";
+            this.total_price.Click += new System.EventHandler(this.total_price_Click);
             // 
             // Buyer_payment
             // 
@@ -286,7 +288,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.BackgroundImage = global::Farmlink.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Controls.Add(this.total_price);
             this.Controls.Add(this.mobilepay);
             this.Controls.Add(this.donebtn);
             this.Controls.Add(this.addressbox);
@@ -297,6 +298,7 @@
             this.Controls.Add(this.cod);
             this.Controls.Add(this.details);
             this.Controls.Add(this.data);
+            this.Controls.Add(this.total_price);
             this.DoubleBuffered = true;
             this.Name = "Buyer_payment";
             this.Size = new System.Drawing.Size(1165, 729);

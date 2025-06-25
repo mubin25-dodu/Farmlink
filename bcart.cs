@@ -117,11 +117,30 @@ namespace Farmlink
             {
                 var parentForm = this.FindForm() as B_Home;
                 parentForm.payment(-(totalprice), seller_id, agent_id, count, product_id, ava - count);
-                parentForm.paymentbtn.PerformClick();
+             
 
                 string query = "DELETE FROM [order] WHERE customer_id = '" + uid + "' AND product_id = '" + product_id + "'";
                 new db().write(query);
             }
+        }
+
+        private void checkBox_Click(object sender, EventArgs e)
+        {
+              
+            if (checkBox.Checked) { checkBox.Checked = false; }
+            else { checkBox.Checked = true;}
+        
+        }
+
+        private void checkBox_MouseEnter(object sender, EventArgs e)
+        {
+            //this.Scale(new SizeF(1.05f, 1.05f));
+        }
+
+        private void checkBox_MouseLeave(object sender, EventArgs e)
+        {
+            //this.Scale(new SizeF(0.95f, 0.95f));
+
         }
 
         private void abouttext_Click(object sender, EventArgs e)

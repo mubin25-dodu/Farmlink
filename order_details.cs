@@ -27,8 +27,6 @@ namespace Farmlink
             this.buyer_id = bid;
             total_price= q * p;
             Console.WriteLine("asdasdasd" + product_id + "==" + buyer_id);
-
-
         }
 
         private void orderdetails1_Load(object sender, EventArgs e)
@@ -47,10 +45,18 @@ namespace Farmlink
                 string query = "DELETE FROM [order] WHERE (product_id = '" + product_id + "' and customer_id = '"+buyer_id+"')";
                 if (new db().write(query) == 1)
                 {
-                    MessageBox.Show("Order removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Buyer_payment n = new Buyer_payment(buyer_id);
-                    n.LoadProducts("SELECT * FROM [order] WHERE customer_id = '" + buyer_id + "'");
+                   MessageBox.Show("Order removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   Control parent = this.Parent;
+                while (parent != null && !(parent is Buyer_payment))
+                    parent = parent.Parent;
+
+                if (parent is Buyer_payment buyerPayment)
+                {
+                    buyerPayment.bill();
+                    buyerPayment.LoadProducts("SELECT * FROM [order] WHERE customer_id = '" + buyer_id + "'");
                 }
+
+            }
                 else
                 {
                     MessageBox.Show("Failed to remove order. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

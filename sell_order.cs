@@ -20,13 +20,15 @@ namespace Farmlink
             InitializeComponent();
             this.id = i;
             this.role = r;
+            Console.WriteLine(id);
         }
 
         private void sell_order_Load(object sender, EventArgs e)
         {
             tablepanel.Hide();
             count.Hide();
-            string q = "select * from orderhistory where seller_id ='"+id+ "' and status ='processing'";
+
+            string q = "select * from orderhistory where ("+role+" ='"+id+ "' and status ='processing')";
             db d = new db();
             DataTable t = d.readAll(q);
             if (t != null && t.Rows.Count > 0)
@@ -77,7 +79,7 @@ namespace Farmlink
             }
             else
             {
-                
+                tablenoti.Text = "Orders found ";
                 table.DataSource = null;
             }
 
@@ -163,7 +165,7 @@ namespace Farmlink
             db d = new db();
             DataTable dt = d.readAll(query);
 
-            if (dt != null && dt.Rows.Count > 0)
+            if ( dt.Rows.Count > 0)
             {
                 tablenoti.Text  = "pending orders-> " + dt.Rows.Count;
                 table.DataSource = dt;
@@ -198,7 +200,7 @@ namespace Farmlink
             table.Rows.Clear();
             tablepanel.Visible = false;
             count.Hide();
-            string q = "select * from orderhistory where seller_id = '"+id+ "' and status ='processing'";
+            string q = "select * from orderhistory where "+role+" = '"+id+ "' and status ='processing'";
             db d = new db();
             DataTable t = d.readAll(q);
             if (t != null && t.Rows.Count > 0)

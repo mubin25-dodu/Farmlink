@@ -190,6 +190,7 @@ namespace Farmlink
                 DataRow dt = n.read(query);
                 if (n.read(query) != null)
                 {
+                    timer1.Start();
                     noti.Text = "You'r agent assigned " ;
                     this.agent = dt[0].ToString();
                 }
@@ -235,6 +236,8 @@ namespace Farmlink
                 string productId = products.Rows[e.RowIndex].Cells[0].Value.ToString();
                 Console.WriteLine(productId);
                 string query = "DELETE FROM product WHERE product_id = '" + productId + "'";
+                string q = "update orderhistory set status = 'removed' where product_id ='"+productId+"'";
+                new db().write(q);
                 if (new db().write(query) > 0)
                 {
                     timer1.Start();

@@ -28,8 +28,10 @@ namespace Farmlink
             selected.Text = " ";
             amount.Text = " ";
             abouttext.Text = des;
-            avelibility.Text = av.ToString() + " kg available";
-            price_l.Text= "Price: " + pr.ToString() + " BDT/Unit";
+            if (av > 0) { avelibility.Text = av.ToString() + " kg available"; }
+            else { avelibility.Text ="Out of stock"; }
+
+                price_l.Text = "Price: " + pr.ToString() + " BDT/Unit";
             pictureBox.Image = Image.FromFile(img);
             ava = av;
             price = pr;
@@ -127,8 +129,7 @@ namespace Farmlink
                     if (b.write(query) == 1)
                     {
                         MessageBox.Show("Product added to cart successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //var parentForm = this.FindForm() as B_Home;
-                        //parentForm.LoadProducts("SELECT * FROM product"); ;
+            
                     }
                     else
                     {
