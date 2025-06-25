@@ -211,8 +211,9 @@ namespace Farmlink
 
                 string query = "UPDATE orderhistory SET status = 'received' , pay_stat ='paid' WHERE history_id = '"+historyId+"'";
                //if agent exist
-                string q2 = "SELECT a.comm_percent FROM agent a JOIN orderhistory o ON o.agent_id = a.agent_id  join delivery d on d.delivery_id = delivery_id WHERE o.history_id = '"+historyId+"'";
-                string q = "SELECT d.amount FROM  orderhistory o  join delivery d on d.delivery_id = o.delivery_id WHERE o.history_id = '"+historyId+"' and status <> 'paid'";
+                string q2 = "SELECT a.comm_percent FROM agent a JOIN orderhistory o ON o.agent_id = a.agent_id  join delivery d on d.delivery_id = o.delivery_id WHERE o.history_id = '"+historyId+"'";
+                //extracting delivery fee if not paid
+                string q = "SELECT ISNULL(d.amount,0) , o.delivery_id FROM  orderhistory o  join delivery d on d.delivery_id = o.delivery_id WHERE o.history_id = '"+historyId+"' and d.status = 'pending'";
                 db d = new db();
                     DataRow drr = d.read(q);
 
@@ -224,21 +225,22 @@ namespace Farmlink
                         double delivery_amount = double.Parse(drr[0].ToString());
                         double comm = double.Parse(dr[0].ToString());
                         double agent_share = (price * comm) / 100;
-                        double platform_share = price * p_share;
+                        double platform_share = (price * p_share)+delivery_amount;
+                        Console.WriteLine( platform_share);
                         double seller_share = price - (agent_share + platform_share);
 
                         string q3 = "INSERT INTO pay_history (history_id, agent_share, platform_share, seller_share) " +
-                                    "VALUES ('" + historyId + "' , '" + agent_share + "', '" + (platform_share+ delivery_amount) + "', '" + seller_share + "')";
-
+                                    "VALUES ('" + historyId + "' , '" + agent_share + "', '" + (platform_share) + "', '" + seller_share + "')";
+                        string q4 = "update delivery set status ='paid' where delivery_id ='" + int.Parse(drr[1].ToString())+"'";
                         d.write(q3);
                     }
                     else {
                         double delivery_amount = double.Parse(drr[0].ToString());
-                        double platform_share = price * p_share;
+                        double platform_share = (price * p_share) + delivery_amount;
                         double seller_share = price -  platform_share;
 
                         string q3 = "INSERT INTO pay_history (history_id, platform_share, seller_share) " +
-                                    "VALUES ('" + historyId + "', '" + (platform_share+delivery_amount) + "', '" + seller_share + "')";
+                                    "VALUES ('" + historyId + "', '" + (platform_share) + "', '" + seller_share + "')";
 
                         d.write(q3);
                     }

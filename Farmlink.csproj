@@ -217,6 +217,9 @@
     <EmbeddedResource Include="a-manageuser.resx">
       <DependentUpon>a-manageuser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="agent_home.bn-BD.resx">
+      <DependentUpon>agent_home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="agent_home.resx">
       <DependentUpon>agent_home.cs</DependentUpon>
     </EmbeddedResource>

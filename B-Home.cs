@@ -25,14 +25,14 @@ namespace Farmlink
         //int product_id;
 
         public void payment(double p,string id,string agent,double q,int pid, double av) { 
-        this.payable =payable+ p;
-        totalamount.Text = "Total Amount: " + payable.ToString() + " BDT";
-        this.seller_id = agent;
-        this.agent_id = agent;
-        this.quanti = q;
-        //this.product_id = pid;
-        this.now_available =av;
-        Console.WriteLine(totalamount);
+              this.payable =payable+ p;
+              totalamount.Text = "Total Amount: " + payable.ToString() + " BDT";
+              this.seller_id = agent;
+              this.agent_id = agent;
+              this.quanti = q;
+              //this.product_id = pid;
+              this.now_available =av;
+              Console.WriteLine(totalamount);
         }
 
         private void btnactive(object sender, EventArgs e)

@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnpanel = new System.Windows.Forms.Panel();
+            this.home = new System.Windows.Forms.Button();
+            this.cartbtn = new System.Windows.Forms.Button();
+            this.orderbtn = new System.Windows.Forms.Button();
             this.cancelbtn = new System.Windows.Forms.Button();
             this.profilepic = new System.Windows.Forms.PictureBox();
-            this.orderbtn = new System.Windows.Forms.Button();
             this.logout = new System.Windows.Forms.Button();
-            this.cartbtn = new System.Windows.Forms.Button();
-            this.home = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.bpanel = new System.Windows.Forms.Panel();
@@ -46,12 +47,11 @@
             this.totalamount = new System.Windows.Forms.Label();
             this.paymentbtn = new System.Windows.Forms.Button();
             this.backpanel = new System.Windows.Forms.Panel();
-            this.btnpanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.btnpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilepic)).BeginInit();
             this.bpanel.SuspendLayout();
             this.backpanel.SuspendLayout();
-            this.btnpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,6 +68,79 @@
             this.panel1.Size = new System.Drawing.Size(193, 726);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnpanel
+            // 
+            this.btnpanel.Controls.Add(this.home);
+            this.btnpanel.Controls.Add(this.cartbtn);
+            this.btnpanel.Controls.Add(this.orderbtn);
+            this.btnpanel.Location = new System.Drawing.Point(0, 293);
+            this.btnpanel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.btnpanel.Name = "btnpanel";
+            this.btnpanel.Size = new System.Drawing.Size(195, 168);
+            this.btnpanel.TabIndex = 26;
+            this.btnpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.btnpanel_Paint);
+            // 
+            // home
+            // 
+            this.home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.home.Cursor = System.Windows.Forms.Cursors.Default;
+            this.home.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.home.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.home.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.home.ForeColor = System.Drawing.Color.White;
+            this.home.Image = global::Farmlink.Properties.Resources.home;
+            this.home.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.home.Location = new System.Drawing.Point(0, 27);
+            this.home.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.home.Name = "home";
+            this.home.Size = new System.Drawing.Size(195, 52);
+            this.home.TabIndex = 17;
+            this.home.Text = "Home";
+            this.home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.home.UseVisualStyleBackColor = false;
+            this.home.Click += new System.EventHandler(this.home_Click);
+            // 
+            // cartbtn
+            // 
+            this.cartbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.cartbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cartbtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cartbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.cartbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cartbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cartbtn.ForeColor = System.Drawing.Color.White;
+            this.cartbtn.Image = global::Farmlink.Properties.Resources.grocery_store;
+            this.cartbtn.Location = new System.Drawing.Point(0, 79);
+            this.cartbtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.cartbtn.Name = "cartbtn";
+            this.cartbtn.Size = new System.Drawing.Size(195, 44);
+            this.cartbtn.TabIndex = 18;
+            this.cartbtn.Text = " Cart";
+            this.cartbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cartbtn.UseVisualStyleBackColor = false;
+            this.cartbtn.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // orderbtn
+            // 
+            this.orderbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.orderbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.orderbtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.orderbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.orderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.orderbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderbtn.ForeColor = System.Drawing.Color.White;
+            this.orderbtn.Image = global::Farmlink.Properties.Resources.booking;
+            this.orderbtn.Location = new System.Drawing.Point(0, 123);
+            this.orderbtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.orderbtn.Name = "orderbtn";
+            this.orderbtn.Size = new System.Drawing.Size(195, 45);
+            this.orderbtn.TabIndex = 20;
+            this.orderbtn.Text = "Order";
+            this.orderbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.orderbtn.UseVisualStyleBackColor = false;
+            this.orderbtn.Click += new System.EventHandler(this.button4_Click);
             // 
             // cancelbtn
             // 
@@ -96,26 +169,6 @@
             this.profilepic.TabIndex = 21;
             this.profilepic.TabStop = false;
             // 
-            // orderbtn
-            // 
-            this.orderbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.orderbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.orderbtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.orderbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.orderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.orderbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderbtn.ForeColor = System.Drawing.Color.White;
-            this.orderbtn.Image = global::Farmlink.Properties.Resources.booking;
-            this.orderbtn.Location = new System.Drawing.Point(0, 123);
-            this.orderbtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.orderbtn.Name = "orderbtn";
-            this.orderbtn.Size = new System.Drawing.Size(195, 45);
-            this.orderbtn.TabIndex = 20;
-            this.orderbtn.Text = "Order";
-            this.orderbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.orderbtn.UseVisualStyleBackColor = false;
-            this.orderbtn.Click += new System.EventHandler(this.button4_Click);
-            // 
             // logout
             // 
             this.logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
@@ -133,47 +186,6 @@
             this.logout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.logout.UseVisualStyleBackColor = false;
             this.logout.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // cartbtn
-            // 
-            this.cartbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.cartbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cartbtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cartbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.cartbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cartbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cartbtn.ForeColor = System.Drawing.Color.White;
-            this.cartbtn.Image = global::Farmlink.Properties.Resources.grocery_store;
-            this.cartbtn.Location = new System.Drawing.Point(0, 79);
-            this.cartbtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.cartbtn.Name = "cartbtn";
-            this.cartbtn.Size = new System.Drawing.Size(195, 44);
-            this.cartbtn.TabIndex = 18;
-            this.cartbtn.Text = " Cart";
-            this.cartbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cartbtn.UseVisualStyleBackColor = false;
-            this.cartbtn.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // home
-            // 
-            this.home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.home.Cursor = System.Windows.Forms.Cursors.Default;
-            this.home.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.home.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.home.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.home.ForeColor = System.Drawing.Color.White;
-            this.home.Image = global::Farmlink.Properties.Resources.home;
-            this.home.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.home.Location = new System.Drawing.Point(0, 27);
-            this.home.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.home.Name = "home";
-            this.home.Size = new System.Drawing.Size(195, 52);
-            this.home.TabIndex = 17;
-            this.home.Text = "Home";
-            this.home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.home.UseVisualStyleBackColor = false;
-            this.home.Click += new System.EventHandler(this.home_Click);
             // 
             // id
             // 
@@ -337,18 +349,6 @@
             this.backpanel.Size = new System.Drawing.Size(1355, 732);
             this.backpanel.TabIndex = 29;
             // 
-            // btnpanel
-            // 
-            this.btnpanel.Controls.Add(this.home);
-            this.btnpanel.Controls.Add(this.cartbtn);
-            this.btnpanel.Controls.Add(this.orderbtn);
-            this.btnpanel.Location = new System.Drawing.Point(0, 293);
-            this.btnpanel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.btnpanel.Name = "btnpanel";
-            this.btnpanel.Size = new System.Drawing.Size(195, 168);
-            this.btnpanel.TabIndex = 26;
-            this.btnpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.btnpanel_Paint);
-            // 
             // B_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,17 +356,18 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.backpanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "B_Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "B_Home";
             this.Load += new System.EventHandler(this.B_Home_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.btnpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.profilepic)).EndInit();
             this.bpanel.ResumeLayout(false);
             this.bpanel.PerformLayout();
             this.backpanel.ResumeLayout(false);
-            this.btnpanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
