@@ -267,6 +267,11 @@ namespace Farmlink
                 MessageBox.Show("You already have an agent.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             }
+
+        private void crossbtn_Click(object sender, EventArgs e)
+        {
+            profilecard.Hide();
         }
+    }
     
 }

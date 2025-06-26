@@ -137,6 +137,65 @@ namespace Farmlink
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Size = new Size(1366, 768);
+            showpass.Hide();
+            pass.UseSystemPasswordChar = true;
+            forgotpanel.Hide();
+        }
+
+        private void showpass_Click(object sender, EventArgs e)
+        {
+
+            pass.UseSystemPasswordChar = true;
+            hidepass.Show();
+            showpass.Hide();
+
+        }
+        private void hidepass_Click(object sender, EventArgs e)
+        {
+            pass.UseSystemPasswordChar = false;
+
+            hidepass.Hide();
+            showpass.Show();
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            forgotpanel.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string query = "select * from userinfo where (mail ='"+mailf.Text+"' and fullname ='"+fullname.Text+"' and phone = '"+num.Text+"' and roles ='"+role.Text+"')";
+            db d = new db();
+            if (passf.Text!=""||conpass.Text!="" || fullname.Text ==""|| mailf.Text==""||num.Text=="") {
+                if (passf.Text == conpass.Text)
+                {
+                    string changepass = passf.Text;
+                    if (d.read(query) != null)
+                    {
+                        string update = "update userinfo set pass ='" + changepass + "' where mail='" + mailf.Text + "'";
+                        if (d.write(update) == 1)
+                        {
+                            MessageBox.Show("password changed", "succcess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            signinpanel.Show();
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("user Not found", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                }
+                else { 
+                        MessageBox.Show("password dosen't match", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+            else { 
+                   MessageBox.Show("fill in the boxes", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

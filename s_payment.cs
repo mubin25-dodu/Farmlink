@@ -35,15 +35,37 @@ namespace Farmlink
         private void s_payment_Load(object sender, EventArgs e)
         {
             mobilepay.Visible = false;
-
+            stats();
+        }
+        private void stats() {
             db d = new db();
             if (role == "agent_id")
             {
-                query = "SELECT  sum(ISNULL(p.agent_share,0)) AS total_sell,  " +
-                   " SUM(ISNULL(p.agent_share,0) - ISNULL(w.amount,0)) AS withdrawable_balance,  " +
-                   " SUM(ISNULL(w.amount,0)) AS total_withdrawn " +
-                   " FROM pay_history p JOIN orderhistory o ON o.history_id = p.history_id LEFT JOIN withdraw w ON  w.uid = o." + role + "  " +
-                   "WHERE o." + role + " = '" + seller_id + "' and status = 'received' ";
+                query = query = "SELECT " +
+                      "  ISNULL((SELECT SUM(ISNULL(p.seller_share, 0)) " +
+                      "   FROM pay_history p " +
+                      "   JOIN orderhistory o ON o.history_id = p.history_id " +
+                      "   WHERE o." + role + " = '" + seller_id + "' AND status = 'received'), 0) AS total_sell, " +
+
+                      "  (ISNULL((SELECT SUM(ISNULL(p.seller_share, 0)) " +
+                      "    FROM pay_history p " +
+                      "    JOIN orderhistory o ON o.history_id = p.history_id " +
+                      "    WHERE o." + role + " = '" + seller_id + "' AND status = 'received'), 0) - " +
+                      "   ISNULL((SELECT SUM(ISNULL(w.amount, 0)) FROM withdraw w WHERE w.uid = '" + seller_id + "'), 0)) AS withdrawable_balance, " +
+
+                      " ISNULL((SELECT SUM(ISNULL(w.amount, 0)) " +
+                      "   FROM withdraw w " +
+                      "   WHERE w.uid = '" + seller_id + "'), 0) AS total_withdrawn, " +
+
+                      "  ISNULL((SELECT SUM(ISNULL(p.platform_share, 0)) " +
+                      "   FROM pay_history p " +
+                      "   JOIN orderhistory o ON o.history_id = p.history_id " +
+                      "   WHERE o." + role + " = '" + seller_id + "' AND status = 'received'), 0) AS platformshare, " +
+
+                      "  ISNULL((SELECT SUM(ISNULL(p.agent_share, 0)) " +
+                      "   FROM pay_history p " +
+                      "   JOIN orderhistory o ON o.history_id = p.history_id " +
+                      "   WHERE o." + role + " = '" + seller_id + "' AND status = 'received'), 0) AS agentshare";
 
                 DataRow dr = d.read(query);
                 if (dr != null && dr[0] != DBNull.Value)
@@ -69,13 +91,34 @@ namespace Farmlink
                 }
 
             }
-            else if (role=="seller_id")
+            else if (role == "seller_id")
             {
-                query = "SELECT SUM(ISNULL(p.seller_share,0)) AS total_sell,  " +
-                    " SUM(ISNULL(p.seller_share,0) - ISNULL(w.amount,0)) AS withdrawable_balance,  " +
-                    " SUM(ISNULL(w.amount,0)) AS total_withdrawn, sum(ISNULL(p.platform_share,0)) as platformshare,  sum(ISNULL(p.agent_share,0)) as " +
-                    "agentshare FROM pay_history p JOIN orderhistory o ON o.history_id = p.history_id LEFT JOIN withdraw w ON  w.uid = o." + role + "  " +
-                    "WHERE o." + role + " = '" + seller_id + "' and status = 'received' ";
+                query = "SELECT " +
+                      "  ISNULL((SELECT SUM(ISNULL(p.seller_share, 0)) " +
+                      "   FROM pay_history p " +
+                      "   JOIN orderhistory o ON o.history_id = p.history_id " +
+                      "   WHERE o." + role + " = '" + seller_id + "' AND status = 'received'), 0) AS total_sell, " +
+
+                      "  (ISNULL((SELECT SUM(ISNULL(p.seller_share, 0)) " +
+                      "    FROM pay_history p " +
+                      "    JOIN orderhistory o ON o.history_id = p.history_id " +
+                      "    WHERE o." + role + " = '" + seller_id + "' AND status = 'received'), 0) - " +
+                      "   ISNULL((SELECT SUM(ISNULL(w.amount, 0)) FROM withdraw w WHERE w.uid = '" + seller_id + "'), 0)) AS withdrawable_balance, " +
+
+                      " ISNULL((SELECT SUM(ISNULL(w.amount, 0)) " +
+                      "   FROM withdraw w " +
+                      "   WHERE w.uid = '" + seller_id + "'), 0) AS total_withdrawn, " +
+
+                      "  ISNULL((SELECT SUM(ISNULL(p.platform_share, 0)) " +
+                      "   FROM pay_history p " +
+                      "   JOIN orderhistory o ON o.history_id = p.history_id " +
+                      "   WHERE o." + role + " = '" + seller_id + "' AND status = 'received'), 0) AS platformshare, " +
+
+                      "  ISNULL((SELECT SUM(ISNULL(p.agent_share, 0)) " +
+                      "   FROM pay_history p " +
+                      "   JOIN orderhistory o ON o.history_id = p.history_id " +
+                      "   WHERE o." + role + " = '" + seller_id + "' AND status = 'received'), 0) AS agentshare";
+
                 query2 = "select SUM( ISNULL(total_price, 0)) AS total_sales from orderhistory where seller_id='" + seller_id + "' and status = 'on the way' ";
                 DataRow drr = d.read(query2);
                 Pending.Text = "Pending Amount: " + (0 + drr[0].ToString()) + " BDT";
@@ -99,10 +142,7 @@ namespace Farmlink
                     agentfee.Text = "Agent Fee: 0 BDT";
                 }
             }
-    
-
         }
-
         private void Platformfeebtn_Click(object sender, EventArgs e)
         {
 
@@ -115,28 +155,34 @@ namespace Farmlink
 
         private void donep_Click(object sender, EventArgs e)
         {
-            double amount = double.Parse(am.Text);
-            if (withdrawable_balance > amount)
-            {
-                string query = "INSERT INTO withdraw  values('" + double.Parse(am.Text) + "' , '" + seller_id + "' , getdate() , '" + num.Text + "')";
-                db d = new db();
-
-                if (d.write(query) > 0)
+            if (num.Text=="" || am.Text=="") { 
+                        MessageBox.Show("fill the box.");
+            }
+            else
+            { double amount = double.Parse(am.Text);
+                if (withdrawable_balance > amount)
                 {
-                    MessageBox.Show("Withdraw successfull.");
-                    mobilepay.Visible = false;
-                    s_payment k = new s_payment(seller_id ,"seller_id");
+                    string query = "INSERT INTO withdraw  values('" + double.Parse(am.Text) + "' , '" + seller_id + "' , getdate() , '" + num.Text + "')";
+                    db d = new db();
+
+                    if (d.write(query) > 0)
+                    {
+                        MessageBox.Show("Withdraw successfull.");
+                        mobilepay.Visible = false;
+                       
+                        stats();
+                    }
+                    else
+                    {
+
+                    }
                 }
                 else
                 {
-
+                    MessageBox.Show("Not Enough Balance.");
+                    am.Text.Clone();
+                    am.Focus();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Not Enough Balance.");
-                am.Text.Clone();
-                am.Focus();
             }
         }
 
