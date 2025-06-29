@@ -159,5 +159,10 @@ namespace Farmlink
         {
 
         }
+
+        private void A_home_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
