@@ -13,13 +13,13 @@ namespace Farmlink
 {
     public partial class ordercard : UserControl 
     {
-        double ava = 0;
-        double price = 0;
-        string uid;
-        double count = 0;
-        int pid;
-        string query;
-        bool added_tocart = false;
+        private double ava = 0;
+        private double price = 0;
+        private string uid;
+        private double count = 0;
+        private int pid,timer=0;
+        private string query;
+        private bool added_tocart = false;
         public ordercard( string name , double pr ,string des,string img,double av,int p,string i)
         {
             InitializeComponent();
@@ -128,8 +128,11 @@ namespace Farmlink
                 {
                     if (b.write(query) == 1)
                     {
-                        MessageBox.Show("Product added to cart successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
+                        //MessageBox.Show("Product added to cart successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        var home = this.FindForm() as B_Home;
+                        home.notification("Product added to cart successfully");
+                        timer1.Start();
+
                     }
                     else
                     {
@@ -148,8 +151,11 @@ namespace Farmlink
                 {
                     if (b.write(query) == 1)
                     {
-                        MessageBox.Show("Product added to cart successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("Product added to cart successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        var home = this.FindForm() as B_Home;
+                        home.notification("Product added to cart successfully");
 
+                        timer1.Start();
                     }
                     else
                     {
@@ -162,10 +168,26 @@ namespace Farmlink
                 }
             }
         }
-
+        
         private void selected_MouseHover(object sender, EventArgs e)
         {
  
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
+            timer++;
+            Console.WriteLine(timer);
+            if (timer == 30)
+            {
+                timer1.Stop();
+                timer = 0;
+                var home = this.FindForm() as B_Home;
+                home.notification("  ");
+
+            }
+        
         }
 
         private void selected_MouseLeave(object sender, EventArgs e)

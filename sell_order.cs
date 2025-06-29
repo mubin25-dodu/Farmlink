@@ -27,7 +27,6 @@ namespace Farmlink
         {
             tablepanel.Hide();
             count.Hide();
-
             string q = "select * from orderhistory where "+role+" ='"+id+ "' and (status = 'processing' or status ='Collection Request')";
             db d = new db();
             DataTable t = d.readAll(q);
@@ -79,7 +78,7 @@ namespace Farmlink
             }
             else
             {
-                tablenoti.Text = "Orders found ";
+                tablenoti.Text = "Orders Not Found ";
                 table.DataSource = null;
             }
 
@@ -195,13 +194,16 @@ namespace Farmlink
             table.Rows.Clear();
             tablepanel.Visible = false;
             count.Hide();
-            string q = "select * from orderhistory where "+role+" = '"+id+ "' and status ='processing'";
+            string q = "select * from orderhistory where " + role + " ='" + id + "' and (status = 'processing' or status ='Collection Request')";
             db d = new db();
             DataTable t = d.readAll(q);
             if (t != null && t.Rows.Count > 0)
             {
                 count.Show();
                 count.Text = t.Rows.Count.ToString();
+            }
+            else {
+                count.Hide();
             }
 
 

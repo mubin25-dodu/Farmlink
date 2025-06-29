@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(signin));
             this.panel4 = new System.Windows.Forms.Panel();
+            this.path = new System.Windows.Forms.Label();
+            this.image = new System.Windows.Forms.Button();
+            this.district = new System.Windows.Forms.ComboBox();
+            this.photo = new System.Windows.Forms.PictureBox();
+            this.phone = new System.Windows.Forms.Label();
+            this.num = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.role = new System.Windows.Forms.ComboBox();
@@ -52,16 +58,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.phone = new System.Windows.Forms.Label();
-            this.num = new System.Windows.Forms.TextBox();
-            this.photo = new System.Windows.Forms.PictureBox();
-            this.district = new System.Windows.Forms.ComboBox();
-            this.image = new System.Windows.Forms.Button();
-            this.path = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.photo)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.photo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -93,6 +93,100 @@
             this.panel4.Size = new System.Drawing.Size(682, 730);
             this.panel4.TabIndex = 14;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // path
+            // 
+            this.path.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.path.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.path.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.path.Location = new System.Drawing.Point(132, 606);
+            this.path.Name = "path";
+            this.path.Size = new System.Drawing.Size(176, 47);
+            this.path.TabIndex = 31;
+            this.path.Text = "path";
+            // 
+            // image
+            // 
+            this.image.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.image.Cursor = System.Windows.Forms.Cursors.Default;
+            this.image.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.image.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.image.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.image.Location = new System.Drawing.Point(129, 573);
+            this.image.Name = "image";
+            this.image.Size = new System.Drawing.Size(157, 30);
+            this.image.TabIndex = 30;
+            this.image.Text = "Select An Image";
+            this.image.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.image.UseVisualStyleBackColor = false;
+            this.image.Click += new System.EventHandler(this.image_Click);
+            // 
+            // district
+            // 
+            this.district.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.district.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.district.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.district.ForeColor = System.Drawing.Color.Turquoise;
+            this.district.FormattingEnabled = true;
+            this.district.IntegralHeight = false;
+            this.district.Items.AddRange(new object[] {
+            "Dhaka",
+            "Chattogram",
+            "Rajshahi",
+            "Khulna",
+            "Barishal",
+            "Sylhet",
+            "Rangpur",
+            "Mymensingh",
+            "Cumilla",
+            "Narayanganj",
+            "Gazipur",
+            "Cox\'s Bazar",
+            "Jessore",
+            "Bogura",
+            "Tangail",
+            "Noakhali",
+            "Feni",
+            "Jamalpur",
+            "Pabna",
+            "Dinajpur"});
+            this.district.Location = new System.Drawing.Point(398, 459);
+            this.district.Name = "district";
+            this.district.Size = new System.Drawing.Size(121, 27);
+            this.district.TabIndex = 29;
+            // 
+            // photo
+            // 
+            this.photo.Location = new System.Drawing.Point(314, 494);
+            this.photo.Name = "photo";
+            this.photo.Size = new System.Drawing.Size(205, 131);
+            this.photo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.photo.TabIndex = 28;
+            this.photo.TabStop = false;
+            // 
+            // phone
+            // 
+            this.phone.AutoSize = true;
+            this.phone.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.phone.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.phone.Location = new System.Drawing.Point(124, 420);
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(174, 28);
+            this.phone.TabIndex = 27;
+            this.phone.Text = "Phone Number";
+            // 
+            // num
+            // 
+            this.num.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.num.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.num.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.num.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.num.Location = new System.Drawing.Point(129, 455);
+            this.num.Multiline = true;
+            this.num.Name = "num";
+            this.num.Size = new System.Drawing.Size(250, 36);
+            this.num.TabIndex = 26;
             // 
             // label11
             // 
@@ -388,101 +482,6 @@
             this.label8.Size = new System.Drawing.Size(0, 70);
             this.label8.TabIndex = 5;
             // 
-            // phone
-            // 
-            this.phone.AutoSize = true;
-            this.phone.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.phone.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.phone.Location = new System.Drawing.Point(124, 420);
-            this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(174, 28);
-            this.phone.TabIndex = 27;
-            this.phone.Text = "Phone Number";
-            // 
-            // num
-            // 
-            this.num.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
-            this.num.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.num.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.num.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.num.Location = new System.Drawing.Point(129, 455);
-            this.num.Multiline = true;
-            this.num.Name = "num";
-            this.num.Size = new System.Drawing.Size(250, 36);
-            this.num.TabIndex = 26;
-            // 
-            // photo
-            // 
-            this.photo.Location = new System.Drawing.Point(314, 494);
-            this.photo.Name = "photo";
-            this.photo.Size = new System.Drawing.Size(205, 131);
-            this.photo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.photo.TabIndex = 28;
-            this.photo.TabStop = false;
-            // 
-            // district
-            // 
-            this.district.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.district.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.district.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.district.ForeColor = System.Drawing.Color.Turquoise;
-            this.district.FormattingEnabled = true;
-            this.district.IntegralHeight = false;
-            this.district.Items.AddRange(new object[] {
-            "Dhaka",
-            "Chattogram",
-            "Rajshahi",
-            "Khulna",
-            "Barishal",
-            "Sylhet",
-            "Rangpur",
-            "Mymensingh",
-            "Cumilla",
-            "Narayanganj",
-            "Gazipur",
-            "Cox\'s Bazar",
-            "Jessore",
-            "Bogura",
-            "Tangail",
-            "Noakhali",
-            "Feni",
-            "Jamalpur",
-            "Pabna",
-            "Dinajpur"});
-            this.district.Location = new System.Drawing.Point(398, 459);
-            this.district.Name = "district";
-            this.district.Size = new System.Drawing.Size(121, 27);
-            this.district.TabIndex = 29;
-            // 
-            // image
-            // 
-            this.image.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            this.image.Cursor = System.Windows.Forms.Cursors.Default;
-            this.image.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.image.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.image.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.image.Location = new System.Drawing.Point(129, 573);
-            this.image.Name = "image";
-            this.image.Size = new System.Drawing.Size(157, 30);
-            this.image.TabIndex = 30;
-            this.image.Text = "Select An Image";
-            this.image.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.image.UseVisualStyleBackColor = false;
-            this.image.Click += new System.EventHandler(this.image_Click);
-            // 
-            // path
-            // 
-            this.path.AutoSize = true;
-            this.path.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.path.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.path.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.path.Location = new System.Drawing.Point(132, 606);
-            this.path.Name = "path";
-            this.path.Size = new System.Drawing.Size(31, 16);
-            this.path.TabIndex = 31;
-            this.path.Text = "path";
-            // 
             // signin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -496,10 +495,10 @@
             this.Load += new System.EventHandler(this.signin_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.photo)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.photo)).EndInit();
             this.ResumeLayout(false);
 
         }

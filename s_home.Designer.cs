@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(S_Home));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnpanel = new System.Windows.Forms.Panel();
             this.home = new System.Windows.Forms.Button();
             this.mypbtn = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.spanel = new System.Windows.Forms.Panel();
             this.tablepanel = new System.Windows.Forms.Panel();
             this.profilecard = new System.Windows.Forms.Panel();
+            this.crossbtn = new System.Windows.Forms.Button();
             this.mail = new System.Windows.Forms.Label();
             this.cancelctn = new System.Windows.Forms.Button();
             this.donep = new System.Windows.Forms.Button();
@@ -63,7 +65,6 @@
             this.agentfee = new System.Windows.Forms.Button();
             this.Total = new System.Windows.Forms.Label();
             this.Totalcard = new System.Windows.Forms.Button();
-            this.crossbtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.btnpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.propic)).BeginInit();
@@ -77,6 +78,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.btnpanel);
             this.panel1.Controls.Add(this.propic);
             this.panel1.Controls.Add(this.logout);
@@ -87,6 +89,19 @@
             this.panel1.Size = new System.Drawing.Size(186, 729);
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AllowDrop = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel1.LinkColor = System.Drawing.Color.WhiteSmoke;
+            this.linkLabel1.Location = new System.Drawing.Point(122, 60);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(81, 24);
+            this.linkLabel1.TabIndex = 29;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Seller";
             // 
             // btnpanel
             // 
@@ -292,6 +307,24 @@
             this.profilecard.Size = new System.Drawing.Size(322, 417);
             this.profilecard.TabIndex = 50;
             // 
+            // crossbtn
+            // 
+            this.crossbtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.crossbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.crossbtn.BackgroundImage = global::Farmlink.Properties.Resources.cross;
+            this.crossbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.crossbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crossbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.crossbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crossbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.crossbtn.Location = new System.Drawing.Point(291, 0);
+            this.crossbtn.Name = "crossbtn";
+            this.crossbtn.Size = new System.Drawing.Size(28, 26);
+            this.crossbtn.TabIndex = 34;
+            this.crossbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.crossbtn.UseVisualStyleBackColor = false;
+            this.crossbtn.Click += new System.EventHandler(this.crossbtn_Click);
+            // 
             // mail
             // 
             this.mail.AutoSize = true;
@@ -444,34 +477,34 @@
             // 
             this.agenttable.AllowUserToAddRows = false;
             this.agenttable.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.agenttable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.agenttable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.agenttable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.agenttable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.agenttable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.agenttable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.agenttable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.agenttable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.agenttable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.agenttable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.agenttable.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.agenttable.DefaultCellStyle = dataGridViewCellStyle3;
             this.agenttable.Location = new System.Drawing.Point(3, 57);
             this.agenttable.MultiSelect = false;
             this.agenttable.Name = "agenttable";
@@ -573,24 +606,6 @@
             this.Totalcard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Totalcard.UseVisualStyleBackColor = false;
             // 
-            // crossbtn
-            // 
-            this.crossbtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.crossbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.crossbtn.BackgroundImage = global::Farmlink.Properties.Resources.cross;
-            this.crossbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.crossbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crossbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.crossbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crossbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.crossbtn.Location = new System.Drawing.Point(291, 0);
-            this.crossbtn.Name = "crossbtn";
-            this.crossbtn.Size = new System.Drawing.Size(28, 26);
-            this.crossbtn.TabIndex = 34;
-            this.crossbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.crossbtn.UseVisualStyleBackColor = false;
-            this.crossbtn.Click += new System.EventHandler(this.crossbtn_Click);
-            // 
             // S_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -651,5 +666,6 @@
         private System.Windows.Forms.Label mail;
         private System.Windows.Forms.Panel btnpanel;
         public System.Windows.Forms.Button crossbtn;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

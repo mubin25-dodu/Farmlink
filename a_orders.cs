@@ -14,6 +14,7 @@ namespace Farmlink
     {
         string clicked = " ";
         double p_share = 0.05; // Platform share percentage
+        double delivery_amount;
         public a_orders()
         {
             InitializeComponent();
@@ -46,14 +47,14 @@ namespace Farmlink
                     check.ReadOnly = false;
                     table.Columns.Insert(0, check);
                 }
-                else if (clicked == "delevred" && !table.Columns.Contains("CollectionRequest"))
+                else if (clicked == "delivred" && !table.Columns.Contains("Mark Delivered"))
                 {
-                        DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
-                        check.HeaderText = "Mark Delivered";
-                        check.Name = "Mark Delivered";
-                        check.Width = 150;
-                        check.ReadOnly = false;
-                        table.Columns.Insert(0, check);
+                        DataGridViewCheckBoxColumn check2 = new DataGridViewCheckBoxColumn();
+                        check2.HeaderText = "Mark Delivered";
+                        check2.Name = "Mark Delivered";
+                        check2.Width = 150;
+                        check2.ReadOnly = false;
+                        table.Columns.Insert(0, check2);
                     
                 }
 
@@ -161,7 +162,7 @@ namespace Farmlink
 
         private void Delevred_Click(object sender, EventArgs e)
         {
-            clicked = "delevred";
+            clicked = "delivred";
 
 
             string query = @"SELECT   
@@ -202,7 +203,7 @@ namespace Farmlink
                     count.Text = "Failed.";
                 }
             }
-            else if (e.ColumnIndex == 0 && clicked == "delevred")
+            else if (e.ColumnIndex == 0 && clicked == "delivred")
             {
                 int rowIndex = e.RowIndex;
 
@@ -216,36 +217,46 @@ namespace Farmlink
                 string q = "SELECT ISNULL(d.amount,0) , o.delivery_id FROM  orderhistory o  join delivery d on d.delivery_id = o.delivery_id WHERE o.history_id = '"+historyId+"' and d.status = 'pending'";
                 db d = new db();
                     DataRow drr = d.read(q);
+                if (drr != null)
+                {
+                     delivery_amount = double.Parse(drr[0].ToString());
+
+                }
+                else
+                {
+                     delivery_amount = 0;
+                }
 
                 if (d.write(query) > 0)
                 {
                     DataRow dr = d.read(q2);
+                   
                     if (dr != null)
                     {
-                        double delivery_amount = double.Parse(drr[0].ToString());
                         double comm = double.Parse(dr[0].ToString());
                         double agent_share = (price * comm) / 100;
                         double platform_share = (price * p_share)+delivery_amount;
                         Console.WriteLine( platform_share);
-                        double seller_share = price - (agent_share + platform_share);
+                        double seller_share = price - (agent_share + (platform_share-delivery_amount));
 
                         string q3 = "INSERT INTO pay_history (history_id, agent_share, platform_share, seller_share) " +
                                     "VALUES ('" + historyId + "' , '" + agent_share + "', '" + (platform_share) + "', '" + seller_share + "')";
                         string q4 = "update delivery set status ='paid' where delivery_id ='" + int.Parse(drr[1].ToString())+"'";
                         d.write(q3);
+                        d.write(q4);
                     }
                     else {
-                        double delivery_amount = double.Parse(drr[0].ToString());
                         double platform_share = (price * p_share) + delivery_amount;
-                        double seller_share = price -  platform_share;
+                        double seller_share = price - (platform_share - delivery_amount);
 
                         string q3 = "INSERT INTO pay_history (history_id, platform_share, seller_share) " +
                                     "VALUES ('" + historyId + "', '" + (platform_share) + "', '" + seller_share + "')";
 
                         d.write(q3);
+
                     }
 
-                        count.Text = "Delevred.";
+                    count.Text = "Delevred.";
                     Delevred.PerformClick();
                 }
 
@@ -260,6 +271,7 @@ namespace Farmlink
         private void backbtn_Click(object sender, EventArgs e)
         {
             tablepanel.Visible = false;
+            count.Hide();
             string q = "select * from orderhistory where status ='collection request'";
             db d = new db();
             DataTable t = d.readAll(q);

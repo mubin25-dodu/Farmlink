@@ -47,6 +47,7 @@
             this.totalamount = new System.Windows.Forms.Label();
             this.paymentbtn = new System.Windows.Forms.Button();
             this.backpanel = new System.Windows.Forms.Panel();
+            this.noti = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.btnpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilepic)).BeginInit();
@@ -190,13 +191,12 @@
             // id
             // 
             this.id.AllowDrop = true;
-            this.id.AutoSize = true;
-            this.id.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.id.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.id.LinkColor = System.Drawing.Color.WhiteSmoke;
-            this.id.Location = new System.Drawing.Point(3, 232);
+            this.id.Location = new System.Drawing.Point(29, 232);
             this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(64, 25);
+            this.id.Size = new System.Drawing.Size(122, 58);
             this.id.TabIndex = 8;
             this.id.TabStop = true;
             this.id.Text = "name";
@@ -217,12 +217,13 @@
             // 
             this.bpanel.BackgroundImage = global::Farmlink.Properties.Resources.background;
             this.bpanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bpanel.Controls.Add(this.totalamount);
+            this.bpanel.Controls.Add(this.noti);
             this.bpanel.Controls.Add(this.searchbtn);
             this.bpanel.Controls.Add(this.searchbox);
             this.bpanel.Controls.Add(this.display_product);
             this.bpanel.Controls.Add(this.note);
             this.bpanel.Controls.Add(this.empty_cart);
-            this.bpanel.Controls.Add(this.totalamount);
             this.bpanel.Controls.Add(this.paymentbtn);
             this.bpanel.Location = new System.Drawing.Point(192, 0);
             this.bpanel.Name = "bpanel";
@@ -349,6 +350,17 @@
             this.backpanel.Size = new System.Drawing.Size(1355, 732);
             this.backpanel.TabIndex = 29;
             // 
+            // noti
+            // 
+            this.noti.AutoSize = true;
+            this.noti.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noti.ForeColor = System.Drawing.Color.White;
+            this.noti.Location = new System.Drawing.Point(419, 53);
+            this.noti.Name = "noti";
+            this.noti.Size = new System.Drawing.Size(204, 28);
+            this.noti.TabIndex = 29;
+            this.noti.Text = "                                ";
+            // 
             // B_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,5 +405,6 @@
         private System.Windows.Forms.Panel backpanel;
         public System.Windows.Forms.Button cancelbtn;
         private System.Windows.Forms.Panel btnpanel;
+        private System.Windows.Forms.Label noti;
     }
 }

@@ -36,6 +36,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnpanel = new System.Windows.Forms.Panel();
             this.home = new System.Windows.Forms.Button();
             this.shop = new System.Windows.Forms.Button();
@@ -49,16 +50,6 @@
             this.spanel = new System.Windows.Forms.Panel();
             this.tablepanel = new System.Windows.Forms.Panel();
             this.profilecard = new System.Windows.Forms.Panel();
-            this.agent = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.district = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comm = new System.Windows.Forms.TextBox();
-            this.fullname = new System.Windows.Forms.TextBox();
-            this.apply = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             this.workarea = new System.Windows.Forms.Label();
             this.crossbtn = new System.Windows.Forms.Button();
             this.profiletable = new System.Windows.Forms.DataGridView();
@@ -73,25 +64,36 @@
             this.noti = new System.Windows.Forms.Label();
             this.backbtn = new System.Windows.Forms.Button();
             this.table = new System.Windows.Forms.DataGridView();
-            this.info = new System.Windows.Forms.Button();
-            this.sellers = new System.Windows.Forms.Button();
             this.count = new System.Windows.Forms.Label();
+            this.agent = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.district = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comm = new System.Windows.Forms.TextBox();
+            this.fullname = new System.Windows.Forms.TextBox();
+            this.apply = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.Req = new System.Windows.Forms.Button();
+            this.sellers = new System.Windows.Forms.Button();
+            this.info = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.btnpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.propic)).BeginInit();
             this.spanel.SuspendLayout();
             this.tablepanel.SuspendLayout();
             this.profilecard.SuspendLayout();
-            this.agent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profiletable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
+            this.agent.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.btnpanel);
             this.panel1.Controls.Add(this.propic);
             this.panel1.Controls.Add(this.logout);
@@ -99,6 +101,15 @@
             this.panel1.Controls.Add(this.label6);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AllowDrop = true;
+            resources.ApplyResources(this.linkLabel1, "linkLabel1");
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel1.LinkColor = System.Drawing.Color.WhiteSmoke;
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.TabStop = true;
             // 
             // btnpanel
             // 
@@ -244,111 +255,6 @@
             resources.ApplyResources(this.profilecard, "profilecard");
             this.profilecard.Name = "profilecard";
             this.profilecard.Paint += new System.Windows.Forms.PaintEventHandler(this.profilecard_Paint);
-            // 
-            // agent
-            // 
-            this.agent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.agent.Controls.Add(this.label4);
-            this.agent.Controls.Add(this.label1);
-            this.agent.Controls.Add(this.district);
-            this.agent.Controls.Add(this.label11);
-            this.agent.Controls.Add(this.comm);
-            this.agent.Controls.Add(this.fullname);
-            this.agent.Controls.Add(this.apply);
-            this.agent.Controls.Add(this.label16);
-            this.agent.Controls.Add(this.button6);
-            resources.ApplyResources(this.agent, "agent");
-            this.agent.Name = "agent";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Name = "label4";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Name = "label1";
-            // 
-            // district
-            // 
-            this.district.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.district.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.district, "district");
-            this.district.ForeColor = System.Drawing.Color.Turquoise;
-            this.district.FormattingEnabled = true;
-            this.district.Items.AddRange(new object[] {
-            resources.GetString("district.Items"),
-            resources.GetString("district.Items1"),
-            resources.GetString("district.Items2"),
-            resources.GetString("district.Items3"),
-            resources.GetString("district.Items4"),
-            resources.GetString("district.Items5"),
-            resources.GetString("district.Items6"),
-            resources.GetString("district.Items7"),
-            resources.GetString("district.Items8"),
-            resources.GetString("district.Items9"),
-            resources.GetString("district.Items10"),
-            resources.GetString("district.Items11"),
-            resources.GetString("district.Items12"),
-            resources.GetString("district.Items13"),
-            resources.GetString("district.Items14"),
-            resources.GetString("district.Items15"),
-            resources.GetString("district.Items16"),
-            resources.GetString("district.Items17"),
-            resources.GetString("district.Items18"),
-            resources.GetString("district.Items19")});
-            this.district.Name = "district";
-            // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Name = "label11";
-            // 
-            // comm
-            // 
-            this.comm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
-            this.comm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.comm, "comm");
-            this.comm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.comm.Name = "comm";
-            // 
-            // fullname
-            // 
-            this.fullname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
-            this.fullname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.fullname, "fullname");
-            this.fullname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.fullname.Name = "fullname";
-            // 
-            // apply
-            // 
-            this.apply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.apply.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.apply, "apply");
-            this.apply.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            this.apply.Name = "apply";
-            this.apply.UseVisualStyleBackColor = false;
-            this.apply.Click += new System.EventHandler(this.apply_Click_1);
-            // 
-            // label16
-            // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.label16.Name = "label16";
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            resources.ApplyResources(this.button6, "button6");
-            this.button6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.button6.Name = "button6";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // workarea
             // 
@@ -520,15 +426,127 @@
             this.table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.table_CellContentClick);
             // 
-            // info
+            // count
             // 
-            this.info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.info.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.info, "info");
-            this.info.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.info.Name = "info";
-            this.info.UseVisualStyleBackColor = false;
-            this.info.Click += new System.EventHandler(this.info_Click);
+            resources.ApplyResources(this.count, "count");
+            this.count.BackColor = System.Drawing.Color.Red;
+            this.count.ForeColor = System.Drawing.Color.Black;
+            this.count.Name = "count";
+            // 
+            // agent
+            // 
+            this.agent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.agent.Controls.Add(this.label4);
+            this.agent.Controls.Add(this.label1);
+            this.agent.Controls.Add(this.district);
+            this.agent.Controls.Add(this.label11);
+            this.agent.Controls.Add(this.comm);
+            this.agent.Controls.Add(this.fullname);
+            this.agent.Controls.Add(this.apply);
+            this.agent.Controls.Add(this.label16);
+            this.agent.Controls.Add(this.button6);
+            resources.ApplyResources(this.agent, "agent");
+            this.agent.Name = "agent";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Name = "label4";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Name = "label1";
+            // 
+            // district
+            // 
+            this.district.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.district.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.district, "district");
+            this.district.ForeColor = System.Drawing.Color.Turquoise;
+            this.district.FormattingEnabled = true;
+            this.district.Items.AddRange(new object[] {
+            resources.GetString("district.Items"),
+            resources.GetString("district.Items1"),
+            resources.GetString("district.Items2"),
+            resources.GetString("district.Items3"),
+            resources.GetString("district.Items4"),
+            resources.GetString("district.Items5"),
+            resources.GetString("district.Items6"),
+            resources.GetString("district.Items7"),
+            resources.GetString("district.Items8"),
+            resources.GetString("district.Items9"),
+            resources.GetString("district.Items10"),
+            resources.GetString("district.Items11"),
+            resources.GetString("district.Items12"),
+            resources.GetString("district.Items13"),
+            resources.GetString("district.Items14"),
+            resources.GetString("district.Items15"),
+            resources.GetString("district.Items16"),
+            resources.GetString("district.Items17"),
+            resources.GetString("district.Items18"),
+            resources.GetString("district.Items19")});
+            this.district.Name = "district";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Name = "label11";
+            // 
+            // comm
+            // 
+            this.comm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.comm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.comm, "comm");
+            this.comm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.comm.Name = "comm";
+            // 
+            // fullname
+            // 
+            this.fullname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.fullname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.fullname, "fullname");
+            this.fullname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.fullname.Name = "fullname";
+            // 
+            // apply
+            // 
+            this.apply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.apply.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.apply, "apply");
+            this.apply.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.apply.Name = "apply";
+            this.apply.UseVisualStyleBackColor = false;
+            this.apply.Click += new System.EventHandler(this.apply_Click_1);
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.label16.Name = "label16";
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            resources.ApplyResources(this.button6, "button6");
+            this.button6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.button6.Name = "button6";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // Req
+            // 
+            this.Req.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.Req.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.Req, "Req");
+            this.Req.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Req.Name = "Req";
+            this.Req.UseVisualStyleBackColor = false;
+            this.Req.Click += new System.EventHandler(this.Req_Click);
             // 
             // sellers
             // 
@@ -540,22 +558,15 @@
             this.sellers.UseVisualStyleBackColor = false;
             this.sellers.Click += new System.EventHandler(this.sellers_Click);
             // 
-            // count
+            // info
             // 
-            resources.ApplyResources(this.count, "count");
-            this.count.BackColor = System.Drawing.Color.Red;
-            this.count.ForeColor = System.Drawing.Color.Black;
-            this.count.Name = "count";
-            // 
-            // Req
-            // 
-            this.Req.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.Req.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.Req, "Req");
-            this.Req.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Req.Name = "Req";
-            this.Req.UseVisualStyleBackColor = false;
-            this.Req.Click += new System.EventHandler(this.Req_Click);
+            this.info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.info.Cursor = System.Windows.Forms.Cursors.Default;
+            resources.ApplyResources(this.info, "info");
+            this.info.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.info.Name = "info";
+            this.info.UseVisualStyleBackColor = false;
+            this.info.Click += new System.EventHandler(this.info_Click);
             // 
             // agent_home
             // 
@@ -577,11 +588,11 @@
             this.tablepanel.PerformLayout();
             this.profilecard.ResumeLayout(false);
             this.profilecard.PerformLayout();
-            this.agent.ResumeLayout(false);
-            this.agent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profiletable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
+            this.agent.ResumeLayout(false);
+            this.agent.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -629,5 +640,6 @@
         public System.Windows.Forms.Button backbtn;
         private System.Windows.Forms.DataGridView table;
         private System.Windows.Forms.Panel spanel;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

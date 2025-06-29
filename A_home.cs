@@ -57,8 +57,8 @@ namespace Farmlink
         {
             btnactive(orderbtn, null);
             apanel.Controls.Clear();
-             a_orders aOrdersControl = new a_orders();
-             apanel.Controls.Add(aOrdersControl);
+            a_orders aOrdersControl = new a_orders();
+            apanel.Controls.Add(aOrdersControl);
 
         }
 

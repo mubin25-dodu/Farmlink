@@ -58,11 +58,22 @@ namespace Farmlink
 
         private void backbtn_Click(object sender, EventArgs e)
         {
+            query = "select count(*) from userinfo where status_ <> 'approved'";
+            db d = new db();
+            DataRow dt = d.read(query);
+            count.Show();
+            if (int.Parse(dt[0].ToString()) > 0)
+            {
+                count.Text = dt[0].ToString();
+            }
+            else
+            {
+                count.Hide();
+            }
             table.DataSource = null;
             tablepanel.Hide();
             profilecard.Hide();
-            query = "select * from userinfo where status_ <> 'approved'";
-            count.Text = new db().readAll(query).Rows.Count.ToString();
+           
 
         }
 
@@ -105,7 +116,7 @@ namespace Farmlink
                 {
                     query = "select * from userinfo where status_ ='approved' and uid like '%se-%'";
                 }
-                else if (clicked == "agdmin")
+                else if (clicked == "admin")
                 {
                     query = "select * from userinfo where status_ ='approved' and uid like '%ad-%'";
                 }
@@ -196,9 +207,18 @@ namespace Farmlink
 
         private void a_manageuser_Load(object sender, EventArgs e)
         {
-            query = "select * from userinfo where status_ <> 'approved'";
-            count.Text = new db().readAll(query).Rows.Count.ToString(); 
-            tablepanel.Hide();
+         
+            query = "select count(*) from userinfo where status_ <> 'approved'";
+            db d = new db();
+            DataRow dt = d.read(query);
+            if (int.Parse(dt[0].ToString()) > 0)
+            {
+                count.Text = dt[0].ToString();
+            }
+            else {
+                count.Hide();
+            }
+                tablepanel.Hide();
             profilecard.Hide();
          
         }
@@ -232,7 +252,7 @@ namespace Farmlink
 
         private void admin_Click(object sender, EventArgs e)
         {
-            clicked = "agdmin";
+            clicked = "admin";
             query = "select * from userinfo where status_ ='approved' and uid like '%ad-%'";
             loadproducts(query);
         }

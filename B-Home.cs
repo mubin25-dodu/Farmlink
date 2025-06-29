@@ -22,6 +22,7 @@ namespace Farmlink
         private string propic;
 
 
+
         //int product_id;
 
         public void payment(double p,string id,string agent,double q,int pid, double av) { 
@@ -114,10 +115,8 @@ namespace Farmlink
             empty_cart.Visible = false;
             
         }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
+        public void notification(string n) { 
+         noti.Text = n;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -125,10 +124,7 @@ namespace Farmlink
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {

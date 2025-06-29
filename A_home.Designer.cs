@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(A_home));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnpanel = new System.Windows.Forms.Panel();
             this.home = new System.Windows.Forms.Button();
             this.manage = new System.Windows.Forms.Button();
@@ -59,6 +60,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.btnpanel);
             this.panel1.Controls.Add(this.propic);
             this.panel1.Controls.Add(this.logout);
@@ -70,15 +72,28 @@
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AllowDrop = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel1.LinkColor = System.Drawing.Color.WhiteSmoke;
+            this.linkLabel1.Location = new System.Drawing.Point(100, 64);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(79, 24);
+            this.linkLabel1.TabIndex = 28;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Admin";
+            // 
             // btnpanel
             // 
             this.btnpanel.Controls.Add(this.home);
             this.btnpanel.Controls.Add(this.manage);
             this.btnpanel.Controls.Add(this.payment);
             this.btnpanel.Controls.Add(this.orderbtn);
-            this.btnpanel.Location = new System.Drawing.Point(3, 231);
+            this.btnpanel.Location = new System.Drawing.Point(3, 277);
             this.btnpanel.Name = "btnpanel";
-            this.btnpanel.Size = new System.Drawing.Size(195, 254);
+            this.btnpanel.Size = new System.Drawing.Size(195, 208);
             this.btnpanel.TabIndex = 23;
             // 
             // home
@@ -93,7 +108,7 @@
             this.home.ForeColor = System.Drawing.Color.White;
             this.home.Image = global::Farmlink.Properties.Resources.home;
             this.home.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.home.Location = new System.Drawing.Point(0, 68);
+            this.home.Location = new System.Drawing.Point(0, 22);
             this.home.Margin = new System.Windows.Forms.Padding(10);
             this.home.Name = "home";
             this.home.Size = new System.Drawing.Size(195, 52);
@@ -116,7 +131,7 @@
             this.manage.ForeColor = System.Drawing.Color.White;
             this.manage.Image = global::Farmlink.Properties.Resources.user;
             this.manage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.manage.Location = new System.Drawing.Point(0, 120);
+            this.manage.Location = new System.Drawing.Point(0, 74);
             this.manage.Margin = new System.Windows.Forms.Padding(10);
             this.manage.Name = "manage";
             this.manage.Size = new System.Drawing.Size(195, 44);
@@ -139,7 +154,7 @@
             this.payment.ForeColor = System.Drawing.Color.White;
             this.payment.Image = global::Farmlink.Properties.Resources.booking;
             this.payment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.payment.Location = new System.Drawing.Point(0, 164);
+            this.payment.Location = new System.Drawing.Point(0, 118);
             this.payment.Margin = new System.Windows.Forms.Padding(10);
             this.payment.Name = "payment";
             this.payment.Size = new System.Drawing.Size(195, 45);
@@ -162,7 +177,7 @@
             this.orderbtn.ForeColor = System.Drawing.Color.White;
             this.orderbtn.Image = global::Farmlink.Properties.Resources.booking;
             this.orderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.orderbtn.Location = new System.Drawing.Point(0, 209);
+            this.orderbtn.Location = new System.Drawing.Point(0, 163);
             this.orderbtn.Margin = new System.Windows.Forms.Padding(10);
             this.orderbtn.Name = "orderbtn";
             this.orderbtn.Size = new System.Drawing.Size(195, 45);
@@ -174,7 +189,7 @@
             // 
             // propic
             // 
-            this.propic.Location = new System.Drawing.Point(19, 87);
+            this.propic.Location = new System.Drawing.Point(19, 99);
             this.propic.Name = "propic";
             this.propic.Size = new System.Drawing.Size(142, 110);
             this.propic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -201,13 +216,12 @@
             // 
             // name
             // 
-            this.name.AutoSize = true;
-            this.name.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.name.LinkColor = System.Drawing.Color.WhiteSmoke;
-            this.name.Location = new System.Drawing.Point(23, 200);
+            this.name.Location = new System.Drawing.Point(23, 212);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(83, 28);
+            this.name.Size = new System.Drawing.Size(138, 55);
             this.name.TabIndex = 8;
             this.name.TabStop = true;
             this.name.Text = "user id";
@@ -243,7 +257,7 @@
             this.tablepanel.Controls.Add(this.agentcount);
             this.tablepanel.Controls.Add(this.backbtn);
             this.tablepanel.Controls.Add(this.agenttable);
-            this.tablepanel.Location = new System.Drawing.Point(90, 64);
+            this.tablepanel.Location = new System.Drawing.Point(106, 64);
             this.tablepanel.Name = "tablepanel";
             this.tablepanel.Size = new System.Drawing.Size(968, 558);
             this.tablepanel.TabIndex = 67;
@@ -284,34 +298,34 @@
             // 
             this.agenttable.AllowUserToAddRows = false;
             this.agenttable.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.agenttable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.agenttable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.agenttable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.agenttable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.agenttable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.agenttable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.agenttable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.agenttable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.agenttable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.agenttable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.agenttable.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.agenttable.DefaultCellStyle = dataGridViewCellStyle6;
             this.agenttable.Location = new System.Drawing.Point(3, 57);
             this.agenttable.MultiSelect = false;
             this.agenttable.Name = "agenttable";
@@ -334,7 +348,7 @@
             this.agent_section.Padding = new System.Windows.Forms.Padding(0, 0, 0, 120);
             this.agent_section.Size = new System.Drawing.Size(237, 213);
             this.agent_section.TabIndex = 65;
-            this.agent_section.Text = "Approved Agents";
+            this.agent_section.Text = "Agent Request";
             this.agent_section.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.agent_section.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.agent_section.UseVisualStyleBackColor = false;
@@ -348,6 +362,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.apanel);
             this.Name = "A_home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.A_home_Load);
             this.panel1.ResumeLayout(false);
@@ -381,5 +396,6 @@
         private System.Windows.Forms.Panel tablepanel;
         private System.Windows.Forms.Panel apanel;
         private System.Windows.Forms.Panel btnpanel;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

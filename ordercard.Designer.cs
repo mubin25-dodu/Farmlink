@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.selected = new System.Windows.Forms.Label();
             this.avelibility = new System.Windows.Forms.Label();
             this.pname = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@
             this.addcart = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.price_l = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,7 +175,11 @@
             this.price_l.MouseLeave += new System.EventHandler(this.selected_MouseLeave);
             this.price_l.MouseHover += new System.EventHandler(this.selected_MouseHover);
             // 
-            // bhome
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // ordercard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
@@ -193,7 +199,7 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(20, 20, 10, 20);
-            this.Name = "bhome";
+            this.Name = "ordercard";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.Size = new System.Drawing.Size(512, 269);
             this.Load += new System.EventHandler(this.bhome_Load);
@@ -214,5 +220,6 @@
         private System.Windows.Forms.Label avelibility;
         private System.Windows.Forms.Label selected;
         private System.Windows.Forms.Label price_l;
+        private System.Windows.Forms.Timer timer1;
     }
 }
