@@ -39,15 +39,15 @@
             this.id = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.bpanel = new System.Windows.Forms.Panel();
+            this.totalamount = new System.Windows.Forms.Label();
+            this.noti = new System.Windows.Forms.Label();
             this.searchbtn = new System.Windows.Forms.Button();
             this.searchbox = new System.Windows.Forms.TextBox();
             this.display_product = new System.Windows.Forms.FlowLayoutPanel();
             this.note = new System.Windows.Forms.Label();
             this.empty_cart = new System.Windows.Forms.LinkLabel();
-            this.totalamount = new System.Windows.Forms.Label();
             this.paymentbtn = new System.Windows.Forms.Button();
             this.backpanel = new System.Windows.Forms.Panel();
-            this.noti = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.btnpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilepic)).BeginInit();
@@ -231,6 +231,29 @@
             this.bpanel.TabIndex = 28;
             this.bpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bpanel_Paint_1);
             // 
+            // totalamount
+            // 
+            this.totalamount.AutoSize = true;
+            this.totalamount.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalamount.ForeColor = System.Drawing.Color.White;
+            this.totalamount.Location = new System.Drawing.Point(590, 49);
+            this.totalamount.Name = "totalamount";
+            this.totalamount.Size = new System.Drawing.Size(228, 28);
+            this.totalamount.TabIndex = 29;
+            this.totalamount.Text = "total payble amount";
+            // 
+            // noti
+            // 
+            this.noti.AutoSize = true;
+            this.noti.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noti.ForeColor = System.Drawing.Color.White;
+            this.noti.Location = new System.Drawing.Point(419, 53);
+            this.noti.Name = "noti";
+            this.noti.Size = new System.Drawing.Size(204, 28);
+            this.noti.TabIndex = 29;
+            this.noti.Text = "                                ";
+            this.noti.Click += new System.EventHandler(this.noti_Click);
+            // 
             // searchbtn
             // 
             this.searchbtn.AutoSize = true;
@@ -310,17 +333,6 @@
             this.empty_cart.Text = "-> Click me before the cows find out! 🐮 <-";
             this.empty_cart.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.empty_cart_LinkClicked);
             // 
-            // totalamount
-            // 
-            this.totalamount.AutoSize = true;
-            this.totalamount.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalamount.ForeColor = System.Drawing.Color.White;
-            this.totalamount.Location = new System.Drawing.Point(590, 49);
-            this.totalamount.Name = "totalamount";
-            this.totalamount.Size = new System.Drawing.Size(228, 28);
-            this.totalamount.TabIndex = 29;
-            this.totalamount.Text = "total payble amount";
-            // 
             // paymentbtn
             // 
             this.paymentbtn.AutoSize = true;
@@ -349,17 +361,6 @@
             this.backpanel.Name = "backpanel";
             this.backpanel.Size = new System.Drawing.Size(1355, 732);
             this.backpanel.TabIndex = 29;
-            // 
-            // noti
-            // 
-            this.noti.AutoSize = true;
-            this.noti.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noti.ForeColor = System.Drawing.Color.White;
-            this.noti.Location = new System.Drawing.Point(419, 53);
-            this.noti.Name = "noti";
-            this.noti.Size = new System.Drawing.Size(204, 28);
-            this.noti.TabIndex = 29;
-            this.noti.Text = "                                ";
             // 
             // B_Home
             // 

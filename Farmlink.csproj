@@ -181,6 +181,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sendmail.cs" />
     <Compile Include="s_home.cs">
       <SubType>Form</SubType>
     </Compile>

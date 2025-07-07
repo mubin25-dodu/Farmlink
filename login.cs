@@ -11,12 +11,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Farmlink
 {
     public partial class login : Form
     {
+        private int otp;
+        private string usermail;
         public login()
         {
             InitializeComponent();
@@ -47,7 +50,6 @@ namespace Farmlink
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
             //query build 
             string email = mail.Text;
             string password = pass.Text;
@@ -140,6 +142,7 @@ namespace Farmlink
             showpass.Hide();
             pass.UseSystemPasswordChar = true;
             forgotpanel.Hide();
+            newpass.Hide();
         }
 
         private void showpass_Click(object sender, EventArgs e)
@@ -166,35 +169,61 @@ namespace Farmlink
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string query = "select * from userinfo where (mail ='"+mailf.Text+"' and fullname ='"+fullname.Text+"' and phone = '"+num.Text+"' and roles ='"+role.Text+"')";
-            db d = new db();
-            if (passf.Text!=""||conpass.Text!="" || fullname.Text ==""|| mailf.Text==""||num.Text=="") {
-                if (passf.Text == conpass.Text)
-                {
-                    string changepass = passf.Text;
-                    if (d.read(query) != null)
-                    {
-                        string update = "update userinfo set pass ='" + changepass + "' where mail='" + mailf.Text + "'";
-                        if (d.write(update) == 1)
-                        {
-                            MessageBox.Show("password changed", "succcess", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            signinpanel.Show();
-                        }
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("user Not found", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
+            if (forgot_applyBtn.Text == "OK") {
+                if (forgot_textbox.Text == otp.ToString()) { 
+                 newpass.Show();
+                   
                 }
-                else { 
-                        MessageBox.Show("password dosen't match", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                
             }
-            else { 
-                   MessageBox.Show("fill in the boxes", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                usermail = forgot_textbox.Text;
+                string query = "select * from userinfo where mail ='" + forgot_textbox.Text + "'";
+                if (new db().read(query) != null)
+                {
+                    // otp and mail
+                    Random random = new Random();
+                    this.otp = random.Next(0000, 9999);
+
+                    string body = $@"
+                <html>
+                <body style='font-family: Arial; color: #333;'>
+                    <h2>FarmLink - Password Reset</h2>
+                    <p>Your OTP for password reset is:</p>
+                    <h1 style='color: #2E8B57;'>{otp}</h1>
+                    <p>This OTP will expire in 5 minutes.</p>
+                    <br/>
+                    <p>If you did not request this, please ignore this email.</p>
+                    <p style='font-size: 12px;'>- FarmLink Team</p>
+                </body>
+                </html>";
+
+                    if (new sendmail().send(forgot_textbox.Text, body, "FarmLink Password Reset OTP") == true)
+                    {
+                        forgot_textbox.Clear();
+                        forgot_label.Text = "Enter Your OTP";
+                        forgot_applyBtn.Text = "OK";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("User Not Found ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void change_Click(object sender, EventArgs e)
+        {
+            if (newp.Text == "" || conp.Text == "") { MessageBox.Show("Fill the boxs", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            if (newp.Text != conp.Text) { MessageBox.Show("Password doesn't match", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else
+            {
+                string q = "update userinfo set pass='" + newp.Text + "' where mail ='" + usermail + "' ";
+                Console.WriteLine("Updating for email: " + usermail);
+                if (new db().write(q) == 1) {
+                    forgotpanel.Hide();
+                    MessageBox.Show("Password updated successfully!"); }
+                else { MessageBox.Show("error"); }
             }
         }
     }

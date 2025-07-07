@@ -13,7 +13,7 @@ namespace Farmlink
 {
     public partial class B_order_stat : UserControl
     {
-        string buyer_id;
+        private string buyer_id;
 
         public B_order_stat( string id)
         {

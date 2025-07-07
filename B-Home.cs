@@ -77,7 +77,7 @@ namespace Farmlink
             string query = qu;
             DataTable dr = db.readAll(query);
 
-            if (dr.Rows.Count > -1)
+            if (dr.Rows.Count > 0)
             {
                 for (int i = 0; i < dr.Rows.Count; i++)
                 {
@@ -233,7 +233,7 @@ namespace Farmlink
             btnactive(home, null);
             cancelbtn.Hide();
             bpanel.Controls.Clear();
-            bpanel.Controls.AddRange(new Control[] { display_product, searchbox, searchbtn });
+            bpanel.Controls.AddRange(new Control[] { display_product, searchbox, searchbtn , noti });
 
             totalamount.Visible = false;
             paymentbtn.Visible = false;
@@ -241,6 +241,7 @@ namespace Farmlink
             searchbtn.Visible = true;
             cartbtn.Hide();
             home.Show();
+            noti.Show();
             orderbtn.Show();
             cartbtn.Show();
             display_product.Visible = true;
@@ -326,6 +327,11 @@ namespace Farmlink
         }
 
         private void btnpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void noti_Click(object sender, EventArgs e)
         {
 
         }

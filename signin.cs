@@ -90,7 +90,7 @@ namespace Farmlink
                 MessageBox.Show("Please fill in all the fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-                        // address of the database server
+            // address of the database server
             string constring = "Data Source = MUBIN\\SQLEXPRESS; Initial Catalog = Farmlink; Integrated Security = True;";
 
             // create a connection object
@@ -128,7 +128,7 @@ namespace Farmlink
             SqlCommand countCmd = new SqlCommand(countQuery, con);
             int currentCount = (int)countCmd.ExecuteScalar();
 
-            // Generate ID with padding
+            // Generate ID 
             string id = prefix + currentCount.ToString("D4");
 
             if (pass.Text == conpass.Text ) { 

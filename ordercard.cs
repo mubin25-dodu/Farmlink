@@ -31,7 +31,7 @@ namespace Farmlink
             if (av > 0) { avelibility.Text = av.ToString() + " kg available"; }
             else { avelibility.Text ="Out of stock"; }
 
-                price_l.Text = "Price: " + pr.ToString() + " BDT/Unit";
+            price_l.Text = "Price: " + pr.ToString() + " BDT/Unit";
             pictureBox.Image = Image.FromFile(img);
             ava = av;
             price = pr;
@@ -184,7 +184,7 @@ namespace Farmlink
                 timer1.Stop();
                 timer = 0;
                 var home = this.FindForm() as B_Home;
-                home.notification("  ");
+                home.notification("   ");
 
             }
         

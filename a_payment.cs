@@ -14,7 +14,7 @@ namespace Farmlink
 {
     public partial class a_payment : UserControl
     {
-        string query;
+        private string query;
         public a_payment()
         {
             

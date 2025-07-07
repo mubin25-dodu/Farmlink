@@ -13,9 +13,9 @@ namespace Farmlink
 {
     public partial class s_payment : UserControl
     {
-        string seller_id;
-        string query,query2;
-        double withdrawable_balance;
+        private string seller_id;
+        private string query,query2;
+        private double withdrawable_balance;
         private string role;
         public s_payment(string id , string r)
         {

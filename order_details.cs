@@ -12,10 +12,10 @@ namespace Farmlink
 {
     public partial class order_details : UserControl
     {   
-        string buyer_id;
-        int product_id;
-        int order_id;
-       static double  total_price;
+       private string buyer_id;
+       private int product_id;
+       private int order_id;
+       private static double  total_price;
 
         public order_details(double q , string n , double p ,int i,string bid )
         {

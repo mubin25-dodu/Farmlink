@@ -13,10 +13,10 @@ namespace Farmlink
 {
     public partial class S_Home : Form
     {
-        string id; // User ID
-        string fullname;
-        string district;
-        string agent_id;
+       private string id; // User ID
+       private string fullname;
+       private string district;
+       private string agent_id;
 
         public S_Home(string i)
         {
