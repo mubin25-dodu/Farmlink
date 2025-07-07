@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Farmlink
 {
+
     public partial class signin : Form
     {
+        private static int count = 0000;
         public signin()
         {
             InitializeComponent();
@@ -69,6 +73,114 @@ namespace Farmlink
             this.Visible = false;
             intro intro = new intro();
             intro.Visible = true;
+        }
+
+        private void signin_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Size = new Size(1366, 768);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+          if (fullname.Text == "" || mail.Text == "" || address.Text == "" || role.Text == "" || pass.Text == "" || conpass.Text == "" || phone.Text == "" || district.Text=="" || path.Text =="path")
+            {
+                MessageBox.Show("Please fill in all the fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // address of the database server
+            string constring = "Data Source = MUBIN\\SQLEXPRESS; Initial Catalog = Farmlink; Integrated Security = True;";
+
+            // create a connection object
+            SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            //query build 
+            string name = fullname.Text;
+            string email = mail.Text;
+            string fulladdress = address.Text;
+            string qpass = null;
+            string roles = role.Text;
+            string stat = "pending";
+            string dis = district.Text;
+            string prefix = "";
+
+            if (role.Text == "Admin") { prefix = "ad-"; }
+            else if (role.Text == "Agent") { prefix = "ag-"; }
+            else if (role.Text == "Seller") { prefix = "se-"; }
+            else if (role.Text == "Customer") { prefix = "cu-"; }
+
+            // Check if email already exists
+            string checkEmailQuery = "SELECT * FROM userinfo WHERE mail = '"+email+"'";
+            db db = new db();
+
+            if (db.read(checkEmailQuery) != null)
+            {
+                MessageBox.Show("Email already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mail.Clear();
+                mail.Focus();
+                return;
+            }
+
+            // creating uid
+            string countQuery = "SELECT COUNT(*) FROM userinfo WHERE roles = '"+roles+"'";
+            SqlCommand countCmd = new SqlCommand(countQuery, con);
+            int currentCount = (int)countCmd.ExecuteScalar();
+
+            // Generate ID 
+            string id = prefix + currentCount.ToString("D4");
+
+            if (pass.Text == conpass.Text ) { 
+               qpass = pass.Text ;
+            }
+
+            else
+            {
+                MessageBox.Show("Password does not match", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+           
+
+            string query = "INSERT INTO userinfo (uid,fullname, mail, fulladdress, pass, roles, status_ ,profile_pic , phone ,district  ) VALUES ('" + id + "', '" + name + "', '" + email + "', '" + fulladdress + "', '" + qpass + "', '" + roles + "',' "+ stat + "' , '"+path.Text+"','"+num.Text+"', '"+dis+"');";
+
+
+            if ( db.write(query) > 0)
+            {
+                MessageBox.Show("Account created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Visible = false;
+                login form2 = new login();
+                form2.Show();
+            }
+            else
+            {
+                MessageBox.Show("Account creation failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+    }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void image_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Title = "Select an image";
+            open.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                string imagepath;
+                imagepath = open.FileName;
+                path.Text = imagepath;
+                photo.Image = new Bitmap(imagepath);
+            }
         }
     }
 }

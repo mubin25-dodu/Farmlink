@@ -1,0 +1,604 @@
+﻿namespace Farmlink
+{
+    partial class sproduct
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sproduct));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.addpro = new System.Windows.Forms.Button();
+            this.listing = new System.Windows.Forms.Panel();
+            this.agent_ass = new System.Windows.Forms.CheckBox();
+            this.path = new System.Windows.Forms.Label();
+            this.backbtn = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.photobtn = new System.Windows.Forms.Button();
+            this.proimg = new System.Windows.Forms.PictureBox();
+            this.price = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.amountin = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.name = new System.Windows.Forms.Label();
+            this.pname = new System.Windows.Forms.TextBox();
+            this.desin = new System.Windows.Forms.RichTextBox();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.farmlinkDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.farmlinkDataSet = new Farmlink.FarmlinkDataSet();
+            this.noti = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orderTableAdapter = new Farmlink.FarmlinkDataSetTableAdapters.orderTableAdapter();
+            this.productTableAdapter = new Farmlink.FarmlinkDataSetTableAdapters.productTableAdapter();
+            this.products = new System.Windows.Forms.DataGridView();
+            this.productidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availableunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.selleridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.searchbox = new System.Windows.Forms.TextBox();
+            this.searchbtn = new System.Windows.Forms.Button();
+            this.count = new System.Windows.Forms.Label();
+            this.listing.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.proimg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmlinkDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmlinkDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // addpro
+            // 
+            this.addpro.AutoSize = true;
+            this.addpro.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.addpro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.addpro.Cursor = System.Windows.Forms.Cursors.Default;
+            this.addpro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addpro.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addpro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.addpro.Location = new System.Drawing.Point(957, 39);
+            this.addpro.Name = "addpro";
+            this.addpro.Size = new System.Drawing.Size(145, 38);
+            this.addpro.TabIndex = 25;
+            this.addpro.Text = "Add Product";
+            this.addpro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.addpro.UseVisualStyleBackColor = false;
+            this.addpro.Click += new System.EventHandler(this.addpro_Click);
+            // 
+            // listing
+            // 
+            this.listing.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.listing.Controls.Add(this.agent_ass);
+            this.listing.Controls.Add(this.path);
+            this.listing.Controls.Add(this.backbtn);
+            this.listing.Controls.Add(this.button2);
+            this.listing.Controls.Add(this.button1);
+            this.listing.Controls.Add(this.photobtn);
+            this.listing.Controls.Add(this.proimg);
+            this.listing.Controls.Add(this.price);
+            this.listing.Controls.Add(this.label3);
+            this.listing.Controls.Add(this.label2);
+            this.listing.Controls.Add(this.amountin);
+            this.listing.Controls.Add(this.label1);
+            this.listing.Controls.Add(this.name);
+            this.listing.Controls.Add(this.pname);
+            this.listing.Controls.Add(this.desin);
+            this.listing.Location = new System.Drawing.Point(44, 72);
+            this.listing.Name = "listing";
+            this.listing.Size = new System.Drawing.Size(1058, 584);
+            this.listing.TabIndex = 26;
+            this.listing.Paint += new System.Windows.Forms.PaintEventHandler(this.listing_Paint);
+            // 
+            // agent_ass
+            // 
+            this.agent_ass.AutoSize = true;
+            this.agent_ass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agent_ass.ForeColor = System.Drawing.Color.Transparent;
+            this.agent_ass.Location = new System.Drawing.Point(698, 388);
+            this.agent_ass.Name = "agent_ass";
+            this.agent_ass.Size = new System.Drawing.Size(158, 29);
+            this.agent_ass.TabIndex = 31;
+            this.agent_ass.Text = "Assign Agent";
+            this.agent_ass.UseVisualStyleBackColor = true;
+            this.agent_ass.CheckedChanged += new System.EventHandler(this.agent_ass_CheckedChanged);
+            // 
+            // path
+            // 
+            this.path.AutoSize = true;
+            this.path.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.path.ForeColor = System.Drawing.Color.White;
+            this.path.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.path.Location = new System.Drawing.Point(29, 541);
+            this.path.Name = "path";
+            this.path.Size = new System.Drawing.Size(37, 19);
+            this.path.TabIndex = 30;
+            this.path.Text = "path";
+            // 
+            // backbtn
+            // 
+            this.backbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.backbtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backbtn.BackgroundImage")));
+            this.backbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.backbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.backbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.backbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.backbtn.Location = new System.Drawing.Point(943, 23);
+            this.backbtn.Name = "backbtn";
+            this.backbtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.backbtn.Size = new System.Drawing.Size(49, 49);
+            this.backbtn.TabIndex = 29;
+            this.backbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.backbtn.UseVisualStyleBackColor = false;
+            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.button2.Location = new System.Drawing.Point(872, 500);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(138, 38);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "List Product";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.button1.Location = new System.Drawing.Point(726, 500);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 38);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Clear All";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // photobtn
+            // 
+            this.photobtn.AutoSize = true;
+            this.photobtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.photobtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.photobtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.photobtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.photobtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.photobtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.photobtn.Location = new System.Drawing.Point(293, 500);
+            this.photobtn.Name = "photobtn";
+            this.photobtn.Size = new System.Drawing.Size(130, 38);
+            this.photobtn.TabIndex = 26;
+            this.photobtn.Text = "Add Image";
+            this.photobtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.photobtn.UseVisualStyleBackColor = false;
+            this.photobtn.Click += new System.EventHandler(this.photobtn_Click);
+            // 
+            // proimg
+            // 
+            this.proimg.BackgroundImage = global::Farmlink.Properties.Resources.image;
+            this.proimg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.proimg.Location = new System.Drawing.Point(33, 388);
+            this.proimg.Name = "proimg";
+            this.proimg.Size = new System.Drawing.Size(229, 150);
+            this.proimg.TabIndex = 21;
+            this.proimg.TabStop = false;
+            this.proimg.Click += new System.EventHandler(this.proimg_Click);
+            // 
+            // price
+            // 
+            this.price.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.price.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.price.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.price.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.price.Location = new System.Drawing.Point(605, 173);
+            this.price.Multiline = true;
+            this.price.Name = "price";
+            this.price.Size = new System.Drawing.Size(251, 36);
+            this.price.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label3.Location = new System.Drawing.Point(443, 181);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(156, 28);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Price Per Unit";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label2.Location = new System.Drawing.Point(37, 184);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(225, 28);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Product Description";
+            // 
+            // amountin
+            // 
+            this.amountin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.amountin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.amountin.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.amountin.Location = new System.Drawing.Point(765, 63);
+            this.amountin.Multiline = true;
+            this.amountin.Name = "amountin";
+            this.amountin.Size = new System.Drawing.Size(91, 36);
+            this.amountin.TabIndex = 17;
+            this.amountin.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label1.Location = new System.Drawing.Point(443, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(316, 28);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Availabe Amount in Number";
+            // 
+            // name
+            // 
+            this.name.AutoSize = true;
+            this.name.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.ForeColor = System.Drawing.Color.White;
+            this.name.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.name.Location = new System.Drawing.Point(28, 32);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(166, 28);
+            this.name.TabIndex = 15;
+            this.name.Text = "Product Name";
+            // 
+            // pname
+            // 
+            this.pname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.pname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pname.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pname.Location = new System.Drawing.Point(33, 63);
+            this.pname.Multiline = true;
+            this.pname.Name = "pname";
+            this.pname.Size = new System.Drawing.Size(390, 36);
+            this.pname.TabIndex = 14;
+            // 
+            // desin
+            // 
+            this.desin.AutoWordSelection = true;
+            this.desin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(102)))), ((int)(((byte)(136)))));
+            this.desin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.desin.ForeColor = System.Drawing.SystemColors.Window;
+            this.desin.Location = new System.Drawing.Point(33, 215);
+            this.desin.Name = "desin";
+            this.desin.Size = new System.Drawing.Size(823, 150);
+            this.desin.TabIndex = 0;
+            this.desin.Text = "";
+            this.desin.TextChanged += new System.EventHandler(this.desin_TextChanged);
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataMember = "product";
+            this.productBindingSource.DataSource = this.farmlinkDataSetBindingSource;
+            // 
+            // farmlinkDataSetBindingSource
+            // 
+            this.farmlinkDataSetBindingSource.DataSource = this.farmlinkDataSet;
+            this.farmlinkDataSetBindingSource.Position = 0;
+            // 
+            // farmlinkDataSet
+            // 
+            this.farmlinkDataSet.DataSetName = "FarmlinkDataSet";
+            this.farmlinkDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // noti
+            // 
+            this.noti.AutoSize = true;
+            this.noti.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noti.ForeColor = System.Drawing.Color.Red;
+            this.noti.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.noti.Location = new System.Drawing.Point(196, 25);
+            this.noti.Name = "noti";
+            this.noti.Size = new System.Drawing.Size(684, 28);
+            this.noti.TabIndex = 27;
+            this.noti.Text = " Double-click on the table cells to edit the product information.";
+            this.noti.Click += new System.EventHandler(this.noti_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataMember = "order";
+            this.orderBindingSource.DataSource = this.farmlinkDataSetBindingSource;
+            // 
+            // orderTableAdapter
+            // 
+            this.orderTableAdapter.ClearBeforeFill = true;
+            // 
+            // productTableAdapter
+            // 
+            this.productTableAdapter.ClearBeforeFill = true;
+            // 
+            // products
+            // 
+            this.products.AllowUserToAddRows = false;
+            this.products.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.products.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.products.AutoGenerateColumns = false;
+            this.products.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.products.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.products.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.products.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.products.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.products.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productidDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.unitpriceDataGridViewTextBoxColumn,
+            this.availableunitDataGridViewTextBoxColumn,
+            this.imageDataGridViewTextBoxColumn,
+            this.selleridDataGridViewTextBoxColumn,
+            this.agentidDataGridViewTextBoxColumn});
+            this.products.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.products.DataSource = this.productBindingSource1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.products.DefaultCellStyle = dataGridViewCellStyle3;
+            this.products.Location = new System.Drawing.Point(44, 110);
+            this.products.MultiSelect = false;
+            this.products.Name = "products";
+            this.products.RowHeadersVisible = false;
+            this.products.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.products.Size = new System.Drawing.Size(1058, 592);
+            this.products.TabIndex = 27;
+            this.products.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.products_CellContentClick);
+            this.products.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.products_CellValueChanged);
+            // 
+            // productidDataGridViewTextBoxColumn
+            // 
+            this.productidDataGridViewTextBoxColumn.DataPropertyName = "product_id";
+            this.productidDataGridViewTextBoxColumn.HeaderText = "product_id";
+            this.productidDataGridViewTextBoxColumn.Name = "productidDataGridViewTextBoxColumn";
+            this.productidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // unitpriceDataGridViewTextBoxColumn
+            // 
+            this.unitpriceDataGridViewTextBoxColumn.DataPropertyName = "unit_price";
+            this.unitpriceDataGridViewTextBoxColumn.HeaderText = "unit_price";
+            this.unitpriceDataGridViewTextBoxColumn.Name = "unitpriceDataGridViewTextBoxColumn";
+            // 
+            // availableunitDataGridViewTextBoxColumn
+            // 
+            this.availableunitDataGridViewTextBoxColumn.DataPropertyName = "available_unit";
+            this.availableunitDataGridViewTextBoxColumn.HeaderText = "available_unit";
+            this.availableunitDataGridViewTextBoxColumn.Name = "availableunitDataGridViewTextBoxColumn";
+            // 
+            // imageDataGridViewTextBoxColumn
+            // 
+            this.imageDataGridViewTextBoxColumn.DataPropertyName = "image";
+            this.imageDataGridViewTextBoxColumn.HeaderText = "image";
+            this.imageDataGridViewTextBoxColumn.Name = "imageDataGridViewTextBoxColumn";
+            // 
+            // selleridDataGridViewTextBoxColumn
+            // 
+            this.selleridDataGridViewTextBoxColumn.DataPropertyName = "seller_id";
+            this.selleridDataGridViewTextBoxColumn.HeaderText = "seller_id";
+            this.selleridDataGridViewTextBoxColumn.Name = "selleridDataGridViewTextBoxColumn";
+            // 
+            // agentidDataGridViewTextBoxColumn
+            // 
+            this.agentidDataGridViewTextBoxColumn.DataPropertyName = "agent_id";
+            this.agentidDataGridViewTextBoxColumn.HeaderText = "agent_id";
+            this.agentidDataGridViewTextBoxColumn.Name = "agentidDataGridViewTextBoxColumn";
+            // 
+            // productBindingSource1
+            // 
+            this.productBindingSource1.DataMember = "product";
+            this.productBindingSource1.DataSource = this.farmlinkDataSetBindingSource;
+            // 
+            // searchbox
+            // 
+            this.searchbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.searchbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.searchbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.searchbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.searchbox.Location = new System.Drawing.Point(44, 72);
+            this.searchbox.Multiline = true;
+            this.searchbox.Name = "searchbox";
+            this.searchbox.Size = new System.Drawing.Size(258, 32);
+            this.searchbox.TabIndex = 28;
+            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
+            // 
+            // searchbtn
+            // 
+            this.searchbtn.AutoSize = true;
+            this.searchbtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.searchbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbtn.ForeColor = System.Drawing.Color.White;
+            this.searchbtn.Image = global::Farmlink.Properties.Resources.transparency;
+            this.searchbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.searchbtn.Location = new System.Drawing.Point(300, 72);
+            this.searchbtn.Margin = new System.Windows.Forms.Padding(300, 3, 3, 3);
+            this.searchbtn.Name = "searchbtn";
+            this.searchbtn.Size = new System.Drawing.Size(32, 32);
+            this.searchbtn.TabIndex = 29;
+            this.searchbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.searchbtn.UseVisualStyleBackColor = false;
+            // 
+            // count
+            // 
+            this.count.AutoSize = true;
+            this.count.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.count.ForeColor = System.Drawing.Color.SeaShell;
+            this.count.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.count.Location = new System.Drawing.Point(338, 80);
+            this.count.Name = "count";
+            this.count.Size = new System.Drawing.Size(0, 19);
+            this.count.TabIndex = 30;
+            // 
+            // sproduct
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.BackgroundImage = global::Farmlink.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Controls.Add(this.listing);
+            this.Controls.Add(this.count);
+            this.Controls.Add(this.searchbtn);
+            this.Controls.Add(this.searchbox);
+            this.Controls.Add(this.noti);
+            this.Controls.Add(this.addpro);
+            this.Controls.Add(this.products);
+            this.DoubleBuffered = true;
+            this.Name = "sproduct";
+            this.Size = new System.Drawing.Size(1165, 729);
+            this.Load += new System.EventHandler(this.sproduct_Load);
+            this.listing.ResumeLayout(false);
+            this.listing.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.proimg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmlinkDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmlinkDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        public System.Windows.Forms.Button addpro;
+        private System.Windows.Forms.Panel listing;
+        private System.Windows.Forms.RichTextBox desin;
+        private System.Windows.Forms.TextBox pname;
+        private System.Windows.Forms.Label name;
+        private System.Windows.Forms.TextBox amountin;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button photobtn;
+        private System.Windows.Forms.PictureBox proimg;
+        private System.Windows.Forms.TextBox price;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button backbtn;
+        private System.Windows.Forms.Label path;
+        private System.Windows.Forms.CheckBox agent_ass;
+        private System.Windows.Forms.Label noti;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.BindingSource orderBindingSource;
+        private System.Windows.Forms.BindingSource farmlinkDataSetBindingSource;
+        private FarmlinkDataSet farmlinkDataSet;
+        private FarmlinkDataSetTableAdapters.orderTableAdapter orderTableAdapter;
+        private System.Windows.Forms.BindingSource productBindingSource;
+        private FarmlinkDataSetTableAdapters.productTableAdapter productTableAdapter;
+        private System.Windows.Forms.DataGridView products;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitpriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn availableunitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn selleridDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource productBindingSource1;
+        private System.Windows.Forms.TextBox searchbox;
+        public System.Windows.Forms.Button searchbtn;
+        private System.Windows.Forms.Label count;
+    }
+}

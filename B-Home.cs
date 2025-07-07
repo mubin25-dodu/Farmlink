@@ -1,30 +1,122 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using CefSharp.DevTools.FedCm;
+using System;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace Farmlink
 {
     public partial class B_Home : Form
     {
-        public B_Home()
+        private string uid;  
+        private string name;
+        private double payable = 0;
+        private string seller_id;
+        private string agent_id;
+        private double quanti,now_available;
+        private string propic;
+
+
+
+        //int product_id;
+
+        public void payment(double p,string id,string agent,double q,int pid, double av) { 
+              this.payable =payable+ p;
+              totalamount.Text = "Total Amount: " + payable.ToString() + " BDT";
+              this.seller_id = agent;
+              this.agent_id = agent;
+              this.quanti = q;
+              //this.product_id = pid;
+              this.now_available =av;
+              Console.WriteLine(totalamount);
+        }
+
+        private void btnactive(object sender, EventArgs e)
+        {
+            foreach (Control b in btnpanel.Controls)
+            {
+                if (b is Button)
+                {
+                    b.BackColor = Color.FromArgb(21, 72, 84);
+                }
+            }
+
+            Control click = (Control)sender;
+            click.BackColor = Color.FromArgb(30, 43, 39);
+
+        }
+
+        public B_Home( string i)
         {
             InitializeComponent();
-        }
+            DataRow dr = new db().read("SELECT * FROM userinfo WHERE uid = '" + i + "'");
 
+            this.name = dr[1].ToString() ;
+            id.Text = name;
+            this.propic= dr[7].ToString();
+            this.uid = i;
+            Console.WriteLine(uid);
+            profilepic.Image = Image.FromFile(propic); 
+
+        }
+        public void LoadProducts(string qu)
+        {
+
+            display_product.Controls.Clear();
+            display_product.Visible = true; 
+            cancelbtn.Hide();
+            totalamount.Hide();
+            paymentbtn.Hide();
+
+            db db = new db();
+            string query = qu;
+            DataTable dr = db.readAll(query);
+
+            if (dr.Rows.Count > 0)
+            {
+                for (int i = 0; i < dr.Rows.Count; i++)
+                {
+                    string name = dr.Rows[i][1].ToString();
+                    double price = double.Parse(dr.Rows[i][3].ToString());
+                    string des = dr.Rows[i][2].ToString();
+                    string img = dr.Rows[i][5].ToString();
+                    double av = double.Parse(dr.Rows[i][4].ToString());
+                    int pid = int.Parse(dr.Rows[i][0].ToString());
+
+                    display_product.Controls.Add(new ordercard(name, price, des, img, av, pid, uid));
+                 
+                }
+            }
+            else
+            {
+               note.Text = "No products found.";
+                note.Visible = true;
+                display_product.Visible = false;
+                empty_cart.Hide();
+            }
+            dr.Clear();
+        }
         private void B_Home_Load(object sender, EventArgs e)
         {
-
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Size = new Size(1366, 768);
+            totalamount.Text = "Total Amount: " + payable.ToString() + " BDT";
+            LoadProducts("SELECT * FROM product");
+            
+            cancelbtn.Hide();
+            note.Visible = false;
+            empty_cart.Visible = false;
+            
         }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
+        public void notification(string n) { 
+         noti.Text = n;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -32,9 +124,247 @@ namespace Farmlink
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+               
+                intro form2 = new intro();
+                form2.Show();
+                this.Close();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            btnactive(orderbtn, null);
+            bpanel.Controls.Clear();
+            bpanel.Controls.Add(new B_order_stat(uid));
+        }
+
+        private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
 
         }
-    }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            btnactive(cartbtn, null);
+            bpanel.Controls.Clear();
+            display_product.Controls.Clear();
+
+            bpanel.Controls.AddRange(new Control[] { display_product , totalamount, paymentbtn, note, empty_cart });
+
+            display_product.Visible = true;
+
+
+            db n =new db();
+            string query = "SELECT * FROM cart WHERE b_id = '"+uid+"'";
+            DataTable d = n.readAll(query);
+            if (d.Rows.Count > 0)
+            {
+                totalamount.Visible = true;
+                paymentbtn.Visible = true;
+                for (int i = 0; i < d.Rows.Count; i++)
+                {
+                    int pid = int.Parse(d.Rows[i][2].ToString());
+                    Console.WriteLine("pid "+ pid);
+                    string qu = "SELECT * FROM product WHERE product_id = '" + pid + "'";
+                    DataRow db = n.read(qu);
+                    //Console.WriteLine(db[0].ToString());
+
+                    if (db == null)
+                    {
+                        display_product.Visible = false;
+                        note.Visible = true;
+                        empty_cart.Visible = true;
+                        totalamount.Hide();
+                        paymentbtn.Hide();
+                    }
+                    else
+                    {
+
+                        string seller_id = db[6].ToString();
+                        string name = db[1].ToString();
+                        double price = double.Parse(db[3].ToString());
+                        string des = db[2].ToString();
+                        string img = db[5].ToString();
+                        double av = double.Parse(db[4].ToString());
+                        double count = double.Parse(d.Rows[i][3].ToString());
+                        string agent_id = db[7].ToString();
+                        //int prid = int.Parse(db[i].ToString());
+
+
+
+                        display_product.Controls.Add(new bcart(uid , seller_id ,name, price, des, img, av, pid, count,agent_id));
+                    }
+
+                    
+                }             
+            }
+            else
+            {
+                display_product.Visible = false;
+                note.Show();
+                empty_cart.Show();
+
+
+
+            }
+            d.Clear();
+
+        }
+
+        public void home_Click(object sender, EventArgs e)
+        {            
+            btnactive(home, null);
+            cancelbtn.Hide();
+            bpanel.Controls.Clear();
+            bpanel.Controls.AddRange(new Control[] { display_product, searchbox, searchbtn , noti });
+
+            totalamount.Visible = false;
+            paymentbtn.Visible = false;
+            searchbox.Visible = true;
+            searchbtn.Visible = true;
+            cartbtn.Hide();
+            home.Show();
+            noti.Show();
+            orderbtn.Show();
+            cartbtn.Show();
+            display_product.Visible = true;
+
+            LoadProducts("SELECT * FROM product");
+        
+        }
+
+      
+ 
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+       
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            LoadProducts("SELECT * FROM product where name like'%"+searchbox.Text+"%'");
+        }
+
+        private void bpanel_Paint_1(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void display_product_Paint_2(object sender, PaintEventArgs e)
+        {
+
+           
+        }
+
+        private void empty_cart_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            home.PerformClick();
+            
+        }
+
+        private void backpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void note_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchbtn_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalamount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelbtn_Click(object sender, EventArgs e)
+        {   
+            btnactive(cancelbtn, null);
+            payable = 0; 
+            bpanel.Controls.Clear();
+            cancelbtn.Hide();
+            cartbtn.Visible = true;
+            home.Show();
+            orderbtn.Show();
+            bpanel.Controls.AddRange(new Control[] { display_product, searchbox, searchbtn});
+            LoadProducts("SELECT * FROM product");
+            string remove = "Delete from [order] where customer_id = '"+uid+"'";
+            new db().write(remove);
+        }
+
+        private void btnpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void noti_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void paymentbtn_Click(object sender, EventArgs e) 
+        { 
+            cancelbtn.Show();
+            if (payable <= 0)
+            {
+                totalamount.Text = "Select a Product";
+                cancelbtn.Hide();
+
+                return;
+            }
+            else
+            {
+                cartbtn.Visible = false;
+                home.Hide();
+                orderbtn.Hide();
+                totalamount.Hide();
+                paymentbtn.Hide();
+                note.Hide();
+                empty_cart.Hide();
+                display_product.Controls.Clear();
+                display_product.Hide();
+                bpanel.BringToFront();
+                Buyer_payment paymentControl = new Buyer_payment(uid);
+                paymentControl.Visible = true;
+                bpanel.Controls.Add(paymentControl);
+                payable = 0;
+                
+            }
+
+        }
+    } 
 }

@@ -28,31 +28,179 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(B_Home));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnpanel = new System.Windows.Forms.Panel();
+            this.home = new System.Windows.Forms.Button();
+            this.cartbtn = new System.Windows.Forms.Button();
+            this.orderbtn = new System.Windows.Forms.Button();
+            this.cancelbtn = new System.Windows.Forms.Button();
+            this.profilepic = new System.Windows.Forms.PictureBox();
+            this.logout = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bpanel = new System.Windows.Forms.Panel();
+            this.totalamount = new System.Windows.Forms.Label();
+            this.noti = new System.Windows.Forms.Label();
+            this.searchbtn = new System.Windows.Forms.Button();
+            this.searchbox = new System.Windows.Forms.TextBox();
+            this.display_product = new System.Windows.Forms.FlowLayoutPanel();
+            this.note = new System.Windows.Forms.Label();
+            this.empty_cart = new System.Windows.Forms.LinkLabel();
+            this.paymentbtn = new System.Windows.Forms.Button();
+            this.backpanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilepic)).BeginInit();
+            this.bpanel.SuspendLayout();
+            this.backpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.linkLabel1);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btnpanel);
+            this.panel1.Controls.Add(this.cancelbtn);
+            this.panel1.Controls.Add(this.profilepic);
+            this.panel1.Controls.Add(this.logout);
+            this.panel1.Controls.Add(this.id);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(190, 729);
+            this.panel1.Size = new System.Drawing.Size(193, 726);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnpanel
+            // 
+            this.btnpanel.Controls.Add(this.home);
+            this.btnpanel.Controls.Add(this.cartbtn);
+            this.btnpanel.Controls.Add(this.orderbtn);
+            this.btnpanel.Location = new System.Drawing.Point(0, 293);
+            this.btnpanel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.btnpanel.Name = "btnpanel";
+            this.btnpanel.Size = new System.Drawing.Size(195, 168);
+            this.btnpanel.TabIndex = 26;
+            this.btnpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.btnpanel_Paint);
+            // 
+            // home
+            // 
+            this.home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.home.Cursor = System.Windows.Forms.Cursors.Default;
+            this.home.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.home.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.home.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.home.ForeColor = System.Drawing.Color.White;
+            this.home.Image = global::Farmlink.Properties.Resources.home;
+            this.home.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.home.Location = new System.Drawing.Point(0, 27);
+            this.home.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.home.Name = "home";
+            this.home.Size = new System.Drawing.Size(195, 52);
+            this.home.TabIndex = 17;
+            this.home.Text = "Home";
+            this.home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.home.UseVisualStyleBackColor = false;
+            this.home.Click += new System.EventHandler(this.home_Click);
+            // 
+            // cartbtn
+            // 
+            this.cartbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.cartbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cartbtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cartbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.cartbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cartbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cartbtn.ForeColor = System.Drawing.Color.White;
+            this.cartbtn.Image = global::Farmlink.Properties.Resources.grocery_store;
+            this.cartbtn.Location = new System.Drawing.Point(0, 79);
+            this.cartbtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.cartbtn.Name = "cartbtn";
+            this.cartbtn.Size = new System.Drawing.Size(195, 44);
+            this.cartbtn.TabIndex = 18;
+            this.cartbtn.Text = " Cart";
+            this.cartbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cartbtn.UseVisualStyleBackColor = false;
+            this.cartbtn.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // orderbtn
+            // 
+            this.orderbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.orderbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.orderbtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.orderbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.orderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.orderbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderbtn.ForeColor = System.Drawing.Color.White;
+            this.orderbtn.Image = global::Farmlink.Properties.Resources.booking;
+            this.orderbtn.Location = new System.Drawing.Point(0, 123);
+            this.orderbtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.orderbtn.Name = "orderbtn";
+            this.orderbtn.Size = new System.Drawing.Size(195, 45);
+            this.orderbtn.TabIndex = 20;
+            this.orderbtn.Text = "Order";
+            this.orderbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.orderbtn.UseVisualStyleBackColor = false;
+            this.orderbtn.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // cancelbtn
+            // 
+            this.cancelbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cancelbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cancelbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.cancelbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelbtn.ForeColor = System.Drawing.Color.White;
+            this.cancelbtn.Location = new System.Drawing.Point(1, 587);
+            this.cancelbtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.cancelbtn.Name = "cancelbtn";
+            this.cancelbtn.Size = new System.Drawing.Size(194, 45);
+            this.cancelbtn.TabIndex = 22;
+            this.cancelbtn.Text = "Cancel Payment";
+            this.cancelbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cancelbtn.UseVisualStyleBackColor = false;
+            this.cancelbtn.Click += new System.EventHandler(this.cancelbtn_Click);
+            // 
+            // profilepic
+            // 
+            this.profilepic.Location = new System.Drawing.Point(29, 107);
+            this.profilepic.Name = "profilepic";
+            this.profilepic.Size = new System.Drawing.Size(122, 122);
+            this.profilepic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.profilepic.TabIndex = 21;
+            this.profilepic.TabStop = false;
+            // 
+            // logout
+            // 
+            this.logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.logout.Cursor = System.Windows.Forms.Cursors.Default;
+            this.logout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logout.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout.ForeColor = System.Drawing.Color.White;
+            this.logout.Image = global::Farmlink.Properties.Resources.logout__1_;
+            this.logout.Location = new System.Drawing.Point(0, 650);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(190, 44);
+            this.logout.TabIndex = 19;
+            this.logout.Text = " Logout";
+            this.logout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.logout.UseVisualStyleBackColor = false;
+            this.logout.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // id
+            // 
+            this.id.AllowDrop = true;
+            this.id.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.id.LinkColor = System.Drawing.Color.WhiteSmoke;
+            this.id.Location = new System.Drawing.Point(29, 232);
+            this.id.Name = "id";
+            this.id.Size = new System.Drawing.Size(122, 58);
+            this.id.TabIndex = 8;
+            this.id.TabStop = true;
+            this.id.Text = "name";
+            this.id.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label6
             // 
@@ -65,92 +213,174 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "FarmLink";
             // 
-            // linkLabel1
+            // bpanel
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel1.LinkColor = System.Drawing.Color.WhiteSmoke;
-            this.linkLabel1.Location = new System.Drawing.Point(38, 148);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(83, 28);
-            this.linkLabel1.TabIndex = 8;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "user id";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.bpanel.BackgroundImage = global::Farmlink.Properties.Resources.background;
+            this.bpanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bpanel.Controls.Add(this.totalamount);
+            this.bpanel.Controls.Add(this.noti);
+            this.bpanel.Controls.Add(this.searchbtn);
+            this.bpanel.Controls.Add(this.searchbox);
+            this.bpanel.Controls.Add(this.display_product);
+            this.bpanel.Controls.Add(this.note);
+            this.bpanel.Controls.Add(this.empty_cart);
+            this.bpanel.Controls.Add(this.paymentbtn);
+            this.bpanel.Location = new System.Drawing.Point(192, 0);
+            this.bpanel.Name = "bpanel";
+            this.bpanel.Size = new System.Drawing.Size(1164, 729);
+            this.bpanel.TabIndex = 28;
+            this.bpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bpanel_Paint_1);
             // 
-            // flowLayoutPanel1
+            // totalamount
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
-            this.flowLayoutPanel1.BackgroundImage = global::Farmlink.Properties.Resources.background;
-            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(190, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1160, 729);
-            this.flowLayoutPanel1.TabIndex = 1;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            this.totalamount.AutoSize = true;
+            this.totalamount.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalamount.ForeColor = System.Drawing.Color.White;
+            this.totalamount.Location = new System.Drawing.Point(590, 49);
+            this.totalamount.Name = "totalamount";
+            this.totalamount.Size = new System.Drawing.Size(228, 28);
+            this.totalamount.TabIndex = 29;
+            this.totalamount.Text = "total payble amount";
             // 
-            // button2
+            // noti
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::Farmlink.Properties.Resources.shopping_cart__2_;
-            this.button2.Location = new System.Drawing.Point(6, 289);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(190, 44);
-            this.button2.TabIndex = 18;
-            this.button2.Text = " Cart";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
+            this.noti.AutoSize = true;
+            this.noti.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noti.ForeColor = System.Drawing.Color.White;
+            this.noti.Location = new System.Drawing.Point(419, 53);
+            this.noti.Name = "noti";
+            this.noti.Size = new System.Drawing.Size(204, 28);
+            this.noti.TabIndex = 29;
+            this.noti.Text = "                                ";
+            this.noti.Click += new System.EventHandler(this.noti_Click);
             // 
-            // button1
+            // searchbtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::Farmlink.Properties.Resources.home;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(12, 217);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 52);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Home";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
+            this.searchbtn.AutoSize = true;
+            this.searchbtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.searchbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(72)))), ((int)(((byte)(84)))));
+            this.searchbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbtn.ForeColor = System.Drawing.Color.White;
+            this.searchbtn.Image = global::Farmlink.Properties.Resources.transparency;
+            this.searchbtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.searchbtn.Location = new System.Drawing.Point(294, 49);
+            this.searchbtn.Margin = new System.Windows.Forms.Padding(300, 3, 3, 3);
+            this.searchbtn.Name = "searchbtn";
+            this.searchbtn.Size = new System.Drawing.Size(32, 32);
+            this.searchbtn.TabIndex = 28;
+            this.searchbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.searchbtn.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // searchbox
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(42, 78);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.searchbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.searchbox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.searchbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.searchbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.searchbox.Location = new System.Drawing.Point(37, 49);
+            this.searchbox.Multiline = true;
+            this.searchbox.Name = "searchbox";
+            this.searchbox.Size = new System.Drawing.Size(258, 32);
+            this.searchbox.TabIndex = 24;
+            this.searchbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // display_product
+            // 
+            this.display_product.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.display_product.AutoScroll = true;
+            this.display_product.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.display_product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.display_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.display_product.Location = new System.Drawing.Point(37, 87);
+            this.display_product.Name = "display_product";
+            this.display_product.Size = new System.Drawing.Size(1150, 660);
+            this.display_product.TabIndex = 22;
+            this.display_product.Paint += new System.Windows.Forms.PaintEventHandler(this.display_product_Paint_2);
+            // 
+            // note
+            // 
+            this.note.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(0)))));
+            this.note.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.note.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.note.Location = new System.Drawing.Point(316, 326);
+            this.note.Margin = new System.Windows.Forms.Padding(250, 200, 30, 0);
+            this.note.Name = "note";
+            this.note.Size = new System.Drawing.Size(614, 56);
+            this.note.TabIndex = 31;
+            this.note.Text = "🛒 Ain\'t nothin\'g in the cart. Not even a potato.                                " +
+    "       Let\'s fix that, partner.";
+            // 
+            // empty_cart
+            // 
+            this.empty_cart.AllowDrop = true;
+            this.empty_cart.AutoEllipsis = true;
+            this.empty_cart.AutoSize = true;
+            this.empty_cart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(0)))));
+            this.empty_cart.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empty_cart.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.empty_cart.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.empty_cart.Location = new System.Drawing.Point(315, 389);
+            this.empty_cart.Margin = new System.Windows.Forms.Padding(250, 50, 50, 100);
+            this.empty_cart.Name = "empty_cart";
+            this.empty_cart.Size = new System.Drawing.Size(533, 31);
+            this.empty_cart.TabIndex = 32;
+            this.empty_cart.TabStop = true;
+            this.empty_cart.Text = "-> Click me before the cows find out! 🐮 <-";
+            this.empty_cart.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.empty_cart_LinkClicked);
+            // 
+            // paymentbtn
+            // 
+            this.paymentbtn.AutoSize = true;
+            this.paymentbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(167)))), ((int)(((byte)(154)))));
+            this.paymentbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.paymentbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.paymentbtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.paymentbtn.Location = new System.Drawing.Point(951, 39);
+            this.paymentbtn.Name = "paymentbtn";
+            this.paymentbtn.Size = new System.Drawing.Size(167, 42);
+            this.paymentbtn.TabIndex = 30;
+            this.paymentbtn.Text = "Make Payment";
+            this.paymentbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.paymentbtn.UseVisualStyleBackColor = false;
+            this.paymentbtn.Click += new System.EventHandler(this.paymentbtn_Click);
+            // 
+            // backpanel
+            // 
+            this.backpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
+            this.backpanel.BackgroundImage = global::Farmlink.Properties.Resources.background;
+            this.backpanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.backpanel.Controls.Add(this.bpanel);
+            this.backpanel.Controls.Add(this.panel1);
+            this.backpanel.Location = new System.Drawing.Point(0, -2);
+            this.backpanel.Name = "backpanel";
+            this.backpanel.Size = new System.Drawing.Size(1355, 732);
+            this.backpanel.TabIndex = 29;
             // 
             // B_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(43)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.backpanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "B_Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "B_Home";
             this.Load += new System.EventHandler(this.B_Home_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.btnpanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.profilepic)).EndInit();
+            this.bpanel.ResumeLayout(false);
+            this.bpanel.PerformLayout();
+            this.backpanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -158,11 +388,24 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox profilepic;
+        public System.Windows.Forms.Button orderbtn;
+        public System.Windows.Forms.Button logout;
+        public System.Windows.Forms.Button cartbtn;
+        public System.Windows.Forms.Button home;
+        private System.Windows.Forms.LinkLabel id;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel bpanel;
+        private System.Windows.Forms.FlowLayoutPanel display_product;
+        private System.Windows.Forms.Label note;
+        public System.Windows.Forms.Button paymentbtn;
+        private System.Windows.Forms.Label totalamount;
+        public System.Windows.Forms.Button searchbtn;
+        private System.Windows.Forms.TextBox searchbox;
+        private System.Windows.Forms.LinkLabel empty_cart;
+        private System.Windows.Forms.Panel backpanel;
+        public System.Windows.Forms.Button cancelbtn;
+        private System.Windows.Forms.Panel btnpanel;
+        private System.Windows.Forms.Label noti;
     }
 }
